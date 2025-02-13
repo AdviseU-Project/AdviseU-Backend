@@ -1,4 +1,6 @@
-# AdviseU backend
+# AdviseU backend (Now Deprecated)
+
+## Switched to Next.js for database queries and a C++ server for scheduling algorithm
 
 Notes on the backend.
 
