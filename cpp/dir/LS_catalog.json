@@ -1,0 +1,64 @@
+[{
+  "corequisites": [],
+  "course_name": "SPECIAL STUDIES",
+  "course_number": "LS 199",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "LS 402",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "LS 403",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "LS 405",
+  "credits": "1-3",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "LS 406",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "LS 407",
+  "credits": "1-16",
+  "description": "Graduate credit must not exceed 9 credits.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "LS 408",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "LS 410",
+  "credits": "1-12",
+  "description": "Restricted to students enrolled in off-campus programs. Not available to students in residence on the Corvallis campus. Maximum of 12 credits.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "LS 499",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}]

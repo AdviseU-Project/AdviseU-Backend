@@ -1,0 +1,246 @@
+[{
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "IB 501",
+  "credits": "1-16",
+  "description": "Graduate-level research completed under faculty supervision.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "IB 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "IB 505",
+  "credits": "1-16",
+  "description": "For graduate students working toward a master's degree. After arrangements with individual faculty, readings and discussions on topics of mutual interest.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS: OUTREACH",
+  "course_number": "IB 506",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "IB 507",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "IB 510",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTEGRATIVE BIOLOGY GRADUATE STUDENT ORIENTATION",
+  "course_number": "IB 511",
+  "credits": "2",
+  "description": "Introduces the Department of Integrative Biology and its graduate major, fostering a sense of community and shared purpose. Describes strategies and resources vital for success within the department and at OSU. Connects students with faculty and staff from various university offices supporting graduate education. Emphasizes common philosophies, goals, and policies essential for navigating diverse research fields and achieving academic milestones in Integrative Biology graduate studies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTEGRATIVE BIOLOGY GTA TRAINING AND DEVELOPMENT",
+  "course_number": "IB 512",
+  "credits": "1",
+  "description": "Provides instructional support and professional development for first year graduate teaching assistants (GTAs) in Integrative Biology. Focuses on developing a foundation for quality instruction, facilitation, and leadership as GTAs and professionals. Best practices, skills, theory and knowledge necessary for effective teaching, facilitation, and assessment of student learning are explored.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROPOSAL WRITING",
+  "course_number": "IB 513",
+  "credits": "3",
+  "description": "Explores the development of grant or fellowship proposals, emphasizing research question formulation, budget development, methodological detail, and intellectual merit and broader impact considerations. Develops strategies for identifying suitable grant opportunities and equips students to recognize proposal components, develop research questions, and prepare proposals through effectively integrating feedback and reviewing and critiquing peers' work. Includes preparing to submit a National Science Foundation Graduate Research Fellowship Program proposal.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE COMMUNICATION: MAKING YOUR SCIENCE MATTER",
+  "course_number": "IB 515",
+  "credits": "2",
+  "description": "A practical, hands‐on course designed to help science graduate students build knowledge and skills for engaging with audiences beyond their scientific peers. The science of science communication, the cultures of journalism and public policy, the changing roles of scientists in society, and science advocacy will be explored through lectures, invited talks, in‐class discussions and exercises.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ANALYTICAL WORKFLOWS",
+  "course_number": "IB 516",
+  "credits": "4",
+  "description": "Examines and implements the theory and implementation of efficient, reproducible workflows including best practices in scientific programming, project management, and collaboration for computational, analytical, and data-driven biological research.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GLOBAL PERSPECTIVES ON BIOLOGICAL RESEARCH ETHICS",
+  "course_number": "IB 517X",
+  "credits": "2",
+  "description": "Explores ethics and its roles in scientific research and decision making through case studies from diverse biological science subdisciplines. Reviews major Western ethical frameworks and then evaluates them from alternative feminist, indigenous, and other global perspectives. Emphasizes tools for evaluating ethical issues and broader challenges in biological sciences.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE AND POLICY",
+  "course_number": "IB 518",
+  "credits": "2",
+  "description": "An introduction to the science-policy interface in a ‘post-truth’ society. The formulation of state and federal public policy is examined, as well as and role of science and scientist in informing policy, management decisions and public understanding. Current topics are emphasized.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENTIFIC ILLUSTRATION AND VISUAL COMMUNICATION",
+  "course_number": "IB 519X",
+  "credits": "2",
+  "description": "Explores methods and principles of scientific illustration and visual communication, focusing on biological topics, to create projects that illustrate organisms or concepts. Examines pen and ink, colored pencils, watercolor, digital tools and other media.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "COMPARATIVE/FUNCTIONAL VERTEBRATE ANATOMY",
+  "course_number": "IB 522",
+  "credits": "5",
+  "description": "Phylogenetically-based study of the form and function of vertebrate organ systems, including integumentary, musculoskeletal, cardiopulmonary, digestive, and sensory. Lab emphasizes comparative form through dissection, and function through non-invasive experimentation.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL PHYSIOLOGY",
+  "course_number": "IB 523",
+  "credits": "3",
+  "description": "Comparative environmental physiology of animals with emphasis on adaptations to such aspects of the physical environment as temperature, water, ions, and gases. Consideration given to interactions between physiology and environment that influence the local and geographic distribution of animals.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PALEOBIOLOGY",
+  "course_number": "IB 527",
+  "credits": "0-4",
+  "description": "Fossils provide a direct window into the evolution, extinction, and ecology of past life on Earth. A process-based study of the marine and terrestrial fossil record is taken to explore the topics of preservation, macroevolution, extinction of biotas, biomechanics, paleoecology, and climate change. Required laboratory and weekend field trip.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "VERTEBRATE PHYSIOLOGY I",
+  "course_number": "IB 531",
+  "credits": "4",
+  "description": "Systems/concepts covered include motor reflexes, autonomic nervous system, digestion/metabolism, renal and osmoregulatory, endocrine and reproductive systems.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "VERTEBRATE PHYSIOLOGY II",
+  "course_number": "IB 532",
+  "credits": "3",
+  "description": "Systems/concepts covered include blood, immune, lymphatic, cardiovascular, and pulmonary.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BEHAVIORAL NEUROBIOLOGY",
+  "course_number": "IB 538",
+  "credits": "3",
+  "description": "An introduction to the neurobiological basis of animal behavior. Examines behavior in the context of sensory physiology, motor control, neural circuity, and cellular processes.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EVOLUTION",
+  "course_number": "IB 545",
+  "credits": "3",
+  "description": "Formal analysis of genetic and ecological mechanisms producing evolutionary change; special topics include speciation, ecological constraints, adaptive radiations, paleontology, biogeography, the origin of life, molecular evolution, and human evolution.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EVOLUTIONARY GENOMICS",
+  "course_number": "IB 554",
+  "credits": "3",
+  "description": "Examines the evolutionary forces that have produced such varied and complex genomes across the tree of life. The processes by which genomes can be structured, maintained, and remodeled (by nature or by humans) are explored through scientific literature. Special emphasis will be given to recent technological advances in genomics, along with their potential impacts on individuals and society. Offered odd years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHYLOGENETICS",
+  "course_number": "IB 556",
+  "credits": "4",
+  "description": "Explores the theory and practice of modern phylogenetic analysis. Emphasis placed on tree reconstruction algorithms, assessment of statistical support, and contemporary issues in phylogenetics. Lab will focus on the use of phylogenetic software and the analysis of molecular data sets. Offered even years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "AQUATIC ENTOMOLOGY",
+  "course_number": "IB 577",
+  "credits": "4",
+  "description": "Biology, ecology, collection, and identification of aquatic insects. Two required Saturday field trips. Offered odd years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BIOGEOGRAPHY",
+  "course_number": "IB 581",
+  "credits": "3",
+  "description": "Biogeography is the study of the distribution of biodiversity. Focuses on abiotic (geological, climatological) and biotic (ecological, evolutionary) factors that govern diversity across space and through time, emphasizing assembly of communities, global change, and conservation in today’s rapidly changing world. Offered odd years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "POPULATION BIOLOGY",
+  "course_number": "IB 583",
+  "credits": "3",
+  "description": "Theoretical and empirical views of the structure and function of populations from across the tree of life, emphasizing the integration of ecological and evolutionary approaches.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ECOPHYSIOLOGY",
+  "course_number": "IB 586X",
+  "credits": "3",
+  "description": "Explores the intricate relationships between organisms and their environments, emphasizing the physiological adaptations that allow plants and animals to survive diverse environmental conditions. Examines water and salt balance, temperature regulation, oxygen acquisition and energy budgets. Discusses integrative systems that coordinate physiological responses as well as causes and consequences of failure. Reviews and presents current literature and case studies in the context of global change.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THEORETICAL ECOLOGY",
+  "course_number": "IB 592",
+  "credits": "4",
+  "description": "A treatment of the central concepts of theoretical ecology, with emphasis on the analysis and modeling of single populations and multispecies communities. Topics include discrete- and continuous-time models of population growth, stochastic and deterministic processes, and the response of populations and communities to pulse and press perturbations. Offered odd years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BEHAVIORAL ECOLOGY",
+  "course_number": "IB 593",
+  "credits": "3",
+  "description": "Integrates evolutionary and ecological perspectives to analyze how the behavior of animals affects their ability to survive and reproduce. Examines the concept of proximate and ultimate causes. Analyzes and critiques contrasting ideas in behavioral ecology and equips students to articulate, evaluate, and apply behavioral ecology concepts to primary scientific literature, fostering research skills in Integrative Biology.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "COMMUNITY ECOLOGY",
+  "course_number": "IB 594",
+  "credits": "5",
+  "description": "Theory and analysis of multispecies associations. Emphasis on extent to which existing ecological theory is supported by natural phenomena. Considers how biotic and abiotic mechanisms interact to regulate community organization and stability in marine, freshwater, and terrestrial habitats. Offered odd years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DISEASE ECOLOGY",
+  "course_number": "IB 595",
+  "credits": "3",
+  "description": "An introduction to disease ecology--the study of disease processes in natural populations and communities. Focuses on (I) the role parasites play in the ecology and evolution of animal populations, including humans; and (II) the relevance of ecological and evolutionary considerations in managing infectious diseases. Offered even years.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "IB 599",
+  "credits": "1-16",
+  "description": "Topics and credits vary. Grading mode TBA. Taught at Hatfield Marine Science Center and Corvallis campus.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "IB 601",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "IB 603",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "IB 605",
+  "credits": "1-16",
+  "description": "For graduate students working toward doctoral degree. After arrangements with individual faculty, readings and discussions on topics of mutual interest.",
+  "prerequisites": []
+}]

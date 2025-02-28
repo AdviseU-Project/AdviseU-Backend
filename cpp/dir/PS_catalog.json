@@ -1,0 +1,715 @@
+[{
+  "corequisites": [],
+  "course_name": "*GOVERNING AFTER THE ZOMBIE APOCALYPSE",
+  "course_number": "PS 110",
+  "credits": "3",
+  "description": "Constitution-writing in a post-apocalyptic world. Students write a constitution that addresses issues of difference, power, and discrimination. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*GOVERNING AFTER THE ZOMBIE APOCALYPSE",
+  "course_number": "PS 110H",
+  "credits": "3",
+  "description": "Constitution-writing in a post-apocalyptic world. Students write a constitution that addresses issues of difference, power, and discrimination. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO UNITED STATES GOVERNMENT AND POLITICS",
+  "course_number": "PS 201",
+  "credits": "4",
+  "description": "Description and analysis of American politics and government, including such topics as interest groups, parties, elections, media, the presidency, Congress, the Constitution, and the courts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO UNITED STATES GOVERNMENT AND POLITICS",
+  "course_number": "PS 201H",
+  "credits": "4",
+  "description": "Description and analysis of American politics and government, including such topics as interest groups, parties, elections, media, the presidency, Congress, the Constitution, and the courts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO COMPARATIVE POLITICS",
+  "course_number": "PS 204",
+  "credits": "4",
+  "description": "Major concepts of comparative politics applied to various political settings; the United States, Western Europe, Communist regimes, and developing countries. (SS) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO INTERNATIONAL RELATIONS",
+  "course_number": "PS 205",
+  "credits": "4",
+  "description": "Analysis of the international system and factors affecting world politics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO INTERNATIONAL RELATIONS",
+  "course_number": "PS 205H",
+  "credits": "4",
+  "description": "Analysis of the international system and factors affecting world politics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "+*INTRODUCTION TO POLITICAL THOUGHT",
+  "course_number": "PS 206",
+  "credits": "4",
+  "description": "Explores some of the major theories, concepts and issues in political theory. Analyzes political issues using philosophical methods. Topics include the tension and balance between social welfare and individual rights, the role of the market vs. government regulation, the meaning of equality, toleration and its limits, and competing conceptions of justice.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL STUDIES",
+  "course_number": "PS 299",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "^RESEARCH METHODS",
+  "course_number": "PS 300",
+  "credits": "4",
+  "description": "Qualitative and quantitative approaches to the study of political phenomena. The role of values, theory, hypothesis, data collection, and analysis in evaluating and conducting political science research.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONGRESSIONAL POLITICS",
+  "course_number": "PS 311",
+  "credits": "4",
+  "description": "Congressional politics, both on Capitol Hill and in the district, including campaigns, constituent relations, lobbying, legislating, and the legislature in democratic theory.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PRESIDENTIAL POLITICS",
+  "course_number": "PS 312",
+  "credits": "4",
+  "description": "Office, powers, and politics of the American presidency, with reference to other executive offices in American government; emphasis on the importance and effect of the presidency in American politics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CAMPAIGNS AND ELECTIONS",
+  "course_number": "PS 313",
+  "credits": "4",
+  "description": "Political parties and elections, the conduct of electoral campaigns, the electorate and voting behavior, electoral system, exercise of the suffrage, extent and consequences of voter participation.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE POLITICS OF MEDIA",
+  "course_number": "PS 315",
+  "credits": "4",
+  "description": "Examination of the methods of operation, content and effects of the media in relation to politics and government. Includes analysis of newspaper, radio and television, political advertising, and other forms of political communication. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE POLITICS OF MEDIA",
+  "course_number": "PS 315H",
+  "credits": "4",
+  "description": "Examination of the methods of operation, content and effects of the media in relation to politics and government. Includes analysis of newspaper, radio and television, political advertising, and other forms of political communication. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GENDER AND POLITICS",
+  "course_number": "PS 317",
+  "credits": "4",
+  "description": "Analyzes the role that gender plays in shaping politics and other aspects of society. The course will cover theories of gender difference, gender-based movements, gender and political office, and gender and public policy. (SS)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*GENDER AND THE LAW",
+  "course_number": "PS 325",
+  "credits": "4",
+  "description": "Legal status of American women, with emphasis on constitutional law, the 1964 Civil Rights Act and its amendments, and various state laws as they relate to the legal rights of women. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "JUDICIAL PROCESS AND POLITICS",
+  "course_number": "PS 326",
+  "credits": "4",
+  "description": "Study of the operation, processes, behavior and influence of the state and federal judiciaries, as well as current research in the judiciary as it relates to politics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*STATE AND LOCAL POLITICS",
+  "course_number": "PS 331",
+  "credits": "4",
+  "description": "Role, organization, and functions of government at the state and local level. Satisfies teaching certification requirement for course work in state and local government. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*EUROPEAN AND EU POLITICS",
+  "course_number": "PS 341",
+  "credits": "4",
+  "description": "Describes and analyzes the political situation in Europe and the European Union. Special focus is given to issues concerning European security and the European Union, its institutions, politics, and the challenges it faces since the opening of Europe to the East. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THE POLITICS OF CORRUPTION",
+  "course_number": "PS 342",
+  "credits": "4",
+  "description": "Surveys corruption and how it manifests itself in democracies and centralized states. Topics include theoretical accounts for why corruption occurs, what factors are conducive toward producing corruption, the consequences of corruption, and anti-corruption efforts that have succeeded and failed to rectify corruption.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*RUSSIAN POLITICS",
+  "course_number": "PS 343",
+  "credits": "4",
+  "description": "Brief survey of Russian politics in Tsarist and Soviet periods followed by extensive analysis of Russian politics in the late Soviet period under Gorbachev (1985-91), the collapse of the USSR in 1991, and post-Soviet Russian politics (1992-present).",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*RUSSIAN POLITICS",
+  "course_number": "PS 343H",
+  "credits": "4",
+  "description": "Brief survey of Russian politics in Tsarist and Soviet periods followed by extensive analysis of Russian politics in the late Soviet period under Gorbachev (1985-91), the collapse of the USSR in 1991, and post-Soviet Russian politics (1992-present).",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*LATIN AMERICAN POLITICS",
+  "course_number": "PS 344",
+  "credits": "4",
+  "description": "The key political, social and economic issues in Latin America. Surveys topics of interest in the region such as economic development, democratization, revolution and political leadership from both an historical and contemporary perspective. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*POLITICS OF DEVELOPING NATIONS",
+  "course_number": "PS 345",
+  "credits": "4",
+  "description": "Analyzes the concepts of development and modernization. Also focuses on the economic, political, and cultural problems faced by developing nations. (NC) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*MIDDLE EAST POLITICS",
+  "course_number": "PS 346",
+  "credits": "4",
+  "description": "The comparative study of the Middle East and North Africa focusing on the internal political dynamics of countries in the region and the international relations among them. Examines issues of political and economic development in their post-colonial context and analyzes impact of nationalism, political Islam, ethnicity, and globalization. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*CHINESE POLITICS",
+  "course_number": "PS 348",
+  "credits": "4",
+  "description": "Examines China's post-1949 political and economic development. Special attention is given to the reform era from the late 1970s to the present. The course also addresses the impact of the reforms on society and on the country's relationship with the world. (NC) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*JAPANESE POLITICS",
+  "course_number": "PS 350",
+  "credits": "4",
+  "description": "Examination of the Japanese political system during the postwar period. Topics include prewar historical influences, political parties, bureaucracy, interest groups, policy processes and issues, political economy, foreign policy, and United States-Japan relations. Attention will also be given to recent dramatic changes in Japan's political system. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "AMERICAN FOREIGN POLICY",
+  "course_number": "PS 351",
+  "credits": "4",
+  "description": "Overview of the role of the United States in the world since World War II and of the factors influencing the formation of American foreign policy.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTERNATIONAL ORGANIZATIONS AND GLOBAL POLITICS",
+  "course_number": "PS 354",
+  "credits": "4",
+  "description": "The role of international law and organizations in global politics. How sovereign states interact, and what motivates them to commit to supranational laws and intergovernmental organizations. How international law has evolved since the early 1900s. Intergovernmental organizations and treaties, with emphasis on the United Nations, the International Monetary Fund and the World Bank, the World Trade Organization, the European Union, and the North Atlantic Treaty Organization.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL POLITICS OF ASIA PACIFIC",
+  "course_number": "PS 356",
+  "credits": "4",
+  "description": "Examines the most pressing issues facing the region: security and regional economic integration. The major players, their interests, and their differing perspectives on regional issues will be analyzed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLASSICAL POLITICAL THOUGHT",
+  "course_number": "PS 361",
+  "credits": "4",
+  "description": "Major political theorists from the pre-Socratics through the Scholastics. (H)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MODERN POLITICAL THOUGHT",
+  "course_number": "PS 362",
+  "credits": "4",
+  "description": "Major political theorists from the Renaissance to the mid-nineteenth century. (H)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*GENDER AND RACE IN AMERICAN POLITICAL THOUGHT",
+  "course_number": "PS 363",
+  "credits": "4",
+  "description": "Traditional canon of American political thought scrutinized from vantage point of feminist and critical race theory scholarship. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONTEMPORARY POLITICAL THEORY",
+  "course_number": "PS 364",
+  "credits": "4",
+  "description": "Major issues in contemporary political theory. The specific emphasis of the course may vary from term to term, focusing on questions related to theories of justice, theories of democracy, global political theory, or the work of a single important thinker.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "AMERICAN POLITICAL THOUGHT",
+  "course_number": "PS 365",
+  "credits": "4",
+  "description": "Political values and theoretical systems in the American tradition, from the Puritans to the present.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*FROM ATLANTIS TO UTOPIA: THE POLITICS OF THE IDEAL STATE",
+  "course_number": "PS 366",
+  "credits": "4",
+  "description": "The search for the ideal state has occupied political philosophy since antiquity. From Plato’s Atlantis story through More’s utopia and beyond, philosophers, writers and filmmakers have pondered how to create a perfect state with perfect citizens which will stand the test of time. Each week will combine theoretical reflections from antiquity through post-modernity with a selection of examples from more or less contemporary fiction that will ideally already be known to the audience. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*FROM ATLANTIS TO UTOPIA: THE POLITICS OF THE IDEAL STATE",
+  "course_number": "PS 366H",
+  "credits": "4",
+  "description": "The search for the ideal state has occupied political philosophy since antiquity. From Plato’s Atlantis story through More’s utopia and beyond, philosophers, writers and filmmakers have pondered how to create a perfect state with perfect citizens which will stand the test of time. Each week will combine theoretical reflections from antiquity through post-modernity with a selection of examples from more or less contemporary fiction that will ideally already be known to the audience. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PUBLIC POLICY PROBLEMS",
+  "course_number": "PS 371",
+  "credits": "4",
+  "description": "The content and the politics of adoption and application of such policy areas as defense, poverty and welfare, macroeconomics, and regulation.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PUBLIC ADMINISTRATION",
+  "course_number": "PS 372",
+  "credits": "4",
+  "description": "The workings of the modern administrative state, processes and procedures through which government acts, and the balance between powerful government, democratic and accountable government, and efficient government.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*SUSTAINABLE LIVING: PRACTICES AND POLICIES",
+  "course_number": "PS 374",
+  "credits": "4",
+  "description": "Exploration of the role individuals in sustainability practices and policies. Special focus is given to an examination of how individuals can make sustainable lifestyle choices in light of policy regulations, technologies, socio-economic conditions, and cultural values. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE CIVIL RIGHTS MOVEMENT AND POLICIES",
+  "course_number": "PS 375",
+  "credits": "4",
+  "description": "Political and social evolution of the civil rights movement, emphasizing events 1954-1965, and major contemporary civil rights politics and policies in the South and the nation. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE CIVIL RIGHTS MOVEMENT AND POLICIES",
+  "course_number": "PS 375H",
+  "credits": "4",
+  "description": "Political and social evolution of the civil rights movement, emphasizing events 1954-1965, and major contemporary civil rights politics and policies in the South and the nation. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONSTITUTIONAL LAW: GOVERNMENT POWERS AND CONSTRAINTS",
+  "course_number": "PS 381",
+  "credits": "4",
+  "description": "Explores role of the U.S. Supreme Court in shaping the powers and limitations of the U.S. government. Analyzes the powers of the three main branches of our government, and cases where the powers of these branches clash with one another or with the powers of the states or rights of the individual.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONSTITUTIONAL LAW: CIVIL LIBERTIES",
+  "course_number": "PS 382",
+  "credits": "4",
+  "description": "Explores doctrines pertaining to the First and Second Amendments as well as the right to privacy, such as freedom of speech, of expression, of the press and of the exercise, the right to bear arms and the prohibition against governmental establishment of religion.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*CONSTITUTIONAL LAW: CIVIL RIGHTS",
+  "course_number": "PS 383",
+  "credits": "4",
+  "description": "Explores doctrines pertaining to the Fourteenth and Fifteenth Amendments. Issues of discrimination and the reach of the 14th amendment's equal protection clause, and voting rights.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONSTITUTIONAL LAW: RIGHTS OF THE ACCUSED",
+  "course_number": "PS 384",
+  "credits": "4",
+  "description": "Examines the role of the U.S. Supreme Court in shaping the criminal justice system. Focuses on doctrines related to the 4th, 5th, 6th and 8th Amendments of the constitution.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CURRENT PROBLEMS IN POLITICS",
+  "course_number": "PS 399",
+  "credits": "1-4",
+  "description": "Selected issues of recent American and international concern such as Vietnam, Central America, or similar topical issues. May be repeated for credit when topic varies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CURRENT PROBLEMS IN POLITICS",
+  "course_number": "PS 399H",
+  "credits": "1-4",
+  "description": "Selected issues of recent American and international concern such as Vietnam, Central America, or similar topical issues. May be repeated for credit when topic varies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH AND SCHOLARSHIP",
+  "course_number": "PS 401",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "PS 402",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "PS 403",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "PS 405",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "PS 405H",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "PS 406",
+  "credits": "1-16",
+  "description": "Section 1-5: Reading. Associated with the internship for which credit is given in PS 410.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "PS 407",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "PS 407H",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "PS 408",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PRACTICUM",
+  "course_number": "PS 409",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "POLITICAL SCIENCE INTERNSHIP",
+  "course_number": "PS 410",
+  "credits": "1-12",
+  "description": "Supervised work experience in government- or law-related programs or other public affairs organizations. Reports and appraisals required. Only 4 credits may be applied to the major.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ETHICS IN PUBLIC POLICY",
+  "course_number": "PS 413",
+  "credits": "4",
+  "description": "Examines ethical dilemmas in public policy, and provides the opportunity to study the ethical theories of Hobbes, Kant, Mill, and Rawls. CROSSLISTED as PPOL 413/PS 413.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NUCLEAR NONPROLIFERATION AND ARMS CONTROL",
+  "course_number": "PS 427",
+  "credits": "4",
+  "description": "Examines the history, politics and current challenges involving nuclear weapons proliferation and arms control.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TERRORISM AND GLOBAL SECURITY",
+  "course_number": "PS 428",
+  "credits": "4",
+  "description": "Examines US and global security in light of the challenges posed by terrorist organizations.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DEMOCRACY AND AUTOCRACY: GLOBAL TRENDS",
+  "course_number": "PS 441",
+  "credits": "4",
+  "description": "Examines global trends in the rise and fall of democratic and autocratic political systems, and analyzes particular case studies of countries. Evaluates and applies theories of why autocratic and democratic political regimes collapse, and in other situations endure.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EAST ASIAN POLITICAL ECONOMY",
+  "course_number": "PS 446",
+  "credits": "4",
+  "description": "Surveys and analyzes the economic and political development of China, Japan, South Korea, Taiwan, Hong Kong, and Singapore. Japan is examined as a developmental model for the East Asian Newly Industrializing Countries (NICs) and as a major player in the regional economy. China is examined as a contrasting model in terms of its changing pattern of economic development and its importance for the region.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL DEVELOPMENT POLICY",
+  "course_number": "PS 453",
+  "credits": "4",
+  "description": "Explores the challenges, debates and policy mechanisms related to effective economic development and humanitarian aid for developing countries. CROSSLISTED as PPOL 453/PS 453 and PPOL 553/PS 553.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE POLITICS OF CLIMATE CHANGE",
+  "course_number": "PS 455",
+  "credits": "4",
+  "description": "Covers domestic and international political aspects of global climate change. Examines global climate change through philosophical, legal, ethical, economic, social, political, institutional, and science policy contexts. Topics include local, state, and national activity as well as roles played by presidents, Congress, the Supreme Court, corporations and media. Focuses on international conventions and treaties, tensions between developed and developing nations and possible national security impacts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "US-CHINA RELATIONS",
+  "course_number": "PS 457",
+  "credits": "4",
+  "description": "Historical evolution of US-China relationship. Emphasis on economic ties, tensions, and conflicts surrounding trade, investment, security, human rights, political reform, Tibet, and Taiwan.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL POLITICAL ECONOMY",
+  "course_number": "PS 458",
+  "credits": "4",
+  "description": "Examines topics in which politics and economics meet in the international arena, such as trade, debt, finance, development, multinational corporations, and globalization. Does not require a background in economics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GLOBAL FOOD POLITICS AND POLICY",
+  "course_number": "PS 470",
+  "credits": "4",
+  "description": "Examines the politics and policy of global food systems as they relate to food distribution, production, and consumption. The cultivation and consumption of food is highly political, and at times, contentious. Specific focus is given to issues like social justice, GMOs, human health, environment and agribusiness.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "US ENERGY POLICY",
+  "course_number": "PS 473",
+  "credits": "4",
+  "description": "Addresses US energy policy with respect to how the U.S. governs the production and use of different energy sources, along with the management of its energy infrastructure. Examines policies currently in place, as well as proposals for alternatives, while examining the economic, environmental, national security and energy security implications of different policy approaches.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL ENERGY POLITICS AND POLICY",
+  "course_number": "PS 474",
+  "credits": "4",
+  "description": "Addresses international energy policies and politics, including trends and socio-political challenges impacting the diversity of global energy sources. CROSSLISTED as PPOL 474/PS 474.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL POLITICS AND POLICY",
+  "course_number": "PS 475",
+  "credits": "4",
+  "description": "Environmental and natural resource issues and policies in national and regional context, emphasizing public attitudes, elections, Congress, public policy, and relevant national and state agencies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE AND POLITICS",
+  "course_number": "PS 476",
+  "credits": "4",
+  "description": "Relationship between science and the political system in political ideas and history, in bureaucratic politics of science policy, and in contemporary scientific disputes.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL ENVIRONMENTAL POLITICS AND POLICY",
+  "course_number": "PS 477",
+  "credits": "4",
+  "description": "Analysis of international environmental theory and politics, the development of international environmental regimes, agreements and treaties, and the process of globalization and the quality of the environment.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RENEWABLE ENERGY POLICY",
+  "course_number": "PS 478",
+  "credits": "4",
+  "description": "Renewable energy policy with respect to how the U.S. governs the market development, production and use of different renewable energy sources are addressed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "PS 499",
+  "credits": "1-16",
+  "description": "Selected topics in political science of special or current interest not covered in other courses. May be repeated for credit when topic varies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH AND SCHOLARSHIP",
+  "course_number": "PS 501",
+  "credits": "1-16",
+  "description": "Independent research project under supervision of graduate faculty.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "PS 502",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "PS 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "PS 505",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "PS 506",
+  "credits": "1-16",
+  "description": "Section 1-5: Reading. Associated with the internship for which credit is given in PS 410. Completion of this course is required to receive credit for PS 410. Section 11: MU Field Training, 3 credits. Section 12: ASOSU Field Training, 3 credits.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "PS 507",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "PS 508",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PRACTICUM",
+  "course_number": "PS 509",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "POLITICAL SCIENCE INTERNSHIP",
+  "course_number": "PS 510",
+  "credits": "1-12",
+  "description": "Supervised work experience in government- or law-related programs or other public affairs organizations. Reports and appraisals required.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NUCLEAR NONPROLIFERATION AND ARMS CONTROL",
+  "course_number": "PS 527",
+  "credits": "4",
+  "description": "Examines the history, politics and current challenges involving nuclear weapons proliferation and arms control.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TERRORISM AND GLOBAL SECURITY",
+  "course_number": "PS 528",
+  "credits": "4",
+  "description": "Examines US and global security in light of the challenges posed by terrorist organizations.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DEMOCRACY AND AUTOCRACY: GLOBAL TRENDS",
+  "course_number": "PS 541",
+  "credits": "4",
+  "description": "Examines global trends in the rise and fall of democratic and autocratic political systems, and analyzes particular case studies of countries. Evaluates and applies theories of why autocratic and democratic political regimes collapse, and in other situations endure.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL DEVELOPMENT POLICY",
+  "course_number": "PS 553",
+  "credits": "4",
+  "description": "Explores the challenges, debates and policy mechanisms related to effective economic development and humanitarian aid for developing countries. CROSSLISTED as PPOL 453/PS 453 and PPOL 553/PS 553.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THE POLITICS OF CLIMATE CHANGE",
+  "course_number": "PS 555",
+  "credits": "4",
+  "description": "Covers domestic and international political aspects of global climate change. Examines global climate change through philosophical, legal, ethical, economic, social, political, institutional, and science policy contexts. Topics include local, state, and national activity as well as roles played by presidents, Congress, the Supreme Court, corporations and media. Focuses on international conventions and treaties, tensions between developed and developing nations and possible national security impacts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "US-CHINA RELATIONS",
+  "course_number": "PS 557",
+  "credits": "4",
+  "description": "Historical evolution of US-China relationship. Emphasis on economic ties, tensions, and conflicts surrounding trade, investment, security, human rights, political reform, Tibet, and Taiwan.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL POLITICAL ECONOMY",
+  "course_number": "PS 558",
+  "credits": "4",
+  "description": "Examines topics in which politics and economics meet in the international arena, such as trade, debt, finance, development, multinational corporations, and globalization. Does not require a background in economics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GLOBAL FOOD POLITICS AND POLICY",
+  "course_number": "PS 570",
+  "credits": "4",
+  "description": "Examines the politics and policy of global food systems as they relate to food distribution, production, and consumption. The cultivation and consumption of food is highly political, and at times, contentious. Specific focus is given to issues like social justice, GMOs, human health, environment and agribusiness.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "US ENERGY POLICY",
+  "course_number": "PS 573",
+  "credits": "4",
+  "description": "Addresses US energy policy with respect to how the U.S. governs the production and use of different energy sources, along with the management of its energy infrastructure. Examines policies currently in place, as well as proposals for alternatives, while examining the economic, environmental, national security and energy security implications of different policy approaches.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL ENERGY POLITICS AND POLICY",
+  "course_number": "PS 574",
+  "credits": "4",
+  "description": "Addresses international energy policies and politics, including trends and socio-political challenges impacting the diversity of global energy sources. CROSSLISTED as PPOL 574/PS 574.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL POLITICS AND POLICY",
+  "course_number": "PS 575",
+  "credits": "4",
+  "description": "Environmental and natural resource issues and policies in national and regional context, emphasizing public attitudes, elections, Congress, public policy, and relevant national and state agencies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE AND POLITICS",
+  "course_number": "PS 576",
+  "credits": "4",
+  "description": "Relationship between science and the political system in political ideas and history, in bureaucratic politics of science policy, and in contemporary scientific disputes.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNATIONAL ENVIRONMENTAL POLITICS AND POLICY",
+  "course_number": "PS 577",
+  "credits": "4",
+  "description": "Analysis of international environmental theory and politics, the development of international environmental regimes, agreements and treaties, and the process of globalization and the quality of the environment.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RENEWABLE ENERGY POLICY",
+  "course_number": "PS 578",
+  "credits": "4",
+  "description": "Renewable energy policy with respect to how the U.S. governs the market development, production and use of different renewable energy sources are addressed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "PS 599",
+  "credits": "0-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "PS 808",
+  "credits": "4",
+  "description": "Principles of public administration, administrative organization and procedures, public relations. It will include collaborative governance, leadership, and other issues.",
+  "prerequisites": []
+}]

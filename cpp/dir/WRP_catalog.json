@@ -1,0 +1,120 @@
+[{
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "WRP 501",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "WRP 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "WRP 505",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "WRP 506",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "WRP 507",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "WRP 508",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PRACTICUM",
+  "course_number": "WRP 509",
+  "credits": "1-16",
+  "description": "This non-traditional class explores tools, models and concepts in the collaborative decision-making process in water resources. Emphasis is on group projects and self-directed practical application of community-based natural resources.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "WRP 510",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WRITING IN WATER RESOURCES",
+  "course_number": "WRP 517",
+  "credits": "4",
+  "description": "An intensive summer course to develop proficiency in writing at a graduate level for the wide range of writing tasks common to water resource professionals. Students will complete individual in-class writing assignments and collaborate on a draft of a technical report. While it is designed for students in the Water Cooperation and Peace joint degree program (many of whom will be international students) the course will also be useful for other students.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WATER CONFLICT MANAGEMENT AND TRANSFORMATION",
+  "course_number": "WRP 521",
+  "credits": "3",
+  "description": "Examines ways to work effectively in contentious water situations. Explores conflict tolerance, prevention, management, and transformation through collaborative structures as well as through models of negotiation and dialogue.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL WATER TRANSACTIONS",
+  "course_number": "WRP 523",
+  "credits": "3",
+  "description": "Covers the theory and practice of using water rights transactions to reallocate water rights to environmental purposes. Different transactional techniques and contexts appropriate to their use are presented through case studies primarily from the western United States, with some reference to the use transactions in other countries such as Australia.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SOCIOTECHNOLOGICAL ASPECTS OF WATER RESOURCES",
+  "course_number": "WRP 524",
+  "credits": "3",
+  "description": "Focuses on an interdisciplinary approach to water resources research that integrates the human and the technological dimensions of water resource issues. Comprised of lecture and discussion sessions with guest lectures by visiting seminar speakers.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MANAGING NATURAL RESOURCES FOR CLIMATE ADAPTATION",
+  "course_number": "WRP 544",
+  "credits": "3",
+  "description": "Students will work through series of case studies in resource management to identify strategies and approaches that promote or prevent resilience in resource management. Students participate in discussions and hands-on activities in addition to the lectures and will prepare daily reflections, a final reflection and a final essay due one week after the end of the classroom sessions. This course will use a lecture and discussion format, and draw from the international expertise of the instructor and guest lecturers.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONDUCTING COLLABORATIVE PROJECTS",
+  "course_number": "WRP 548",
+  "credits": "3",
+  "description": "Focuses on development of the abilities needed to complete a directed water-related collaborative project, delivered through experiential learning. The course specifically addresses development of collaborative skills needed to work in interdisciplinary teams. The course activities are centered around a collaborative project on which students will be conducting research, collecting data synthesizing information; and providing classmates with constructive peer-review.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BUSINESS OF WATER",
+  "course_number": "WRP 554",
+  "credits": "3",
+  "description": "Explores the need for water and the increasing global water crisis from a business perspective. Focuses on business skills as it relates to water and its impact on national security, for-profit investments, and business sustainability.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "WRP 599",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "WRP 808",
+  "credits": "1-4",
+  "description": "Examines ways to work effectively in contentious water situations. Explores conflict tolerance, prevention, management, and transformation through collaborative structures as well as through models of negotiation and dialogue.",
+  "prerequisites": []
+}]

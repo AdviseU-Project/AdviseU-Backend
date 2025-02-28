@@ -1,0 +1,85 @@
+[{
+  "corequisites": [],
+  "course_name": "*PERSPECTIVES IN ENVIRONMENTAL ARTS AND HUMANITIES",
+  "course_number": "EAH 411",
+  "credits": "4",
+  "description": "Introduction to methods of inquiry in the field of environmental arts and humanities. Learn key concepts in approaches to environmental humanities scholarship and environmental art, informed by ecological principles and other perspectives from the natural sciences. Disciplinary approaches include history, literature, philosophy, and the formal arts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ENVIRONMENTAL SCIENCE IN CONTEXT",
+  "course_number": "EAH 412",
+  "credits": "4",
+  "description": "Introduction to environmental science methods and practice, especially for students studying in the arts and humanities. Gain a working understanding of the scientific method, theory, and analysis, including how to interpret and evaluate risk assessment, statistics-based arguments, and visual representations of data. Understand the history and role of the sciences in environmental discourse.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "EAH 501",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "EAH 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "EAH 505",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FIELD COURSE PROJECTS",
+  "course_number": "EAH 506",
+  "credits": "3",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "EAH 507",
+  "credits": "2-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROFESSIONAL DEVELOPMENT WORKSHOP",
+  "course_number": "EAH 508",
+  "credits": "1",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORK AND FIELD EXPERIENCE",
+  "course_number": "EAH 510",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PERSPECTIVES IN ENVIRONMENTAL ARTS AND HUMANITIES",
+  "course_number": "EAH 511",
+  "credits": "4",
+  "description": "Introduction to methods of inquiry in the field of environmental arts and humanities. Learn key concepts in approaches to environmental humanities scholarship and environmental art, informed by ecological principles and other perspectives from the natural sciences. Disciplinary approaches include history, literature, philosophy, and the formal arts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL SCIENCE IN CONTEXT",
+  "course_number": "EAH 512",
+  "credits": "4",
+  "description": "Introduction to environmental science methods and practice, especially for students studying in the arts and humanities. Gain a working understanding of the scientific method, theory, and analysis, including how to interpret and evaluate risk assessment, statistics-based arguments, and visual representations of data. Understand of the history and role of the sciences in environmental discourse.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "EAH 599",
+  "credits": "4",
+  "description": "",
+  "prerequisites": []
+}]

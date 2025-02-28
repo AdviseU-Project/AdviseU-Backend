@@ -1,0 +1,99 @@
+[{
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "SSCI 199",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CAREER DEVELOPMENT IN THE SOCIAL SCIENCES",
+  "course_number": "SSCI 211",
+  "credits": "1",
+  "description": "An introduction to career options available to students pursuing a social science degree. Students will explore career options and engage in exercises to help them reflect on their own interests, career goals, and aspirations.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "SSCI 299",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "^QUALITATIVE RESEARCH METHODS FOR THE SOCIAL SCIENCES",
+  "course_number": "SSCI 301",
+  "credits": "4",
+  "description": "Introduces a variety of qualitative research methods including ethnography, interviewing, recording oral histories, and conducting focus groups. Students will develop their own research questions, collect data to answer that research question, code and analyze data, and write and disseminate results. Culminates in a final paper and in-class presentation of original research results.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "SSCI 399",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "SSCI 401",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "SSCI 402",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "SSCI 403",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "SSCI 405",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "SSCI 406",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "SSCI 407",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "SSCI 408",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "SSCI 410",
+  "credits": "1-4",
+  "description": "An assignment in a private or public business or agency. The student observes or works in one or more departments of the enterprise, perhaps in one area of interest or specialization (e.g., community development, community dialogue, environmental leadership). Work is supervised by the agency staff, supervising school faculty members(s) provide academic evaluation. 12 credits maximum.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "SSCI 499",
+  "credits": "1-4",
+  "description": "",
+  "prerequisites": []
+}]

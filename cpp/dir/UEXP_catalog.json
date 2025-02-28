@@ -1,0 +1,57 @@
+[{
+  "corequisites": [],
+  "course_name": "LEADERSHIP",
+  "course_number": "UEXP 002",
+  "credits": "0",
+  "description": "Provides students with basic personal and interpersonal leadership skills that can be used within and outside of a work setting. Through practice, the leadership experience helps students explore motivation, decision-making, time management, power, team building, conflict, ethics, dealing with change, communication skills, and diversity issues.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "UEXP 199",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "UEXP 299",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "UEXP 399",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL PROJECTS",
+  "course_number": "UEXP 406",
+  "credits": "2",
+  "description": "Trains new ambassadors to lead campus and housing tours. Creates educated, ethically and morally responsible, fully confident TOUR (Team of Undergraduate Recruiters) Ambassadors who are engaged, reflective, creative, and caring members of their communities who can contribute to the success of prospective and new students.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "UEXP 407",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "UEXP 410",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "UEXP 499",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}]

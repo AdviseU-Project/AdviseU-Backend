@@ -1,0 +1,127 @@
+[{
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "WRS 501",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "WRS 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "WRS 505",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "WRS 506",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "WRS 507",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "WRS 508",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "WRS 510",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "APPLIED FIELD PROBLEMS",
+  "course_number": "WRS 532",
+  "credits": "3",
+  "description": "Introduces graduate students to real-world water resources problems and approaches to solving them. Students will assess and analyze the various constraints and limitations to integrated water management that often cannot be adequately simulated in classroom exercises. They will acquire the practical tools necessary to become effective water resources professionals in a rapidly changing world.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FUNDAMENTALS OF HYDROLOGY",
+  "course_number": "WRS 536",
+  "credits": "3",
+  "description": "Teaches students from a non-technical background in the Water Cooperation and Peace program the fundamentals of hydrology. Students will be introduced to hydrology and the hydrological cycle at the graduate level with a focus on key concepts. Students will apply these concepts to understanding of real world problems in the associated course, WRS 532, Applied Field Problems. Lec/lab.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "WRS 599",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "WRS 601",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "WRS 603",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "WRS 605",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "WRS 606",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "WRS 607",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORKSHOP",
+  "course_number": "WRS 608",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "WRS 610",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS",
+  "course_number": "WRS 699",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}]

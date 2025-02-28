@@ -1,0 +1,127 @@
+[{
+  "corequisites": [],
+  "course_name": "FOUNDATIONS OF THE AIR FORCE PART I",
+  "course_number": "AS 111",
+  "credits": "1",
+  "description": "The introduction to the Air Force mission and organization. Featured topics include Air Force dress and appearance stand standards; military customs and courtesies, Air Force heritage, overview of the Department of the Air Force, and Air Force core values. Basic oral and written communication will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FOUNDATIONS OF THE AIR FORCE PART II",
+  "course_number": "AS 112",
+  "credits": "1",
+  "description": "Second part of the introduction to the Air Force mission and organization. Featured topics include Air Force career opportunities, Air Force benefits, military communication skills, Air Force installations, and look at the basic characteristics of war. Basic oral and written communication will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FOUNDATIONS OF THE AIR FORCE PART III",
+  "course_number": "AS 113",
+  "credits": "1",
+  "description": "Third part of the introduction of what the Air Force is about and what the Air Force has to offer. Featured topics include basic leadership, team building, interpersonal skills, diversity in the Air Force, and the oath of office and commissioning. Basic oral and written communication will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP LABORATORY",
+  "course_number": "AS 120",
+  "credits": "1",
+  "description": "Cadets learn officership, leadership, drill and ceremony, and customs and courtesies. Lab.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THE EVOLUTION OF AIR AND SPACE POWER 1860-1945",
+  "course_number": "AS 211",
+  "credits": "1",
+  "description": "Study of the development of air power, concepts, and doctrine from its beginnings to the end of World War II. Historical examples examined include balloons, dirigibles, Wright Brother's first flight, and the role of air power in World War I and II. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THE EVOLUTION OF AIR AND SPACE POWER 1945-1990",
+  "course_number": "AS 212",
+  "credits": "1",
+  "description": "Study of the development of air power, concepts, and doctrine during the Cold War. Historical examples examined include the Berlin Airlift, nuclear deterrence, and the role of air power employment in the Korean and Vietnam conflicts. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THE EVOLUTION OF AIR AND SPACE POWER 1991-2025",
+  "course_number": "AS 213",
+  "credits": "1",
+  "description": "Study of the factors contributing to the development of air power, concepts, and doctrine from the Persian Gulf War in 1990 to the present and beyond. Historical examples examined include the air campaigns used in the Gulf War, Kosovo crisis, Operations Enduring Freedom, Iraqi Freedom, and the Global War on Terrorism. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP LABORATORY",
+  "course_number": "AS 220",
+  "credits": "1",
+  "description": "Cadets are placed in element leadership positions in order to know and comprehend the Air Force concepts of command, discipline, tradition, and courtesies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS IN AIR FORCE STUDIES",
+  "course_number": "AS 299",
+  "credits": "1-16",
+  "description": "Supervised individual work.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP FUNDAMENTALS",
+  "course_number": "AS 311",
+  "credits": "TEAM",
+  "description": "Emphasis on leadership and management fundamentals, team building and problem solving. Case studies are used to examine leadership and management situations as a means of demonstrating and exercising practical application of the concepts being studied. Unique exercises will be utilized to emphasize team building and problem solving. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EFFECTIVE SUPERVISION AND GROUP CONFLICT MANAGEMENT",
+  "course_number": "AS 312",
+  "credits": "3",
+  "description": "Emphasis on situational leadership, group conflict management, effective supervision, professional knowledge, and communicative skills required of an Air Force officer. Unique case studies on leadership and management situations, and group conflict management will be utilized. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP",
+  "course_number": "AS 313",
+  "credits": "ETHICS",
+  "description": "Emphasis on leadership ethics, leadership core values, leadership accountability, and professional knowledge. Unique case studies on leadership ethics and accountability will be utilized. Oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP LABORATORY",
+  "course_number": "AS 320",
+  "credits": "1",
+  "description": "Cadets are placed in line and staff leadership positions as a preparation for Air Force active duty. Cadet responsibilities include planning, organizing, directing, and controlling the activities of the cadet corps.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "AS 405",
+  "credits": "1-16",
+  "description": "Supervised individual work.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NATIONAL SECURITY AFFAIRS",
+  "course_number": "AS 411",
+  "credits": "3",
+  "description": "Emphasis on the needs for national security, evolution of American defense strategy, policy, and organization. Examination of methods for managing conflict, alliances and regional security to preserve American interests. Arms control, terrorism, and current military issues will also be addressed. Refinement of oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORLD REGIONAL CULTURAL STUDIES",
+  "course_number": "AS 412",
+  "credits": "3",
+  "description": "Study key transnational issues and religious or ethnic factors that shape the environment Air Force professionals must operate in. Emphasis will be on national security perspective of Africa, South Asia, East Asia, Latin America, Europe, Middle East and former Soviet Republics in transition. Refinement of oral and written communication skills will be assessed.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PREPARATION FOR ACTIVE DUTY",
+  "course_number": "AS 413",
+  "credits": "3",
+  "description": "Emphasis on current military issues, evaluation systems, military commission, and risk management. Final preparation for the Air Force professional before commissioning. Refinement of oral and written communication skills will be emphasized.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP LABORATORY",
+  "course_number": "AS 420",
+  "credits": "1",
+  "description": "The senior-level Leadership Laboratory program places cadets in command, line, and staff positions as a preparation for commissioned Air Force service. Cadet responsibilities include planning, organizing, directing, coordinating, and controlling leadership laboratory and the activities of the cadet corps.",
+  "prerequisites": []
+}]

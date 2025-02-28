@@ -1,0 +1,834 @@
+[{
+  "corequisites": [],
+  "course_name": "*REASONING AND WRITING",
+  "course_number": "PHL 121",
+  "credits": "3",
+  "description": "Develops critical thinking skills to increase clarity and effectiveness of student writing; uses writing experiences to teach critical thinking skills. Subjects include identifying and evaluating arguments, analyzing assumptions, justifying claims with reasons, avoiding confused or dishonest reasoning, applying common patterns of reasoning in everyday contexts, and writing cogent complex arguments. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*GREAT IDEAS IN PHILOSOPHY",
+  "course_number": "PHL 150",
+  "credits": "3",
+  "description": "Explores the assumptions and deeper meanings of familiar concepts and experiences. An introduction to some basic and famous ideas in Western thought. Topics may include truth, beauty, infinity, perception, freedom, pleasure, knowledge, mind and body, morality, justice, and political authority. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*QUESTS FOR MEANING: WORLD RELIGIONS",
+  "course_number": "PHL 160",
+  "credits": "4",
+  "description": "A survey and analysis of the search for meaning and life fulfillment represented in major religious traditions of the world, such as Hinduism, Buddhism, Taoism, Zen, Confucianism, Judaism, Christianity, and Islam. CROSSLISTED as PHL 160/REL 160.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*QUESTS FOR MEANING: WORLD RELIGIONS",
+  "course_number": "PHL 160H",
+  "credits": "4",
+  "description": "A survey and analysis of the search for meaning and life fulfillment represented in major religious traditions of the world, such as Hinduism, Buddhism, Taoism, Zen, Confucianism, Judaism, Christianity, and Islam. CROSSLISTED as PHL 160/REL 160.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE IDEA OF GOD",
+  "course_number": "PHL 170",
+  "credits": "4",
+  "description": "Concepts and images of God and their connections to world-views, experience, science, gender, society, self-understanding, and religions. CROSSLISTED as PHL 170/REL 170. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL STUDIES",
+  "course_number": "PHL 199",
+  "credits": "1-16",
+  "description": "May be repeated for credit when topic varies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO PHILOSOPHY",
+  "course_number": "PHL 201",
+  "credits": "4",
+  "description": "An in-depth introduction to the methods and ideas of Western philosophy, concentrating on such great figures as Socrates, Plato, Aristotle, Descartes, Kant and Nietzsche and such topics as the nature of reality, the existence of God, knowledge and doubt, the relation of consciousness to the world, free will and determinism, good and evil, and minds and machines. Philosophers and ideas covered will vary by the section. Written assignments are required. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTRODUCTION TO RELIGIOUS STUDIES",
+  "course_number": "PHL 202",
+  "credits": "4",
+  "description": "An introduction to the academic study of religion. It examines the concepts of religion and the sacred, approaches to the study of religion, ubiquitous features of religious experience, including symbol, myth, ritual, and community, understandings of the human condition in diverse religious traditions, and ways religious communities address challenges of pluralism and secularization. CROSSLISTED as PHL 202/REL 202.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THE MEANING OF EXISTENCE",
+  "course_number": "PHL 203",
+  "credits": "4",
+  "description": "Introduction to existentialism; explores different philosophical approaches to the significance of human life, meaning, and freedom.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ETHICS",
+  "course_number": "PHL 205",
+  "credits": "4",
+  "description": "Introduction to ethical theory and to the evaluation of ethical issues in society such as sexual ethics and euthanasia. Includes the study of philosophical theories of moral responsibility and moral virtue, and the philosophical ideas behind ethics debates in society. Students are encouraged to develop their own positions on ethical issues through discussion projects and term papers.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ETHICS",
+  "course_number": "PHL 205H",
+  "credits": "4",
+  "description": "Introduction to ethical theory and to the evaluation of ethical issues in society such as sexual ethics and euthanasia. Includes the study of philosophical theories of moral responsibility and moral virtue, and the philosophical ideas behind ethics debates in society. Students are encouraged to develop their own positions on ethical issues through discussion projects and term papers.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*RELIGIOUS ETHICS AND MORAL PROBLEMS",
+  "course_number": "PHL 206",
+  "credits": "4",
+  "description": "An examination of the practical ethics of the monotheistic religious traditions of the West--Judaism, Christianity, Islam--and their different approaches to concrete moral problems. Topics include sexuality and marriage, euthanasia, capital punishment, pacifism and just war, and environmentalism. CROSSLISTED as PHL 206/REL 206. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*POLITICAL PHILOSOPHY",
+  "course_number": "PHL 207",
+  "credits": "4",
+  "description": "Introductory study of the philosophical justifications of political systems and philosophical theories about the rights and obligations of citizens and governments. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTRODUCTION TO BUDDHIST TRADITIONS",
+  "course_number": "PHL 208",
+  "credits": "4",
+  "description": "Survey of the historical development of Buddhism in India and its spread throughout Asia and beyond by investigating the literature, rituals, history and social structure of the Buddhist traditions of Sri Lanka and Southeast Asia, Tibet and the Himalayan region, China, Taiwan, Korea, Japan, and finally its growth in the West. CROSSLISTED as PHL 208/REL 208. (NC)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*SELF AND SOCIETY",
+  "course_number": "PHL 209",
+  "credits": "4",
+  "description": "An introduction to social philosophy, addresses the interactions between the development of personal identity (self) and social structures, including social relations, institutions, norms and values. Includes issues in philosophical anthropology (what it means to be human), social theories of the self, and perspectives from feminist philosophy, post-colonial studies, and non-Western contributions in so-cial philosophy. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*RELIGION IN THE UNITED STATES",
+  "course_number": "PHL 210",
+  "credits": "4",
+  "description": "A thematic overview of the historical study of religion in the United States, with an eye toward ways that social and cultural contexts have shaped the religious experience of Americans in different places and times. Surveys a wide array of religious movements, groups, and individuals from the colonial period to present. CROSSLISTED as HST 210/PHL 210/REL 210. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*RELIGION IN THE UNITED STATES",
+  "course_number": "PHL 210H",
+  "credits": "4",
+  "description": "A thematic overview of the historical study of religion in the United States, with an eye toward ways that social and cultural contexts have shaped the religious experience of Americans in different places and times. Surveys a wide array of religious movements, groups, and individuals from the colonial period to present. CROSSLISTED as HST 210/PHL 210/REL 210. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO HINDU TRADITIONS",
+  "course_number": "PHL 213",
+  "credits": "4",
+  "description": "Survey of the historical development of Hinduism in India and the \"Hindu Diaspora.\" Topics will include the Indus Valley civilization, the Vedic tradition, yoga, and Hindu renunciation, \"Classical\" Hindu theism and devotion, Hindu philosophy and ritual, and modern and contemporary Hinduism. CROSSLISTED as PHL 213/REL 213. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO ISLAMIC TRADITIONS",
+  "course_number": "PHL 214",
+  "credits": "4",
+  "description": "Development of Islamic traditions in the Arab world and in the global context. Origins of Islam, the narrative of the Prophet Muhammad, the development of the Qur'an, and the central tenets of Islamic faith and practice. Transformation of Islam from a regional to a global tradition. CROSSLISTED as PHL 214/REL 214. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*WORLD-VIEWS AND VALUES IN THE BIBLE",
+  "course_number": "PHL 220",
+  "credits": "4",
+  "description": "A study of central portions of the Bible (in the Old Testament: Torah, prophets, psalms, and wisdom; in the New Testament: Jesus, gospels, and letters) from the perspective of the academic discipline of biblical scholarship, exploring the philosophical questions of the relationships between story, myth, thought, values, and understandings of life. CROSSLISTED as PHL 220/REL 220. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHY OF HAPPINESS",
+  "course_number": "PHL 234",
+  "credits": "3",
+  "description": "Explores various philosophical and psychological approaches to happiness and how culturally specific ideas of happiness have shaped the social and cultural realities around the world. Explores the human need for happiness within cultures. Examines happiness through the writings of the greatest Eastern and Western philosophers. Analyzes research on happiness within positive psychology.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEGAL PERSPECTIVES",
+  "course_number": "PHL 250",
+  "credits": "2",
+  "description": "Introduces the study of law and law’s relationship to culture, society, and a variety of adjacent disciplines, including history, philosophy, and religious studies. Familiarizes students with key theories, historical movements, and structures and philosophies of law, emphasizing both US and global contexts. Develops skills in legal modes of analysis and close reading. CROSSLISTED as HST 250/PHL 250/REL 250.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*KNOWERS",
+  "course_number": "PHL 251",
+  "credits": "KNOWING",
+  "description": "An introduction to the major debates in Western philosophy concerning the nature of reality, and the ways we come to know about that reality. One example concerns debates about the problem of skepticism: Is it possible that humans could be completely mistaken about the way the world is? Another example concerns debates about human identity and free will. Beginning with historical figures such as Descartes and Hume, the course also provides an introduction to more contemporary thinkers. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*KNOWERS",
+  "course_number": "PHL 251H",
+  "credits": "KNOWING",
+  "description": "An introduction to the major debates in Western philosophy concerning the nature of reality, and the ways we come to know about that reality. One example concerns debates about the problem of skepticism: Is it possible that humans could be completely mistaken about the way the world is? Another example concerns debates about human identity and free will. Beginning with historical figures such as Descartes and Hume, the course also provides an introduction to more contemporary thinkers. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO DISABILITY STUDIES",
+  "course_number": "PHL 275",
+  "credits": "4",
+  "description": "Introduces core concepts and themes in the multidisciplinary field of disability studies. Analyzes disability as a product of discriminatory, oppressive, and inaccessible built environments and societies. Explores disability pride, culture, and community as alternatives to medical and charity models of disability. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO DISABILITY STUDIES",
+  "course_number": "PHL 275H",
+  "credits": "4",
+  "description": "Introduces core concepts and themes in the multidisciplinary field of disability studies. Analyzes disability as a product of discriminatory, oppressive, and inaccessible built environments and societies. Explores disability pride, culture, and community as alternatives to medical and charity models of disability. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHY WITH A PORPOISE: MAKING MEANING AT (AND WITH) SEAS",
+  "course_number": "PHL 278",
+  "credits": "4",
+  "description": "Explores the many ways humans make meaning from and with oceans and ocean being. Discusses philosophical problems, concepts, and issues relating to the oceans, coasts, and Marine studies generally. Examines the role of philosophy in the development of the Marine studies discipline.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ETHICS OF DIVERSITY",
+  "course_number": "PHL 280",
+  "credits": "4",
+  "description": "Uses moral philosophy to examine difference-based discrimination and prejudice in the human community. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ETHICS OF DIVERSITY",
+  "course_number": "PHL 280H",
+  "credits": "4",
+  "description": "Uses moral philosophy to examine difference-based discrimination and prejudice in the human community. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SELECTED TOPICS",
+  "course_number": "PHL 299",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*HISTORY OF WESTERN PHILOSOPHY",
+  "course_number": "PHL 301",
+  "credits": "4",
+  "description": "A study of the history of Western philosophy from the early Greeks into the twentieth century. Designed to give an appreciation and understanding of the Western philosophical tradition and the philosophical foundations of Western civilization. May be taken independently. PHL 301: Greek and Roman philosophy. PHL 302: The rise of modern philosophy through Hume. PHL 303: Kant and the nineteenth century. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*HISTORY OF WESTERN PHILOSOPHY",
+  "course_number": "PHL 302",
+  "credits": "4",
+  "description": "A study of the history of Western philosophy from the early Greeks into the twentieth century. Designed to give an appreciation and understanding of the Western philosophical tradition and the philosophical foundations of Western civilization. May be taken independently. PHL 301: Greek and Roman philosophy. PHL 302: The rise of modern philosophy through Hume. PHL 303: Kant and the nineteenth century. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*HISTORY OF WESTERN PHILOSOPHY",
+  "course_number": "PHL 303",
+  "credits": "4",
+  "description": "A study of the history of Western philosophy from the early Greeks into the twentieth century. Designed to give an appreciation and understanding of the Western philosophical tradition and the philosophical foundations of Western civilization. May be taken independently. PHL 301: Greek and Roman philosophy. PHL 302: The rise of modern philosophy through Hume. PHL 303: Kant and the nineteenth century. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*INTRODUCTION TO CONTEMPLATIVE STUDIES",
+  "course_number": "PHL 308",
+  "credits": "4",
+  "description": "Combines a “third-person” scholarly approach with “critical first-person” experience and reflection in the study of contemplative practices. Explores both religious and secular contemplative traditions, practices and worldviews in cultures-of-origin, and as adopted by other cultures and adapted over time. Reviews practices including yoga, movement, meditation, prayer, presence in nature, ritual, service, recitation, introspection, writing and creative expression. Analyzes practices in primary philosophical, religious, historical, cultural, and psychological contexts. Emphasizes textual study, expert dialogues, discussion and development of contemplative skills. Applies principles to social issues and integrates values and meaning-making with career development. CROSSLISTED as PHL 308/REL 308. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*CRITICS OF RELIGION",
+  "course_number": "PHL 310",
+  "credits": "4",
+  "description": "An introduction to critiques of religion by Nietzsche, Freud, Marx, and other influential thinkers. Examines the nature, scope, and effects of criticisms that challenge the psychological, moral, political, and epistemological foundations of religious belief, practice, and institutions. CROSSLISTED as PHL 310/REL 310.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*GANDHI AND NONVIOLENCE",
+  "course_number": "PHL 315",
+  "credits": "4",
+  "description": "An examination of the life and work of Mohandas K. Gandhi, the 20th century activist and author, and the theory and practice of nonviolence in his life and work. Emphasis will be placed upon Gandhi's biographical narrative, the development of satyagraha, Gandhi's nonviolent approach to social transformation, and post-Gandhian nonviolent movements. CROSSLISTED as PHL 315/REL 315. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTELLECTUAL ISSUES OF MEXICO AND MEXICAN AMERICANS",
+  "course_number": "PHL 316",
+  "credits": "4",
+  "description": "The philosophical, social, cultural, and political reality of Mexican Americans and their historical roots in Mexico since the Spanish Conquest. Analysis of internal colonialism, racism, machismo, fatalism, alienation, cultural identity, as well as more contemporary including NAFTA, immigration, and U.S.-Mexican relations. CROSSLISTED as PHL 316/REL 316. (NC)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DEDUCTIVE LOGIC",
+  "course_number": "PHL 321",
+  "credits": "4",
+  "description": "Development of formal language and deductive systems for first-order, quantificational logic. Emphasis on translation of ordinary English statements into formal language. Discussion of the contrast between semantic and syntactic treatment of logical concepts.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*SCIENTIFIC REASONING",
+  "course_number": "PHL 325",
+  "credits": "4",
+  "description": "Introduction to and analysis of scientific reasoning. Emphasis on understanding and evaluation of theoretical hypotheses, causal and statistical models, and uses of scientific knowledge to make personal and public decisions. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*TECHNOLOGY AND ETHICS",
+  "course_number": "PHL 330",
+  "credits": "3",
+  "description": "Develops ethical reasoning skills crucial for future technical professionals. Explores philosophical questions that arise where technology, humans, and society interact, and thereby constructs a critical lens to analyze decision alternatives. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PACIFISM",
+  "course_number": "PHL 344",
+  "credits": "JUST",
+  "description": "An examination of the philosophical and theological issues pertaining to pacifism, justified war, and forms of terrorism in Islamic and Western traditions. Special attention is given to concepts of jihad, justifications of war, and restraints on conduct in war. CROSSLISTED as PHL 344/REL 344.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*FIRST FREEDOM: RELIGIOUS LIBERTY AND INTOLERANCE",
+  "course_number": "PHL 345",
+  "credits": "4",
+  "description": "An examination of the religious, philosophical, political, and historical issues regarding religious freedom, conscience, and disestablishment as enshrined in the First Amendment and as illustrated by historical and contemporary examples of religious intolerance in the United States. CROSSLISTED as PHL 345/REL 345. (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHY AND THE ARTS",
+  "course_number": "PHL 360",
+  "credits": "4",
+  "description": "Major philosophical theories about art and its meaning, from ancient to modern times. How philosophers have understood beauty, the imagination, art and knowledge, art and pleasure, art and emotion. Offered every other year. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHY AND THE ARTS",
+  "course_number": "PHL 360H",
+  "credits": "4",
+  "description": "Major philosophical theories about art and its meaning, from ancient to modern times. How philosophers have understood beauty, the imagination, art and knowledge, art and pleasure, art and emotion. Offered every other year. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*LAW IN PHILOSOPHICAL PERSPECTIVE",
+  "course_number": "PHL 365",
+  "credits": "4",
+  "description": "A study of philosophical issues in the law through the examination of legal cases and major essays in jurisprudence. Special attention given to concepts of justice, responsibility, liberty, law, and legal ethics. Offered every other year. (H) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHIES OF CHINA",
+  "course_number": "PHL 371",
+  "credits": "4",
+  "description": "A study of the traditional philosophies of China, including Confucianism, Taoism, Mohism, Legalism, and Buddhism. Not offered every year. CROSSLISTED as PHL 371/REL 371. (NC) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHIES OF CHINA",
+  "course_number": "PHL 371H",
+  "credits": "4",
+  "description": "A study of the traditional philosophies of China, including Confucianism, Taoism, Mohism, Legalism, and Buddhism. Not offered every year. CROSSLISTED as PHL 371/REL 371. (NC) (Bacc Core Course)",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS IN PHILOSOPHY",
+  "course_number": "PHL 399",
+  "credits": "1-4",
+  "description": "Examination of the work of a philosopher or of a specific philosophical problem; e.g., Wittgenstein, determinism, perception, philosophy of mind. May be repeated for credit when topic varies. Not offered every year.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPECIAL TOPICS IN PHILOSOPHY",
+  "course_number": "PHL 399H",
+  "credits": "1-4",
+  "description": "Examination of the work of a philosopher or of a specific philosophical problem; e.g., Wittgenstein, determinism, perception, philosophy of mind. May be repeated for credit when topic varies. Not offered every term.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "PHL 402",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "PHL 403",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "PHL 405",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "^SEMINAR",
+  "course_number": "PHL 407",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "^SEMINAR",
+  "course_number": "PHL 407H",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "PHL 410",
+  "credits": "1-12",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GREAT FIGURES IN PHILOSOPHY",
+  "course_number": "PHL 411",
+  "credits": "4",
+  "description": "Study of the works of a major philosopher such as Plato, Aristotle, Descartes, Hume, Kant, or Marx. Each course normally devoted to the work of a single figure. CROSSLISTED as PHL 411/REL 411.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FREEDOM",
+  "course_number": "PHL 415",
+  "credits": "DETERMINISM",
+  "description": "Analyzes concepts, reasoning, and social and intellectual contexts shaping approaches in Western philosophy to human agency, deciding, choosing, and their connections to responsibility in law and in everyday contexts. Examines historic and contemporary approaches. Examines philosophical perspectives on related subjects, e.g., mental illness and addiction, irresistible impulses, desires, personhood, group actions.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FEMINIST PHILOSOPHIES",
+  "course_number": "PHL 417",
+  "credits": "3",
+  "description": "Diverse forms of feminist philosophy, including a variety of critiques, especially those based on race and class, with in-depth consideration of selected social issues such as rape and pornography.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "HISTORY OF BUDDHIST PHILOSOPHY",
+  "course_number": "PHL 430",
+  "credits": "4",
+  "description": "Examination of the major philosophical schools, texts, and thinkers in Buddhist history, emphasizing its Indian origins, but looking beyond to the various Buddhist traditions throughout Asia. CROSSLISTED as PHL 430/REL 430 and PHL 530/REL 530.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "HISTORY OF BUDDHIST PHILOSOPHY",
+  "course_number": "PHL 430H",
+  "credits": "4",
+  "description": "Examination of the major philosophical schools, texts, and thinkers in Buddhist history, emphasizing its Indian origins, but looking beyond to the various Buddhist traditions throughout Asia. CROSSLISTED as PHL 430/REL 430 and PHL 530/REL 530.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BUDDHISM",
+  "course_number": "PHL 431",
+  "credits": "NON-VIOLENCE",
+  "description": "Investigates the philosophical grounding of Buddhist ideas about non-violence, justice and social responsibility. Looks at broad-based Buddhist social activism movements and leaders; their methods of training, issues and types of actions taken by \"Socially Engaged Buddhists\" living Buddhist traditions. CROSSLISTED as PHL 431/REL 431 and PHL 531/REL 531.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BUDDHISM",
+  "course_number": "PHL 431H",
+  "credits": "NON-VIOLENCE",
+  "description": "Investigates the philosophical grounding of Buddhist ideas about non-violence, justice and social responsibility. Looks at broad-based Buddhist social activism movements and leaders; their methods of training, issues and types of actions taken by \"Socially Engaged Buddhists\" living Buddhist traditions. CROSSLISTED as PHL 431/REL 431 and PHL 531/REL 531.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*YOGA AND TANTRIC TRADITIONS",
+  "course_number": "PHL 432",
+  "credits": "4",
+  "description": "An examination of the theory and practice of yoga and tantra in the traditions of Hinduism, Buddhism, and Jainism, and in their contemporary popular manifestations. Emphasis on the representation of yoga and tantra in Indian literature and history, including contemplative practices, bodily disciplines, and ritual. CROSSLISTED as PHL 432/REL 432 and PHL 532/REL 532.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*THEORY AND PRACTICE OF MODERN YOGA",
+  "course_number": "PHL 433",
+  "credits": "4",
+  "description": "An examination of the phenomenon of modern yoga in theory and in practice. Emphasis on the roots of contemporary forms of yoga in the intersection between traditional Hindu and Buddhist formulations of yoga, Indian wrestling and martial arts, European gymnastics, and cosmopolitan conceptions of \"bodily culture\" of both European and Indian origins. CROSSLISTED as PHL 433/REL 433.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*SPIRITUALITY AND ECOLOGY: GREEN YOGA",
+  "course_number": "PHL 434",
+  "credits": "4",
+  "description": "An exploration of the relationship between spirituality and ecological engagement in traditional contexts and in contemporary spirituality, with a global focus on contemplative practices rooted in Indian tradition, such as yoga. CROSSLISTED as PHL 434/REL 434 and PHL 534/REL 534.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*SPIRITUALITY AND ECOLOGY: GREEN YOGA",
+  "course_number": "PHL 434H",
+  "credits": "4",
+  "description": "An exploration of the relationship between spirituality and ecological engagement in traditional contexts and in contemporary spirituality, with a global focus on contemplative practices rooted in Indian tradition, such as yoga. CROSSLISTED as PHL 434/REL 434 and PHL 534/REL 534.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHY AND RELIGION",
+  "course_number": "PHL 436",
+  "credits": "3",
+  "description": "Examination of significant philosophical issues or movements and their relationship to theology and religion.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ENVIRONMENTAL ETHICS",
+  "course_number": "PHL 440",
+  "credits": "3",
+  "description": "Philosophical ideas about our ethical relationships with parts of the non-human world and future generations, with applications to current environmental issues. Includes a study of different conceptions of environmental ethics, philosophical problems in environmental ethics (such as the moral status of animals, plants, species, and ecosystems), the uses of environmental ethics by environmental groups, and selected contemporary global environmental issues such as global warming and loss of biodiversity.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*ENVIRONMENTAL ETHICS",
+  "course_number": "PHL 440H",
+  "credits": "3",
+  "description": "Philosophical ideas about our ethical relationships with parts of the non-human world and future generations, with applications to current environmental issues. Includes a study of different conceptions of environmental ethics, philosophical problems in environmental ethics (such as the moral status of animals, plants, species, and ecosystems), the uses of environmental ethics by environmental groups, and selected contemporary global environmental issues such as global warming and loss of biodiversity.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*WORLD VIEWS AND ENVIRONMENTAL VALUES",
+  "course_number": "PHL 443",
+  "credits": "3",
+  "description": "A comparative study of world-views (secular and religious, Western and Eastern, modern and ancient) and how they affect concepts of nature, environmental values, and selected environmental issues. CROSSLISTED as PHL 443/REL 443 and PHL 543/REL 543.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*WORLD VIEWS AND ENVIRONMENTAL VALUES",
+  "course_number": "PHL 443H",
+  "credits": "3",
+  "description": "A comparative study of world-views (secular and religious, Western and Eastern, modern and ancient) and how they affect concepts of nature, environmental values, and selected environmental issues. CROSSLISTED as PHL 443/REL 443 and PHL 543/REL 543.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*BIOMEDICAL ETHICS",
+  "course_number": "PHL 444",
+  "credits": "4",
+  "description": "Application of ethical principles and decision-making processes to selected problems in medicine, health care, and biotechnology. Special attention given to end-of-life choices, reproductive rights and technologies, organ transplantation, research ethics, genetic engineering, and allocating scarce resources. An interdisciplinary focus that draws on social, legal, economic, and scientific issues in ethical decisions in medicine. CROSSLISTED as PHL 444/REL 444 and REL 544/REL 544.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*BIOMEDICAL ETHICS",
+  "course_number": "PHL 444H",
+  "credits": "4",
+  "description": "Application of ethical principles and decision-making processes to selected problems in medicine, health care, and biotechnology. Special attention given to end-of-life choices, reproductive rights and technologies, organ transplantation, research ethics, genetic engineering, and allocating scarce resources. An interdisciplinary focus that draws on social, legal, economic, and scientific issues in ethical decisions in medicine. CROSSLISTED as PHL 444/REL 444 and REL 544/REL 544.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PANDEMICS",
+  "course_number": "PHL 445",
+  "credits": "PLAGUES",
+  "description": "Examines the human experience of pandemics and plagues, with a focus on philosophical, theological, ethical, and existential issues communities confront in living through a pandemic. Highlights themes of personal freedom, community solidarity, and possibilities for personal and communal transformation in the wake of pandemics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NATIVE AMERICAN PHILOSOPHIES",
+  "course_number": "PHL 448",
+  "credits": "4",
+  "description": "Native American perspectives on ways of knowing, sources of meaning and ethics, the nature of reality, self, community, and cosmos. Includes lectures, scholarship, story-telling, poetry, theater, and music as forums for this exploration. Introduces ideas of leading Native American thinkers about the human relation to the natural world, sources of strength and wisdom, the nature of time and place and spirit, right ways of acting in communities, both civic and biotic, and the place of beauty in a well-lived life. CROSSLISTED as ES 448/PHL 448/REL 448.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TOPICS",
+  "course_number": "PHL 450",
+  "credits": "1-16",
+  "description": "Uses the IDEAS MATTER lectures as the focus for an exploration of ideas that make a difference in the world. Students read background materials, attend lectures, meet with the speakers, and write essays on the ideas they learn.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DEATH AND DYING",
+  "course_number": "PHL 455",
+  "credits": "3",
+  "description": "A multidisciplinary study of cultural, philosophical, and religious perspectives on death, dying, and grieving. CROSSLISTED as PHL 455/REL 455 and PHL 555/REL 555.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*MINDS",
+  "course_number": "PHL 456",
+  "credits": "BRAINS",
+  "description": "Past and present theories about consciousness, the relationship of mind and body, minds in human and non human animals, and the roots and implications of those theories. Includes historical foundations in philosophy (e.g., dualism, monism) and contemporary philosophical approaches. Contemporary issues emphasize computational models of thought, extended cognition and the future of personhood, intelligence and artificial intelligence (e.g., decision and agency in artificial intelligence), ethical issues of artificial intelligence (e.g., autonomous cars, autonomous weaponry, health monitoring and privacy).",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHY OF SCIENCE",
+  "course_number": "PHL 470",
+  "credits": "3",
+  "description": "Examination of philosophical questions, classic and contemporary, about science and scientific knowledge. Scientific explanations, the structure of theories, the concept of a natural law, revolutions in science, influences of the sciences and philosophy on one another, science and values.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHY OF BIOLOGY",
+  "course_number": "PHL 474",
+  "credits": "4",
+  "description": "An introduction to some of the conceptual challenges engendered by contemporary evolutionary biology, including the nature of fitness, natural selection, adaptations, and species; identifying organisms, traits, and the units of selection; the evidence required to support particular adaptive or historical hypotheses; and others.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*PHILOSOPHY OF BIOLOGY",
+  "course_number": "PHL 474H",
+  "credits": "4",
+  "description": "An introduction to some of the conceptual challenges engendered by contemporary evolutionary biology, including the nature of fitness, natural selection, adaptations, and species; identifying organisms, traits, and the units of selection; the evidence required to support particular adaptive or historical hypotheses; and others.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "*HUMAN TECHNOLOGICAL ENHANCEMENT",
+  "course_number": "PHL 475",
+  "credits": "4",
+  "description": "Covers analysis and critique of the philosophical and religious implications of technologies that restore or enhance human physical and cognitive capacities. Reflects on the relationships between religion, philosophy, and technology, incorporating theories of the Social Construction of Technology (SCOT) and Science, Technology, and Society (STS). Analyzes examples of human enhancement, including the use of prosthetic limbs, sensory apparatuses, medical enhancement, cybernetics, virtual and augmented reality, nootropics and psychedelics, and life-extension technologies. Applies critical thinking to the complex historical, social, and ethical issues tied to these emergent technologies of human augmentation. CROSSLISTED as PHL 475/REL 475.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PSYCHEDELICS",
+  "course_number": "PHL 477",
+  "credits": "SPIRITUALITY",
+  "description": "Covers analysis and critique of the philosophical and spiritual implications of the use of psychoactive substances in global historical and contemporary contexts. Reflects on the larger historical role of psychoactive substances in the world’s religions and in smaller-scale spiritual movements. Investigates the contemporary global history of psychedelics, including the “first-” and “second-wave” psychedelic movements, with a special focus on the relationship between spiritual, therapeutic, and recreational applications. Analyzes the Oregon Psilocybin Initiative and its place within the larger contexts of the previous spheres of investigation. Applies critical thinking to the complex historical, social, and ethical issues tied to traditional and contemporary uses of psychoactive substances in the global context. CROSSLISTED as PHL 477/REL 477 and PHL 577/REL 577.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "^PERSPECTIVES IN HUMANITIES",
+  "course_number": "PHL 480",
+  "credits": "4",
+  "description": "Offers a look at different events or processes from the perspective of different disciplines within the humanities. Understands and applies techniques, ethics, and methodologies of writing and research, resulting in the final capstone project.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE",
+  "course_number": "PHL 481",
+  "credits": "POLITICS",
+  "description": "Utilizes philosophical and historical tools to examine epistemic bubbles and echo chambers in relation to contentious science policy in times of heightened political polarization. Interactively prepares Peace Literacy comprehension and skill, in order to increase objectivity, communication, and connection in polarized science debates. CROSSLISTED as HSTS 481/PAX 481/PHL 481 and HSTS 581/PAX 581/PHL 581.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TOPICS IN PHILOSOPHY",
+  "course_number": "PHL 499",
+  "credits": "1-4",
+  "description": "Examination of the work of a philosopher or of a specific problem; e.g., Wittgenstein, determinism, perception. May be repeated for credit when topic varies. Not offered every year.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TOPICS IN PHILOSOPHY",
+  "course_number": "PHL 499H",
+  "credits": "1-4",
+  "description": "Examination of the work of a philosopher or of a specific problem; e.g., Wittgenstein, determinism, perception. May be repeated for credit when topic varies. Not offered every year.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH",
+  "course_number": "PHL 501",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INDEPENDENT STUDY",
+  "course_number": "PHL 502",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "PHL 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "PHL 505",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SEMINAR",
+  "course_number": "PHL 507",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERNSHIP",
+  "course_number": "PHL 510",
+  "credits": "1-12",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GREAT FIGURES IN PHILOSOPHY",
+  "course_number": "PHL 511",
+  "credits": "4",
+  "description": "Study of the works of a major philosopher such as Plato, Aristotle, Descartes, Hume, Kant, or Marx. Each course normally devoted to the work of a single figure.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FREEDOM",
+  "course_number": "PHL 515",
+  "credits": "DETERMINISM",
+  "description": "Analyzes concepts, reasoning, and social and intellectual contexts shaping approaches in Western philosophy to human agency, deciding, choosing, and their connections to responsibility in law and in everyday contexts. Examines historic and contemporary approaches. Examines philosophical perspectives on related subjects, e.g., mental illness and addiction, irresistible impulses, desires, personhood, group actions.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FEMINIST PHILOSOPHIES",
+  "course_number": "PHL 517",
+  "credits": "3",
+  "description": "Diverse forms of feminist philosophy, including a variety of critiques, especially those based on race and class, with in-depth consideration of selected social issues such as rape and pornography.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHICAL METHODS",
+  "course_number": "PHL 525",
+  "credits": "3",
+  "description": "Examines diverse ways of approaching philosophical issues. Contains readings from different philosophical traditions. Develops understanding of the skills and conventions of philosophical argumentation.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "HISTORY OF BUDDHIST PHILOSOPHY",
+  "course_number": "PHL 530",
+  "credits": "4",
+  "description": "Examination of the major philosophical schools, texts, and thinkers in Buddhist history, emphasizing its Indian origins, but looking beyond to the various Buddhist traditions throughout Asia. CROSSLISTED as PHL 430/REL 430 and PHL 530/REL 530.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BUDDHISM",
+  "course_number": "PHL 531",
+  "credits": "NON-VIOLENCE",
+  "description": "Investigates the philosophical grounding of Buddhist ideas about non-violence, justice and social responsibility. Looks at broad-based Buddhist social activism movements and leaders; their methods of training, issues and types of actions taken by \"Socially Engaged Buddhists\" living Buddhist traditions. CROSSLISTED as PHL 431/REL 431 and PHL 531/REL 531.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "YOGA AND TANTRIC TRADITIONS",
+  "course_number": "PHL 532",
+  "credits": "4",
+  "description": "An examination of the theory and practice of yoga and tantra in the traditions of Hinduism, Buddhism, and Jainism, and in their contemporary popular manifestations. Emphasis on the representation of yoga and tantra in Indian literature and history, including contemplative practices, bodily disciplines, and ritual.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THEORY AND PRACTICE OF MODERN YOGA",
+  "course_number": "PHL 533",
+  "credits": "4",
+  "description": "An examination of the phenomenon of modern yoga in theory and in practice. Emphasis on the roots of contemporary forms of yoga in the intersection between traditional Hindu and Buddhist formulations of yoga, Indian wrestling and martial arts, European gymnastics, and cosmopolitan conceptions of \"bodily culture\" of both European and Indian origins.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPIRITUALITY AND ECOLOGY: GREEN YOGA",
+  "course_number": "PHL 534",
+  "credits": "4",
+  "description": "An exploration of the relationship between spirituality and ecological engagement in traditional contexts and in contemporary spirituality, with a global focus on contemplative practices rooted in Indian tradition, such as yoga. CROSSLISTED as PHL 434/REL 434 and PHL 534/REL 534.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ENVIRONMENTAL ETHICS",
+  "course_number": "PHL 540",
+  "credits": "3",
+  "description": "Philosophical ideas about our ethical relationships with parts of the non-human world and future generations, with applications to current environmental issues. Includes a study of different conceptions of environmental ethics, philosophical problems in environmental ethics (such as the moral status of animals, plants, species, and ecosystems), the uses of environmental ethics by environmental groups, and selected contemporary global environmental issues such as global warming and loss of biodiversity.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLASSIC MORAL THEORIES",
+  "course_number": "PHL 541",
+  "credits": "3",
+  "description": "Philosophical issues in ethics analyzed through the examination of such classical works in moral philosophy as Aristotle's Nichomachean ethics. Not offered every year.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CONTEMPORARY MORAL THEORIES",
+  "course_number": "PHL 542",
+  "credits": "3",
+  "description": "Examines contemporary ethical theories through study of moral philosophy in the 20th century, including recent developments in such areas as environmental ethics and feminist/feminine ethics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "WORLD VIEWS AND ENVIRONMENTAL VALUES",
+  "course_number": "PHL 543",
+  "credits": "3",
+  "description": "A comparative study of world-views (secular and religious, Western and Eastern, modern and ancient) and how they affect concepts of nature, environmental values, and selected environmental issues. CROSSLISTED as PHL 443/REL 443 and PHL 543/REL 543.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BIOMEDICAL ETHICS",
+  "course_number": "PHL 544",
+  "credits": "4",
+  "description": "Application of ethical principles and decision-making processes to selected problems in medicine, health care, and biotechnology. Special attention given to end-of-life choices, reproductive rights and technologies, organ transplantation, research ethics, genetic engineering, and allocating scarce resources. An interdisciplinary focus that draws on social, legal, economic, and scientific issues in ethical decisions in medicine.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PANDEMICS",
+  "course_number": "PHL 545",
+  "credits": "PLAGUES",
+  "description": "Examines the human experience of pandemics and plagues, with a focus on philosophical, theological, ethical, and existential issues communities confront in living through a pandemic. Highlights themes of personal freedom, community solidarity, and possibilities for personal and communal transformation in the wake of pandemics.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SOCIAL AND ETHICAL ISSUES IN ARTIFICIAL INTELLIGENCE",
+  "course_number": "PHL 546",
+  "credits": "3",
+  "description": "Examines social and ethical issues that arise in artificial intelligence (AI). Analyzes how AI could change the understanding of humanity, morality, and society. Evaluates decisions related to the development and use of AI, and creates moral and socially responsible decisions.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "RESEARCH ETHICS",
+  "course_number": "PHL 547",
+  "credits": "3",
+  "description": "An examination of the interrelationship between ethical values and scientific practice. Topics include professionalism in science; scientific integrity, misconduct, and whistleblowing; the ethics of authorship; conflicts of interest between academic science and commercial science, and social responsibilities in science.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TOPICS",
+  "course_number": "PHL 550",
+  "credits": "1-16",
+  "description": "Uses the IDEAS MATTER lectures as the focus for an exploration of ideas that make a difference in the world. Students read background materials, attend lectures, meet with the speakers, and write essays on the ideas they learn.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DEATH AND DYING",
+  "course_number": "PHL 555",
+  "credits": "3",
+  "description": "A multidisciplinary study of cultural, philosophical, and religious perspectives on death, dying, and grieving. CROSSLISTED as PHL 455/REL 455 and PHL 555/REL 555.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MINDS",
+  "course_number": "PHL 556",
+  "credits": "BRAINS",
+  "description": "Past and present theories about consciousness, the relationship of mind and body, minds in human and non human animals, and the roots and implications of those theories. Includes historical foundations in philosophy (e.g., dualism, monism) and contemporary philosophical approaches. Contemporary issues emphasize computational models of thought, extended cognition and the future of personhood, intelligence and artificial intelligence (e.g., decision and agency in artificial intelligence), ethical issues of artificial intelligence (e.g., autonomous cars, autonomous weaponry, health monitoring and privacy).",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHY OF SCIENCE",
+  "course_number": "PHL 570",
+  "credits": "3",
+  "description": "Examination of philosophical questions, classic and contemporary, about science and scientific knowledge. Scientific explanations, the structure of theories, the concept of a natural law, revolutions in science, influences of the sciences and philosophy on one another, science and values.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHILOSOPHY OF BIOLOGY",
+  "course_number": "PHL 574",
+  "credits": "4",
+  "description": "An introduction to some of the conceptual challenges engendered by contemporary evolutionary biology, including the nature of fitness, natural selection, adaptations, and species; identifying organisms, traits, and the units of selection; the evidence required to support particular adaptive or historical hypotheses; and others.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "HUMAN TECHNOLOGICAL ENHANCEMENT",
+  "course_number": "PHL 575",
+  "credits": "4",
+  "description": "Covers analysis and critique of the philosophical and religious implications of technologies that restore or enhance human physical and cognitive capacities. Reflects on the relationships between religion, philosophy, and technology, incorporating theories of the Social Construction of Technology (SCOT) and Science, Technology, and Society (STS). Analyzes examples of human enhancement, including the use of prosthetic limbs, sensory apparatuses, medical enhancement, cybernetics, virtual and augmented reality, nootropics and psychedelics, and life-extension technologies. Applies critical thinking to the complex historical, social, and ethical issues tied to these emergent technologies of human augmentation. CROSSLISTED as PHL 575/REL 575.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PSYCHEDELICS",
+  "course_number": "PHL 577",
+  "credits": "SPIRITUALITY",
+  "description": "Covers analysis and critique of the philosophical and spiritual implications of the use of psychoactive substances in global historical and contemporary contexts. Reflects on the larger historical role of psychoactive substances in the world’s religions and in smaller-scale spiritual movements. Investigates the contemporary global history of psychedelics, including the “first-” and “second-wave” psychedelic movements, with a special focus on the relationship between spiritual, therapeutic, and recreational applications. Analyzes the Oregon Psilocybin Initiative and its place within the larger contexts of the previous spheres of investigation. Applies critical thinking to the complex historical, social, and ethical issues tied to traditional and contemporary uses of psychoactive substances in the global context. CROSSLISTED as PHL 477/REL 477 and PHL 577/REL 577.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SCIENCE",
+  "course_number": "PHL 581",
+  "credits": "POLITICS",
+  "description": "Utilizes philosophical and historical tools to examine epistemic bubbles and echo chambers in relation to contentious science policy in times of heightened political polarization. Interactively prepares Peace Literacy comprehension and skill, in order to increase objectivity, communication, and connection in polarized science debates. CROSSLISTED as HSTS 481/PAX 481/PHL 481 and HSTS 581/PAX 581/PHL 581.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "TOPICS IN PHILOSOPHY",
+  "course_number": "PHL 599",
+  "credits": "1-4",
+  "description": "Examination of the work of a philosopher or of a specific problem; e.g., Wittgenstein, determinism, perception. May be repeated for credit when topic varies. Not offered every year.",
+  "prerequisites": []
+}]

@@ -1,0 +1,358 @@
+[{
+  "corequisites": [],
+  "course_name": "PROFESSIONALISM AND CULTURAL COMPETENCE",
+  "course_number": "PT 723",
+  "credits": "3",
+  "description": "Introduce and discuss issues and skills related to professionalism, psychosocial factors, and sociocultural factors that inform physical therapist practice. Explore professional behaviors, ethical decision making, and cultural competence/inclusion in depth.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BASICS OF PATIENT MANAGEMENT",
+  "course_number": "PT 724",
+  "credits": "5",
+  "description": "Explores the theory and principles of patient care skills, emphasizing techniques often used to mobilize individuals in inpatient settings. Models and develops patient management, basic mobility skills (e.g., bed mobility, transfers, assisted locomotion) and long-term positioning programs for individuals with various impairments. Teaches body mechanics and ergonomic principles and incorporates consistent practice during labs. Techniques for stress reduction management are introduced. Presents equipment used in the acute care environment (“lines and tubes”) and infection control procedures. Emphasizes peer collaboration and skill practice.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "FOUNDATIONS OF CLINICAL BIOMECHANICS",
+  "course_number": "PT 725",
+  "credits": "4",
+  "description": "Examines multiple aspects of the patient assessment conducted by a physical therapist that includes bony palpation, goniometric range of motion testing, and strength testing. Examines in-depth manual muscle testing with an additional emphasis on alternate methods of strength testing.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THERAPEUTIC EXERCISE I FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 726",
+  "credits": "4",
+  "description": "Explores basic principles of therapeutic exercise and exercise progression for a general patient population. Examines patient safety and handling, proper and safe body mechanics for the therapist and patient, patient rapport building, education and communication. Explores patient-centered goal setting, use of the biopsychosocial model, integration of functional tasks and introduction to manual therapy.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THERAPEUTIC EXERCISE II FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 727",
+  "credits": "4",
+  "description": "Explores basic principles of therapeutic exercise and exercise progression for a general patient population. Examines patient safety and handling, proper and safe body mechanics for the therapist and patient, along with patient education and communication. Explores patient-centered goal setting, integration of functional tasks and introduction to therapeutic exercise interventions for the upper extremity. Examines exercise parameters for injury to soft tissues and surgical cases.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THERAPEUTIC EXERCISE III FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 728",
+  "credits": "4",
+  "description": "Explores basic principles of therapeutic exercise and exercise progression for a general patient population. Examines patient safety and handling, proper and safe body mechanics for the therapist and patient, along with patient education and communication. Explores patient-centered goal setting, integration of functional tasks and introduction to therapeutic exercise interventions for the spine and lower extremity. Examines group presentations and guest lecture that address interventions for specific disease processes and special patient groups.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BIOPHYSICAL AGENTS",
+  "course_number": "PT 729",
+  "credits": "2",
+  "description": "Explores thermal, electrical and mechanical biophysical agents used by physical therapists in their comprehensive treatment intervention based on clinical research. Examines principles and application of common biophysical agents utilized by the physical therapist and will provide in-depth evidence-based criteria for selection, prescription, and implementation of these biophysical agents.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MUSCULOSKELETAL ANATOMY I FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 732",
+  "credits": "7",
+  "description": "Examines musculoskeletal anatomy, innervation, blood supply, and function. Explores the upper and lower extremities using a regional approach.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MUSCULOSKELETAL ANATOMY II FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 733",
+  "credits": "6",
+  "description": "Examines musculoskeletal anatomy, innervation, blood supply, and function. Explores the upper extremity, head, neck, and trunk using a regional approach.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NEUROANATOMY FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 734",
+  "credits": "5",
+  "description": "Examines the structures in the brain, spinal cord and peripheral nervous systems. Demonstrates clinical assessments of these neurologic pathways and relate abnormal findings to functional impairment to introduce clinical thinking strategies when working with patients with neurologic dysfunction.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL BIOMECHANICS I",
+  "course_number": "PT 735",
+  "credits": "5",
+  "description": "Builds on current anatomical knowledge to examine the musculoskeletal system from a biomechanical perspective. Includes a detailed kinesiologic analysis of the extremities and trunk, emphasizing joint structure and function, arthrokinematics, and muscle activation during joint movement. Discusses the effect of injury, strength deficits, and mobility impairments on quality of joint movement.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL BIOMECHANICS II",
+  "course_number": "PT 736",
+  "credits": "3",
+  "description": "Builds on knowledge of joint structure and function from Clinical Biomechanics I to evaluate functional movement from a biomechanical perspective, with an emphasis on walking and running gait. Includes a detailed discussion of the principles of movement analysis and current technology in the field, as well as a critical appraisal of current biomechanical literature.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PRINCIPLES OF DISEASE",
+  "course_number": "PT 737",
+  "credits": "3",
+  "description": "Explores terms used in disease and epidemiology. Introduces general causes of disease. Explores the physiology of inflammation and repair along with interventions that disrupt healing. Examines the incidence/prevalence, etiology, pathogenesis, clinical presentation, and treatment of common immune and infectious conditions. Presents treatment options for each disorder, including pharmacological, surgical, allied health, and self-care interventions. Emphasizes physical therapy interventions such as patient education, therapeutic exercise, functional training, and community resources, when appropriate. Explores differential screening and recognition of medical complications that require precautions or represent contraindications to physical therapy treatment.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "NEUROSCIENCE FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 738",
+  "credits": "3",
+  "description": "Analyzes neurophysiologic mechanisms underlying normal and abnormal motor and sensory function. Emphasis on pain processing, neuroplasticity and brain behavior relationships.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PATHOLOGY & PHARMACOLOGY FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 739",
+  "credits": "5",
+  "description": "Emphasizes pathological conditions within the metabolic and endocrine, renal, genitourinary, gastrointestinal, and lymphatic systems. Explores the incidence/prevalence, etiology, pathogenesis, clinical manifestations, and treatment interventions (pharmacological, surgical, physical therapy) for common disorders related to each system. Explores chronic wound management, burn rehabilitation, and cancer rehabilitation. Interactively explores direct interventions for lymphedema. Emphasizes differential screening and recognition of medical complications that require precautions or represent contraindications to physical therapy interventions.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL PHYSIOLOGY FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 742",
+  "credits": "3",
+  "description": "Examines foundational bioenergetics, including the metabolic transformation of carbohydrates, fats, and proteins into energy and the use of metabolic by-products for gluconeogenesis. Explores the hormonal regulation of metabolism at rest and during exercise. Considers the definition, regulation, common uses, and effects of dietary supplements. Reviews other physiology systems including endocrine, renal, muscle, and integumentary. Examines common pathological conditions for select systems.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MOTOR CONTROL & LEARNING ACROSS THE LIFESPAN",
+  "course_number": "PT 744",
+  "credits": "3",
+  "description": "Examines motor control, motor learning, and recovery of function theories and their clinical application across the lifespan. Discusses normal and abnormal postural control, mobility, reach, grasp and object manipulation with an emphasis on synthesizing these theories into evidence-based clinical practice.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MOTOR DEVELOPMENT FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 747",
+  "credits": "3",
+  "description": "Examines the processes and products of motor development covering the entire life span, including biological, affective, cognitive, and behavioral aspects.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "GERIATRIC PHYSICAL THERAPY",
+  "course_number": "PT 749",
+  "credits": "3",
+  "description": "Explores the physical and psycho-behavioral aspects of aging in adulthood with an emphasis on normal and pathological aging, clinical problems, and implications for therapeutic interventions delivered by the physical therapist. Examines modifiable disease risk factors impacting older adults’ lifespan in order to promote optimal care, functional outcomes, and wellness in older adults.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PEDIATRIC PHYSICAL THERAPY",
+  "course_number": "PT 751",
+  "credits": "3",
+  "description": "Explores the physical therapist’s examination, evaluation, diagnostic labeling, prognostication, intervention and outcome determination for the pediatric population (infants, children, and adolescents) using common pediatric medical diagnoses.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MANGEMENT OF CARDIOPULMONARY DYSFUNCTION",
+  "course_number": "PT 753",
+  "credits": "6",
+  "description": "Explores normal physiology of pulmonary and cardiovascular systems as well as pathogenesis and clinical presentation of common pathologies. Examines evaluation and interventions to optimize cardiovascular and pulmonary function in healthy individuals and those with impairments. Considers common medical (surgical and pharmacological) and physical therapy (education, exercise, functional training, community integration) interventions. Introduces pharmacology principles and factors affecting pharmacokinetics and emphasizes pharmacodynamics of primary drug classes and their effects on rehabilitation. Develops differential screening and recognition of complications that require precautions or represent contraindications to physical therapy interventions. Presents physical exams and direct interventions in laboratory sessions.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ORTHOPEDICS I",
+  "course_number": "PT 754",
+  "credits": "6",
+  "description": "Explores examination, evaluation, diagnosis, prognosis, and interventions for orthopedic conditions of the upper extremities. Demonstrates integration of the information learned in year one as well as the experiential knowledge gained during clinical affiliations. Reviews lecture, guest lecturers, case studies, videos, volunteers and laboratory sessions for the practice and learning of orthopedic assessment and intervention techniques.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ORTHOPEDICS II",
+  "course_number": "PT 755",
+  "credits": "6",
+  "description": "Explores examination, evaluation, diagnosis, prognosis, and interventions for orthopedic conditions of the lower extremities. Examines the integration of the information learned in year one as well as the experiential knowledge gained during clinical affiliations. Reviews lecture, guest lecturers, case studies, videos, volunteers and laboratory sessions for the practice and learning of orthopedic assessment and intervention techniques.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "ORTHOPEDICS III",
+  "course_number": "PT 756",
+  "credits": "6",
+  "description": "Explores the examination, evaluation, diagnosis, prognosis, and interventions for orthopedic conditions of the spine and the inter-relationships between axial and appendicular structures. Develops clinical competence in joint assessment and treatment techniques from a neuromusculoskeletal perspective, with emphasis on manual therapy techniques for the spine.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "SPORTS PHYSICAL THERAPY",
+  "course_number": "PT 757",
+  "credits": "3",
+  "description": "Examine excellence in sports physical therapy with an emphasis on promoting and advancing specific areas of sports physical therapy across the profession.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MANGEMENT OF NEUROLOGICAL DYSFUNCTION I",
+  "course_number": "PT 758",
+  "credits": "5",
+  "description": "Prepares students to be able to demonstrate an examination and evaluation, develop a diagnosis and prognosis, and select and demonstrate interventions for adults with neurological dysfunction, with an emphasis on spinal cord injury. Reviews and applies principles of neuroanatomy, neuroscience, motor learning and motor control. Interprets examination and evaluation findings to create a patient-centered plan of care in collaboration with patient, family and interdisciplinary team members that considers the patient’s resources, environment, and capacity for recovery.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MANGEMENT OF NEUROLOGICAL DYSFUNCTION II",
+  "course_number": "PT 759",
+  "credits": "6",
+  "description": "Prepares students to be able to demonstrate an examination and evaluation, develop a diagnosis and prognosis, and select and demonstrate interventions for adults with neurological dysfunction, with an emphasis on stroke, traumatic brain injury, concussion, brain tumor and demyelinating neurologic diseases. Reviews and applies principles of neuroanatomy, neuroscience, motor learning and motor control. Interprets examination and evaluation findings to create a patient-centered plan of care in collaboration with patient, family and interdisciplinary team members that considers the patient’s resources, environment, and capacity for recovery.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "MANGEMENT OF NEUROLOGICAL DYSFUNCTION III",
+  "course_number": "PT 762",
+  "credits": "4",
+  "description": "Prepares students to be able to demonstrate an examination and evaluation, develop a diagnosis and prognosis, and select and demonstrate interventions for adults with neurological dysfunction, with an emphasis on neurodegenerative diseases, vestibular pathologies, and balance and falls. Reviews and applies principles of neuroanatomy, neuroscience, motor learning and motor control. Interprets examination and evaluation findings to create a patient-centered plan of care in collaboration with patient, family and interdisciplinary team members that considers the patient’s resources, environment, and capacity for recovery.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PAIN SCIENCE AND PSYCHOSOCIAL ISSUES",
+  "course_number": "PT 763",
+  "credits": "3",
+  "description": "Explores the multidimensional nature of pain, the biopsychosocial model as related to pain/ability/disability, assessment and measurement of pain, management of pain, clinical pain conditions, sociocultural influences on pain perception, concepts and tools to mitigate the psychological contribution to pain and disability, and the role and responsibility of the health care provider in mitigating pain without causing additional harm.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DIFFERENTIAL DIAGNOSIS FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 764",
+  "credits": "2",
+  "description": "Explores the skills necessary to perform a medical screening and differential diagnosis. Examines systems review, viscogenic and systemic origins of neuromusculoskeletal pain and dysfunction, integration of diagnostic imaging and laboratory testing in physical therapy diagnosis and referral management. Explores palpation and observation directed towards referral management strategies.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "HEALTH PROMOTION & WELLNESS FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 766",
+  "credits": "3",
+  "description": "Explore the physical therapist’s role in promoting health and wellness at the individual and community levels, with emphasis on the rural health environment and underserved communities. Define population health, recognize how multiple determinants of health interact to influence health, identify key health indicators used to monitor population health, access sources of population health data to guide prevention and health promotion efforts, and learn to advocate for the health needs of society.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHYSICAL THERAPY IN RURAL COMMUNITIES",
+  "course_number": "PT 767",
+  "credits": "2",
+  "description": "Discover and explore the unique needs of physical therapy and the health services environment in rural communities. Builds on content introduced in PT 766. Provides students with an understanding of the unique aspects of the health services delivery system and other associated public and private systems that impact rehabilitation, health, and wellness in the rural United States. Emphasizes the diverse populations and needs of the Northwest and Mountain West regions of the United States.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "BUSINESS ADMINISTRATION IN PHYSICAL THERAPY",
+  "course_number": "PT 768",
+  "credits": "3",
+  "description": "Explores various aspects of physical therapy practice management. Examines the law, finance, operations, marketing, billing and coding and employment.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROSTHETICS AND ORTHOTICS IN PHYSICAL THERAPY",
+  "course_number": "PT 769",
+  "credits": "3",
+  "description": "Examines prosthetics and orthotics and people with amputations. Examines surgical procedures for lower extremity (LE) and upper extremity (UE) amputations, components of LE and UE orthoses and prostheses as well as spinal orthoses. Explores physical therapy evaluation and treatment of individuals with amputations including interventions for gait abnormalities.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "LEADERSHIP & PROFESSIONAL DEVELOPMENT IN PHYSICAL THERAPY",
+  "course_number": "PT 770",
+  "credits": "2",
+  "description": "Explores leadership and professional development as part of the art of being an effective physical therapist. Builds on students’ existing strengths to enhance and expand intrapersonal, interpersonal, professional and leadership skills. Introduces leadership theory and how leadership differs from management; development of a professional portfolio and personal development plan; leadership, teamwork, and followership in clinical and non-clinical settings; ethics and integrity in leadership; and the leader’s role in mentoring and developing future leaders.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PHYSICAL THERAPY SPECIALTIES",
+  "course_number": "PT 771",
+  "credits": "3",
+  "description": "Provides the physical therapy student with an overview of physical therapy specializations in a variety of areas.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "IMAGING FOR THE PHYSICAL THERAPIST",
+  "course_number": "PT 772",
+  "credits": "1",
+  "description": "Explores medical imaging for the physical therapist and covers principles and application of various medical imaging techniques, including X-ray and MRI.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EVIDENCE-BASED PRACTICE AND RESEARCH METHODS I",
+  "course_number": "PT 773",
+  "credits": "1",
+  "description": "Explores evidence-based practice, with a focus on the skills and knowledge needed during the first year in the DPT program. Emphasizes developing a clinical question, searching the literature for the best evidence, and critically appraising the evidence, with considerable time spent on navigating scholarly databases.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EVIDENCE-BASED PRACTICE AND RESEARCH METHODS II",
+  "course_number": "PT 774",
+  "credits": "3",
+  "description": "Expands on concepts learned in PT 773, with a focus on conducting clinical research, including study planning, design, and execution. Emphasizes research ethics, IRB, levels of evidence, statistical tests and measures, and the peer review/publication process.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "EVIDENCE-BASED PRACTICE & RESEARCH METHODS III",
+  "course_number": "PT 775",
+  "credits": "3",
+  "description": "Expands on concepts learned in PT 773 and PT 774. Examines methods to prepare DPT graduates to communicate, implement and sustain evidence-based practices for the physical therapist at the individual and organizational level. Applies theories of implementation science, knowledge translation and dissemination science to prepare students to create an implementation plan of an evidenced-based physical therapy practice. Concludes with a culminating project to summarize and defend an action plan to ensure students are prepared to enter the profession with the tools needed to close the gap in implementation of evidence-based practices.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PREPARATION FOR DPT CAPSTONE RESEARCH",
+  "course_number": "PT 776",
+  "credits": "1",
+  "description": "Builds on skills learned in the evidence-based practice sequence to prepare students to complete a group research project under the direction of a faculty mentor, including developing a thorough literature search, refining a clinical question and hypothesis, and identifying the necessary background knowledge and skills for their project.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DPT CAPSTONE RESEARCH I",
+  "course_number": "PT 781",
+  "credits": "2",
+  "description": "Provides an opportunity for students to complete a group research project under the guidance of a faculty mentor over the span of three quarters. Applies skills learned in the research and evidence-based practice courses, with an emphasis on initiating data collection for the project.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DPT CAPSTONE RESEARCH II",
+  "course_number": "PT 782",
+  "credits": "2",
+  "description": "Provides an opportunity for students to complete a group research project under the guidance of a faculty mentor over the span of three quarters. Continues the project initiated during PT 781, with an emphasis on finishing data collection and initiating data analysis for the project.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "DPT CAPSTONE RESEARCH III",
+  "course_number": "PT 783",
+  "credits": "2",
+  "description": "Provides an opportunity for students to complete a group research project under the guidance of a faculty mentor over the span of three quarters. Completes the project initiated during PT 781 and continued during PT 782, with an emphasis on finishing data analysis, writing a scientific manuscript, and giving a final research presentation.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE I",
+  "course_number": "PT 792",
+  "credits": "1",
+  "description": "Practice professional behaviors, communication skills, and examination and intervention techniques in a clinical setting. Work in pairs with clinical instructor(s) at an assigned clinical facility to practice skills and behaviors learned in past classes and integrate new skills learned concurrently in other courses. Identify and practice new examination and intervention techniques. Provide clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE II",
+  "course_number": "PT 793",
+  "credits": "1",
+  "description": "Practice professional behaviors, communication skills, and examination and intervention techniques in a clinical setting. Work in pairs with clinical instructor(s) at an assigned clinical facility to practice skills and behaviors learned in past classes and integrate new skills learned concurrently in other courses. Identify and practice new examination and intervention techniques. Provides clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE III",
+  "course_number": "PT 794",
+  "credits": "3",
+  "description": "Provides students with their first opportunity to practice professional behaviors, communication skills, and examination and intervention techniques in a full-time clinical schedule. Work in pairs with clinical instructor(s) at an assigned clinical facility to practice and integrate skills and behaviors learned in past classes. Identify and practice new examination and intervention techniques. Provides clinical instruction a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE IV",
+  "course_number": "PT 795",
+  "credits": "4",
+  "description": "Provides students with their second opportunity to practice professional behaviors, communication skills, examination, evaluation, planning and intervention techniques in a full-time clinical experience. Work with clinical instructor(s) at an assigned clinical facility to practice skills and behaviors learned in past classes and integrate new skills learned concurrently in other courses. Identify and practice new examination and intervention techniques. Provides clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE V",
+  "course_number": "PT 796",
+  "credits": "14",
+  "description": "Provides students with their first ten-week terminal clinical experience following completion of their didactic coursework. Work with clinical instructor(s) at an assigned clinical facility to practice and apply skills and behaviors learned in past classes and demonstrate increasing levels of independence in practice. Identify and practice new examination and intervention techniques, at the facility clinical instructor’s discretion. Provides clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE VI",
+  "course_number": "PT 797",
+  "credits": "14",
+  "description": "Provides students with their second ten-week terminal clinical experience following completion of their didactic coursework. Works with clinical instructor(s) at an assigned clinical facility to practice and apply skills and behaviors learned in past classes and demonstrate increasing levels of independence in practice. Identifies and practices new examination and intervention techniques, at the clinical instructor’s discretion. Provides clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "CLINICAL EXPERIENCE VII",
+  "course_number": "PT 798",
+  "credits": "14",
+  "description": "Provides students with their third and final ten-week terminal clinical experience following completion of their didactic coursework. Work with clinical instructor(s) at an assigned clinical facility to practice and apply skills and behaviors learned in past classes and demonstrate increasing levels of independence in practice. Identify and practice new examination and intervention techniques, at the CI’s discretion. Provides clinical instruction at a local or out of town facility by qualified, experienced physical therapists.",
+  "prerequisites": []
+}]

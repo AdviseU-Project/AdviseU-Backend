@@ -1,0 +1,3 @@
+/home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/AdviseU.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/edit_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/rebuild_cache.dir

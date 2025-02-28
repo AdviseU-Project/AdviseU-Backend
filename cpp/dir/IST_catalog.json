@@ -1,0 +1,50 @@
+[{
+  "corequisites": [],
+  "course_name": "RESEARCH AND SCHOLARSHIP",
+  "course_number": "IST 501",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "THESIS",
+  "course_number": "IST 503",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "READING AND CONFERENCE",
+  "course_number": "IST 505",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "PROJECTS",
+  "course_number": "IST 506",
+  "credits": "1-16",
+  "description": "",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTRODUCTION TO INTERDISCIPLINARY GRADUATE STUDIES",
+  "course_number": "IST 511",
+  "credits": "1",
+  "description": "First term graduate seminar for master's students in interdisciplinary studies to design their program of study; discover and access library and other university resources related to their fields of study; and practice synthesizing aspects of three differing fields.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "APPLYING AN INTERDISCIPLINARY PERSPECTIVE",
+  "course_number": "IST 512",
+  "credits": "3",
+  "description": "Students will develop knowledge and skills in theory, research methods, and practice of approaching problems, issues, or events from an interdisciplinary perspective.",
+  "prerequisites": []
+}, {
+  "corequisites": [],
+  "course_name": "INTERDISCIPLINARY RESEARCH COLLOQUIUM",
+  "course_number": "IST 513",
+  "credits": "1",
+  "description": "Supports MAIS students as they conduct research for their thesis, research paper, or project, further their understanding how to synthesize multiple fields of study into a research project, and effectively employ this knowledge in preparation of the thesis/paper/project itself.",
+  "prerequisites": []
+}]
