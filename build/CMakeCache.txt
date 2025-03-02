@@ -23,6 +23,15 @@ AdviseU_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 AdviseU_SOURCE_DIR:STATIC=/home/ristn/AdviseU-Lib-DegreePlanner
 
+//The directory containing a CMake configuration file for BSONCXX.
+BSONCXX_DIR:PATH=/usr/local/lib/cmake/bsoncxx-4.0.0
+
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=/usr/local/lib/cmake/Boost-1.88.0
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/local/include
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -217,11 +226,298 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to a library.
+GECODE_INT:FILEPATH=/usr/local/lib/libgecodeint.so
+
+//Path to a library.
+GECODE_KERNEL:FILEPATH=/usr/local/lib/libgecodekernel.so
+
+//Path to a library.
+GECODE_SEARCH:FILEPATH=/usr/local/lib/libgecodesearch.so
+
+//Path to a library.
+GECODE_SUPPORT:FILEPATH=/usr/local/lib/libgecodesupport.so
+
+//The directory containing a CMake configuration file for MONGOCXX.
+MONGOCXX_DIR:PATH=/usr/local/lib/cmake/mongocxx-4.0.0
+
+//Path to a library.
+OPENSSL_CRYPTO_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
+
+//Path to a file.
+OPENSSL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//The directory containing a CMake configuration file for boost_algorithm.
+boost_algorithm_DIR:PATH=/usr/local/lib/cmake/boost_algorithm-1.88.0
+
+//The directory containing a CMake configuration file for boost_align.
+boost_align_DIR:PATH=/usr/local/lib/cmake/boost_align-1.88.0
+
+//The directory containing a CMake configuration file for boost_array.
+boost_array_DIR:PATH=/usr/local/lib/cmake/boost_array-1.88.0
+
+//The directory containing a CMake configuration file for boost_asio.
+boost_asio_DIR:PATH=/usr/local/lib/cmake/boost_asio-1.88.0
+
+//The directory containing a CMake configuration file for boost_assert.
+boost_assert_DIR:PATH=/usr/local/lib/cmake/boost_assert-1.88.0
+
+//The directory containing a CMake configuration file for boost_beast.
+boost_beast_DIR:PATH=/usr/local/lib/cmake/boost_beast-1.88.0
+
+//The directory containing a CMake configuration file for boost_bind.
+boost_bind_DIR:PATH=/usr/local/lib/cmake/boost_bind-1.88.0
+
+//The directory containing a CMake configuration file for boost_concept_check.
+boost_concept_check_DIR:PATH=/usr/local/lib/cmake/boost_concept_check-1.88.0
+
+//The directory containing a CMake configuration file for boost_config.
+boost_config_DIR:PATH=/usr/local/lib/cmake/boost_config-1.88.0
+
+//The directory containing a CMake configuration file for boost_container.
+boost_container_DIR:PATH=/usr/local/lib/cmake/boost_container-1.88.0-static
+
+//The directory containing a CMake configuration file for boost_container_hash.
+boost_container_hash_DIR:PATH=/usr/local/lib/cmake/boost_container_hash-1.88.0
+
+//The directory containing a CMake configuration file for boost_context.
+boost_context_DIR:PATH=/usr/local/lib/cmake/boost_context-1.88.0-static
+
+//The directory containing a CMake configuration file for boost_conversion.
+boost_conversion_DIR:PATH=/usr/local/lib/cmake/boost_conversion-1.88.0
+
+//The directory containing a CMake configuration file for boost_core.
+boost_core_DIR:PATH=/usr/local/lib/cmake/boost_core-1.88.0
+
+//The directory containing a CMake configuration file for boost_date_time.
+boost_date_time_DIR:PATH=/usr/local/lib/cmake/boost_date_time-1.88.0-static
+
+//The directory containing a CMake configuration file for boost_describe.
+boost_describe_DIR:PATH=/usr/local/lib/cmake/boost_describe-1.88.0
+
+//The directory containing a CMake configuration file for boost_detail.
+boost_detail_DIR:PATH=/usr/local/lib/cmake/boost_detail-1.88.0
+
+//The directory containing a CMake configuration file for boost_endian.
+boost_endian_DIR:PATH=/usr/local/lib/cmake/boost_endian-1.88.0
+
+//The directory containing a CMake configuration file for boost_exception.
+boost_exception_DIR:PATH=/usr/local/lib/cmake/boost_exception-1.88.0
+
+//The directory containing a CMake configuration file for boost_function.
+boost_function_DIR:PATH=/usr/local/lib/cmake/boost_function-1.88.0
+
+//The directory containing a CMake configuration file for boost_function_types.
+boost_function_types_DIR:PATH=/usr/local/lib/cmake/boost_function_types-1.88.0
+
+//The directory containing a CMake configuration file for boost_functional.
+boost_functional_DIR:PATH=/usr/local/lib/cmake/boost_functional-1.88.0
+
+//The directory containing a CMake configuration file for boost_fusion.
+boost_fusion_DIR:PATH=/usr/local/lib/cmake/boost_fusion-1.88.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=/usr/local/lib/cmake/boost_headers-1.88.0
+
+//The directory containing a CMake configuration file for boost_integer.
+boost_integer_DIR:PATH=/usr/local/lib/cmake/boost_integer-1.88.0
+
+//The directory containing a CMake configuration file for boost_intrusive.
+boost_intrusive_DIR:PATH=/usr/local/lib/cmake/boost_intrusive-1.88.0
+
+//The directory containing a CMake configuration file for boost_io.
+boost_io_DIR:PATH=/usr/local/lib/cmake/boost_io-1.88.0
+
+//The directory containing a CMake configuration file for boost_iterator.
+boost_iterator_DIR:PATH=/usr/local/lib/cmake/boost_iterator-1.88.0
+
+//The directory containing a CMake configuration file for boost_lexical_cast.
+boost_lexical_cast_DIR:PATH=/usr/local/lib/cmake/boost_lexical_cast-1.88.0
+
+//The directory containing a CMake configuration file for boost_logic.
+boost_logic_DIR:PATH=/usr/local/lib/cmake/boost_logic-1.88.0
+
+//The directory containing a CMake configuration file for boost_move.
+boost_move_DIR:PATH=/usr/local/lib/cmake/boost_move-1.88.0
+
+//The directory containing a CMake configuration file for boost_mp11.
+boost_mp11_DIR:PATH=/usr/local/lib/cmake/boost_mp11-1.88.0
+
+//The directory containing a CMake configuration file for boost_mpl.
+boost_mpl_DIR:PATH=/usr/local/lib/cmake/boost_mpl-1.88.0
+
+//The directory containing a CMake configuration file for boost_numeric_conversion.
+boost_numeric_conversion_DIR:PATH=/usr/local/lib/cmake/boost_numeric_conversion-1.88.0
+
+//The directory containing a CMake configuration file for boost_optional.
+boost_optional_DIR:PATH=/usr/local/lib/cmake/boost_optional-1.88.0
+
+//The directory containing a CMake configuration file for boost_pool.
+boost_pool_DIR:PATH=/usr/local/lib/cmake/boost_pool-1.88.0
+
+//The directory containing a CMake configuration file for boost_predef.
+boost_predef_DIR:PATH=/usr/local/lib/cmake/boost_predef-1.88.0
+
+//The directory containing a CMake configuration file for boost_preprocessor.
+boost_preprocessor_DIR:PATH=/usr/local/lib/cmake/boost_preprocessor-1.88.0
+
+//The directory containing a CMake configuration file for boost_range.
+boost_range_DIR:PATH=/usr/local/lib/cmake/boost_range-1.88.0
+
+//The directory containing a CMake configuration file for boost_regex.
+boost_regex_DIR:PATH=/usr/local/lib/cmake/boost_regex-1.88.0
+
+//The directory containing a CMake configuration file for boost_smart_ptr.
+boost_smart_ptr_DIR:PATH=/usr/local/lib/cmake/boost_smart_ptr-1.88.0
+
+//The directory containing a CMake configuration file for boost_static_assert.
+boost_static_assert_DIR:PATH=/usr/local/lib/cmake/boost_static_assert-1.88.0
+
+//The directory containing a CMake configuration file for boost_static_string.
+boost_static_string_DIR:PATH=/usr/local/lib/cmake/boost_static_string-1.88.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=/usr/local/lib/cmake/boost_system-1.88.0
+
+//The directory containing a CMake configuration file for boost_throw_exception.
+boost_throw_exception_DIR:PATH=/usr/local/lib/cmake/boost_throw_exception-1.88.0
+
+//The directory containing a CMake configuration file for boost_tokenizer.
+boost_tokenizer_DIR:PATH=/usr/local/lib/cmake/boost_tokenizer-1.88.0
+
+//The directory containing a CMake configuration file for boost_tuple.
+boost_tuple_DIR:PATH=/usr/local/lib/cmake/boost_tuple-1.88.0
+
+//The directory containing a CMake configuration file for boost_type_index.
+boost_type_index_DIR:PATH=/usr/local/lib/cmake/boost_type_index-1.88.0
+
+//The directory containing a CMake configuration file for boost_type_traits.
+boost_type_traits_DIR:PATH=/usr/local/lib/cmake/boost_type_traits-1.88.0
+
+//The directory containing a CMake configuration file for boost_typeof.
+boost_typeof_DIR:PATH=/usr/local/lib/cmake/boost_typeof-1.88.0
+
+//The directory containing a CMake configuration file for boost_unordered.
+boost_unordered_DIR:PATH=/usr/local/lib/cmake/boost_unordered-1.88.0
+
+//The directory containing a CMake configuration file for boost_utility.
+boost_utility_DIR:PATH=/usr/local/lib/cmake/boost_utility-1.88.0
+
+//The directory containing a CMake configuration file for boost_variant2.
+boost_variant2_DIR:PATH=/usr/local/lib/cmake/boost_variant2-1.88.0
+
+//The directory containing a CMake configuration file for boost_winapi.
+boost_winapi_DIR:PATH=/usr/local/lib/cmake/boost_winapi-1.88.0
+
+//The directory containing a CMake configuration file for bson-1.0.
+bson-1.0_DIR:PATH=/usr/local/lib/cmake/bson-1.0
+
+//The directory containing a CMake configuration file for bsoncxx.
+bsoncxx_DIR:PATH=/usr/local/lib/cmake/bsoncxx-4.0.0
+
+//The directory containing a CMake configuration file for libbsoncxx.
+libbsoncxx_DIR:PATH=libbsoncxx_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for libmongocxx.
+libmongocxx_DIR:PATH=libmongocxx_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for mongo.
+mongo_DIR:PATH=mongo_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for mongoc-1.0.
+mongoc-1.0_DIR:PATH=/usr/local/lib/cmake/mongoc-1.0
+
+//The directory containing a CMake configuration file for mongoc.
+mongoc_DIR:PATH=mongoc_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for mongocxx.
+mongocxx_DIR:PATH=/usr/local/lib/cmake/mongocxx-4.0.0
+
+//Path to a library.
+pkgcfg_lib_BSONCXX_bsoncxx:FILEPATH=/usr/local/lib/libbsoncxx.so
+
+//Path to a library.
+pkgcfg_lib_MONGOCXX_bsoncxx:FILEPATH=/usr/local/lib/libbsoncxx.so
+
+//Path to a library.
+pkgcfg_lib_MONGOCXX_mongocxx:FILEPATH=/usr/local/lib/libmongocxx.so
+
+//Path to a library.
+pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
+
+//Path to a library.
+pkgcfg_lib__OPENSSL_ssl:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+
+//Path to a library.
+pkgcfg_lib_libmongocxx_bsoncxx:FILEPATH=/usr/local/lib/libbsoncxx.so
+
+//Path to a library.
+pkgcfg_lib_libmongocxx_mongocxx:FILEPATH=/usr/local/lib/libmongocxx.so
+
+//Path to a library.
+pkgcfg_lib_mongocxx_bsoncxx:FILEPATH=/usr/local/lib/libbsoncxx.so
+
+//Path to a library.
+pkgcfg_lib_mongocxx_mongocxx:FILEPATH=/usr/local/lib/libmongocxx.so
+
+//The directory containing a CMake configuration file for soncxx.
+soncxx_DIR:PATH=soncxx_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
 ########################
 
+BSONCXX_CFLAGS:INTERNAL=-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+BSONCXX_CFLAGS_I:INTERNAL=
+BSONCXX_CFLAGS_OTHER:INTERNAL=
+BSONCXX_FOUND:INTERNAL=1
+BSONCXX_INCLUDEDIR:INTERNAL=/usr/local/include
+BSONCXX_INCLUDE_DIRS:INTERNAL=/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+BSONCXX_LDFLAGS:INTERNAL=-L/usr/local/lib;-lbsoncxx
+BSONCXX_LDFLAGS_OTHER:INTERNAL=
+BSONCXX_LIBDIR:INTERNAL=/usr/local/lib
+BSONCXX_LIBRARIES:INTERNAL=bsoncxx
+BSONCXX_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+BSONCXX_LIBS:INTERNAL=
+BSONCXX_LIBS_L:INTERNAL=
+BSONCXX_LIBS_OTHER:INTERNAL=
+BSONCXX_LIBS_PATHS:INTERNAL=
+BSONCXX_MODULE_NAME:INTERNAL=libbsoncxx
+BSONCXX_PREFIX:INTERNAL=/usr/local
+BSONCXX_STATIC_CFLAGS:INTERNAL=-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+BSONCXX_STATIC_CFLAGS_I:INTERNAL=
+BSONCXX_STATIC_CFLAGS_OTHER:INTERNAL=
+BSONCXX_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+BSONCXX_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-lbsoncxx
+BSONCXX_STATIC_LDFLAGS_OTHER:INTERNAL=
+BSONCXX_STATIC_LIBDIR:INTERNAL=
+BSONCXX_STATIC_LIBRARIES:INTERNAL=bsoncxx
+BSONCXX_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+BSONCXX_STATIC_LIBS:INTERNAL=
+BSONCXX_STATIC_LIBS_L:INTERNAL=
+BSONCXX_STATIC_LIBS_OTHER:INTERNAL=
+BSONCXX_STATIC_LIBS_PATHS:INTERNAL=
+BSONCXX_VERSION:INTERNAL=4.0.0
+BSONCXX_bsoncxx_INCLUDEDIR:INTERNAL=
+BSONCXX_bsoncxx_LIBDIR:INTERNAL=
+BSONCXX_bsoncxx_PREFIX:INTERNAL=
+BSONCXX_bsoncxx_VERSION:INTERNAL=
+BSONCXX_libbsoncxx_INCLUDEDIR:INTERNAL=
+BSONCXX_libbsoncxx_LIBDIR:INTERNAL=
+BSONCXX_libbsoncxx_PREFIX:INTERNAL=
+BSONCXX_libbsoncxx_VERSION:INTERNAL=
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -290,6 +586,8 @@ CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
@@ -300,6 +598,10 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/ristn/AdviseU-Lib-DegreePlanner
@@ -322,7 +624,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -365,4 +667,195 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/local/lib/cmake/Boost-1.88.0/BoostConfig.cmake][cfound components: asio beast ][v1.88.0(1.88.0)]
+//Details about finding OpenSSL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v3.0.2()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.2()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+MONGOCXX_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+MONGOCXX_CFLAGS_I:INTERNAL=
+MONGOCXX_CFLAGS_OTHER:INTERNAL=
+MONGOCXX_FOUND:INTERNAL=1
+MONGOCXX_INCLUDEDIR:INTERNAL=/usr/local/include
+MONGOCXX_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+MONGOCXX_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+MONGOCXX_LDFLAGS_OTHER:INTERNAL=
+MONGOCXX_LIBDIR:INTERNAL=/usr/local/lib
+MONGOCXX_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+MONGOCXX_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+MONGOCXX_LIBS:INTERNAL=
+MONGOCXX_LIBS_L:INTERNAL=
+MONGOCXX_LIBS_OTHER:INTERNAL=
+MONGOCXX_LIBS_PATHS:INTERNAL=
+MONGOCXX_MODULE_NAME:INTERNAL=libmongocxx
+MONGOCXX_PREFIX:INTERNAL=/usr/local
+MONGOCXX_STATIC_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+MONGOCXX_STATIC_CFLAGS_I:INTERNAL=
+MONGOCXX_STATIC_CFLAGS_OTHER:INTERNAL=
+MONGOCXX_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+MONGOCXX_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+MONGOCXX_STATIC_LDFLAGS_OTHER:INTERNAL=
+MONGOCXX_STATIC_LIBDIR:INTERNAL=
+MONGOCXX_STATIC_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+MONGOCXX_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+MONGOCXX_STATIC_LIBS:INTERNAL=
+MONGOCXX_STATIC_LIBS_L:INTERNAL=
+MONGOCXX_STATIC_LIBS_OTHER:INTERNAL=
+MONGOCXX_STATIC_LIBS_PATHS:INTERNAL=
+MONGOCXX_VERSION:INTERNAL=4.0.0
+MONGOCXX_libmongocxx_INCLUDEDIR:INTERNAL=
+MONGOCXX_libmongocxx_LIBDIR:INTERNAL=
+MONGOCXX_libmongocxx_PREFIX:INTERNAL=
+MONGOCXX_libmongocxx_VERSION:INTERNAL=
+MONGOCXX_mongocxx_INCLUDEDIR:INTERNAL=
+MONGOCXX_mongocxx_LIBDIR:INTERNAL=
+MONGOCXX_mongocxx_PREFIX:INTERNAL=
+MONGOCXX_mongocxx_VERSION:INTERNAL=
+//ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
+OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENSSL_INCLUDE_DIR
+OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENSSL_SSL_LIBRARY
+OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+_OPENSSL_CFLAGS:INTERNAL=
+_OPENSSL_CFLAGS_I:INTERNAL=
+_OPENSSL_CFLAGS_OTHER:INTERNAL=
+_OPENSSL_FOUND:INTERNAL=1
+_OPENSSL_INCLUDEDIR:INTERNAL=/usr/include
+_OPENSSL_INCLUDE_DIRS:INTERNAL=
+_OPENSSL_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lssl;-lcrypto
+_OPENSSL_LDFLAGS_OTHER:INTERNAL=
+_OPENSSL_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+_OPENSSL_LIBRARIES:INTERNAL=ssl;crypto
+_OPENSSL_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+_OPENSSL_LIBS:INTERNAL=
+_OPENSSL_LIBS_L:INTERNAL=
+_OPENSSL_LIBS_OTHER:INTERNAL=
+_OPENSSL_LIBS_PATHS:INTERNAL=
+_OPENSSL_MODULE_NAME:INTERNAL=openssl
+_OPENSSL_PREFIX:INTERNAL=/usr
+_OPENSSL_STATIC_CFLAGS:INTERNAL=
+_OPENSSL_STATIC_CFLAGS_I:INTERNAL=
+_OPENSSL_STATIC_CFLAGS_OTHER:INTERNAL=
+_OPENSSL_STATIC_INCLUDE_DIRS:INTERNAL=
+_OPENSSL_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lssl;-lcrypto;-ldl;-pthread
+_OPENSSL_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+_OPENSSL_STATIC_LIBDIR:INTERNAL=
+_OPENSSL_STATIC_LIBRARIES:INTERNAL=ssl;crypto;dl
+_OPENSSL_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+_OPENSSL_STATIC_LIBS:INTERNAL=
+_OPENSSL_STATIC_LIBS_L:INTERNAL=
+_OPENSSL_STATIC_LIBS_OTHER:INTERNAL=
+_OPENSSL_STATIC_LIBS_PATHS:INTERNAL=
+_OPENSSL_VERSION:INTERNAL=3.0.2
+_OPENSSL_openssl_INCLUDEDIR:INTERNAL=
+_OPENSSL_openssl_LIBDIR:INTERNAL=
+_OPENSSL_openssl_PREFIX:INTERNAL=
+_OPENSSL_openssl_VERSION:INTERNAL=
+__pkg_config_arguments_BSONCXX:INTERNAL=REQUIRED;IMPORTED_TARGET;GLOBAL;libbsoncxx
+__pkg_config_arguments_MONGOCXX:INTERNAL=REQUIRED;IMPORTED_TARGET;GLOBAL;libmongocxx
+__pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
+__pkg_config_arguments_libmongocxx:INTERNAL=REQUIRED;IMPORTED_TARGET;libmongocxx
+__pkg_config_arguments_mongocxx:INTERNAL=REQUIRED;IMPORTED_TARGET;libmongocxx
+__pkg_config_checked_BSONCXX:INTERNAL=1
+__pkg_config_checked_MONGOCXX:INTERNAL=1
+__pkg_config_checked__OPENSSL:INTERNAL=1
+__pkg_config_checked_libmongocxx:INTERNAL=1
+__pkg_config_checked_mongocxx:INTERNAL=1
+libmongocxx_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+libmongocxx_CFLAGS_I:INTERNAL=
+libmongocxx_CFLAGS_OTHER:INTERNAL=
+libmongocxx_FOUND:INTERNAL=1
+libmongocxx_INCLUDEDIR:INTERNAL=/usr/local/include
+libmongocxx_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+libmongocxx_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+libmongocxx_LDFLAGS_OTHER:INTERNAL=
+libmongocxx_LIBDIR:INTERNAL=/usr/local/lib
+libmongocxx_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+libmongocxx_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+libmongocxx_LIBS:INTERNAL=
+libmongocxx_LIBS_L:INTERNAL=
+libmongocxx_LIBS_OTHER:INTERNAL=
+libmongocxx_LIBS_PATHS:INTERNAL=
+libmongocxx_MODULE_NAME:INTERNAL=libmongocxx
+libmongocxx_PREFIX:INTERNAL=/usr/local
+libmongocxx_STATIC_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+libmongocxx_STATIC_CFLAGS_I:INTERNAL=
+libmongocxx_STATIC_CFLAGS_OTHER:INTERNAL=
+libmongocxx_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+libmongocxx_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+libmongocxx_STATIC_LDFLAGS_OTHER:INTERNAL=
+libmongocxx_STATIC_LIBDIR:INTERNAL=
+libmongocxx_STATIC_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+libmongocxx_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+libmongocxx_STATIC_LIBS:INTERNAL=
+libmongocxx_STATIC_LIBS_L:INTERNAL=
+libmongocxx_STATIC_LIBS_OTHER:INTERNAL=
+libmongocxx_STATIC_LIBS_PATHS:INTERNAL=
+libmongocxx_VERSION:INTERNAL=4.0.0
+libmongocxx_libmongocxx_INCLUDEDIR:INTERNAL=
+libmongocxx_libmongocxx_LIBDIR:INTERNAL=
+libmongocxx_libmongocxx_PREFIX:INTERNAL=
+libmongocxx_libmongocxx_VERSION:INTERNAL=
+mongocxx_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+mongocxx_CFLAGS_I:INTERNAL=
+mongocxx_CFLAGS_OTHER:INTERNAL=
+mongocxx_FOUND:INTERNAL=1
+mongocxx_INCLUDEDIR:INTERNAL=/usr/local/include
+mongocxx_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+mongocxx_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+mongocxx_LDFLAGS_OTHER:INTERNAL=
+mongocxx_LIBDIR:INTERNAL=/usr/local/lib
+mongocxx_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+mongocxx_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+mongocxx_LIBS:INTERNAL=
+mongocxx_LIBS_L:INTERNAL=
+mongocxx_LIBS_OTHER:INTERNAL=
+mongocxx_LIBS_PATHS:INTERNAL=
+mongocxx_MODULE_NAME:INTERNAL=libmongocxx
+mongocxx_PREFIX:INTERNAL=/usr/local
+mongocxx_STATIC_CFLAGS:INTERNAL=-I/usr/local/include/mongocxx/v_noabi;-I/usr/local/include;-I/usr/local/include/bsoncxx/v_noabi;-I/usr/local/include
+mongocxx_STATIC_CFLAGS_I:INTERNAL=
+mongocxx_STATIC_CFLAGS_OTHER:INTERNAL=
+mongocxx_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include/mongocxx/v_noabi;/usr/local/include;/usr/local/include/bsoncxx/v_noabi;/usr/local/include
+mongocxx_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-lmongocxx;-lbsoncxx
+mongocxx_STATIC_LDFLAGS_OTHER:INTERNAL=
+mongocxx_STATIC_LIBDIR:INTERNAL=
+mongocxx_STATIC_LIBRARIES:INTERNAL=mongocxx;bsoncxx
+mongocxx_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+mongocxx_STATIC_LIBS:INTERNAL=
+mongocxx_STATIC_LIBS_L:INTERNAL=
+mongocxx_STATIC_LIBS_OTHER:INTERNAL=
+mongocxx_STATIC_LIBS_PATHS:INTERNAL=
+mongocxx_VERSION:INTERNAL=4.0.0
+mongocxx_libmongocxx_INCLUDEDIR:INTERNAL=
+mongocxx_libmongocxx_LIBDIR:INTERNAL=
+mongocxx_libmongocxx_PREFIX:INTERNAL=
+mongocxx_libmongocxx_VERSION:INTERNAL=
+//ADVANCED property for variable: pkgcfg_lib_BSONCXX_bsoncxx
+pkgcfg_lib_BSONCXX_bsoncxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_MONGOCXX_bsoncxx
+pkgcfg_lib_MONGOCXX_bsoncxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_MONGOCXX_mongocxx
+pkgcfg_lib_MONGOCXX_mongocxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
+pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl
+pkgcfg_lib__OPENSSL_ssl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_libmongocxx_bsoncxx
+pkgcfg_lib_libmongocxx_bsoncxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_libmongocxx_mongocxx
+pkgcfg_lib_libmongocxx_mongocxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_mongocxx_bsoncxx
+pkgcfg_lib_mongocxx_bsoncxx-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_mongocxx_mongocxx
+pkgcfg_lib_mongocxx_mongocxx-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/local/lib
 

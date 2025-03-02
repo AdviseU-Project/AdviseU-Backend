@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/AdviseU.dir/main.cpp.o -o AdviseU 
+/usr/bin/g++ -g CMakeFiles/AdviseU.dir/main.cpp.o -o AdviseU  -Wl,-rpath,/usr/local/lib solver/libSolver.a /usr/local/lib/libgecodesearch.so /usr/local/lib/libgecodeint.so /usr/local/lib/libgecodekernel.so /usr/local/lib/libgecodesupport.so /usr/local/lib/libboost_context.a /usr/local/lib/libboost_date_time.a /usr/local/lib/libboost_container.a /usr/local/lib/libmongocxx.so /usr/local/lib/libbsoncxx.so 

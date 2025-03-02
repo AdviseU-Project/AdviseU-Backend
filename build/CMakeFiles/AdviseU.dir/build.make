@@ -92,6 +92,16 @@ AdviseU_EXTERNAL_OBJECTS =
 
 AdviseU: CMakeFiles/AdviseU.dir/main.cpp.o
 AdviseU: CMakeFiles/AdviseU.dir/build.make
+AdviseU: solver/libSolver.a
+AdviseU: /usr/local/lib/libgecodesearch.so
+AdviseU: /usr/local/lib/libgecodeint.so
+AdviseU: /usr/local/lib/libgecodekernel.so
+AdviseU: /usr/local/lib/libgecodesupport.so
+AdviseU: /usr/local/lib/libboost_context.a
+AdviseU: /usr/local/lib/libboost_date_time.a
+AdviseU: /usr/local/lib/libboost_container.a
+AdviseU: /usr/local/lib/libmongocxx.so
+AdviseU: /usr/local/lib/libbsoncxx.so
 AdviseU: CMakeFiles/AdviseU.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AdviseU"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdviseU.dir/link.txt --verbose=$(VERBOSE)

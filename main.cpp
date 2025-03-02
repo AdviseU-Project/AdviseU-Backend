@@ -1,150 +1,228 @@
+#include <array>
+#include <cstdlib>
 #include <iostream>
+#include <optional>
+#include <string>
 #include <unordered_set>
+#include <vector>
 
+#include <boost/asio/awaitable.hpp>
+#include <boost/asio/co_spawn.hpp>
+#include <boost/asio/io_context.hpp>
+#include <boost/beast/core.hpp>
+#include <boost/beast/http.hpp>
+#include <boost/beast/version.hpp>
 #include <sys/resource.h>
 
 #include "globals.hpp"
 #include "loader.hpp"
+#include "shims.hpp"
 #include "solver.hpp"
 
 using namespace adviseu;
 
-bool set_stack_limit_1gb() {
-    constexpr rlim_t stack_size = 1025 * 1024 * 1024;  // 256 MB in bytes
-    struct rlimit rl;
-    
-    // Get current limits
-    if (getrlimit(RLIMIT_STACK, &rl) != 0) {
-        std::cerr << "Error: Could not get current stack limit\n";
-        return false;
-    }
-    
-    // Set new limit
-    rl.rlim_cur = stack_size;  // Set soft limit
-    if (rl.rlim_max < stack_size) {
-        rl.rlim_max = stack_size;  // Increase hard limit if necessary
-    }
-    
-    if (setrlimit(RLIMIT_STACK, &rl) != 0) {
-        std::cerr << "Error: Could not set stack limit to 256MB\n";
-        return false;
-    }
-    
-    return true;
-}
+namespace beast = boost::beast;
+namespace http  = beast::http;
+namespace net   = boost::asio;
 
-int main(void) {  
-    if (set_stack_limit_1gb()) {
-        std::cout << "Successfully set stack limit to 1GB\n";
-    } else {
-        std::cout << "Failed to set stack limit\n";
-        return 1;
+const std::string path = "/api/generatePlan";
+const auto uri = mongocxx::uri{"mongodb+srv://sebastianDev:IVKIJcpGOlIIpU0a@adviseu-dev-cluster.m3v7q.mongodb.net/?retryWrites=true&w=majority&appName=adviseu-dev-cluster"};
+const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
+
+// Return a response for the given request.
+//
+// The concrete type of the response message (which depends on the
+// request), is type-erased in message_generator.
+template <class Body, class Allocator>
+http::message_generator
+handle_request(
+    http::request<Body, http::basic_fields<Allocator>>&& req)
+{
+    // Returns a bad request response
+    auto const bad_request = [&req](beast::string_view why) {
+        http::response<http::string_body> res{http::status::bad_request, req.version()};
+        res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+        res.set(http::field::content_type, "text/html");
+        res.keep_alive(req.keep_alive());
+        res.body() = std::string(why);
+        res.prepare_payload();
+        
+        return res;
+    };
+
+    // Returns a server error response
+    auto const server_error = [&req](beast::string_view what) {
+        http::response<http::string_body> res{http::status::internal_server_error, req.version()};
+        res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+        res.set(http::field::content_type, "text/html");
+        res.keep_alive(req.keep_alive());
+        res.body() = "An error occurred: '" + std::string(what) + "'";
+        res.prepare_payload();
+        return res;
+    };
+
+    // Make sure we can handle the method
+    if(req.method() != http::verb::post) {
+        return bad_request("Unknown HTTP-method");
     }
 
-    mongocxx::instance inst{};
+    // Request path must be absolute and not contain "..".
+    if(req.target() != path) {
+        return bad_request("Illegal request-target");
+    }
+
+    auto body = shims::parse_schedule_request(req.body());
+
+    if(!body) {
+        return bad_request("Invalid request body");
+    }
+
     mongocxx::options::client client_options;
 
-    const auto uri = mongocxx::uri{"mongodb+srv://sebastianDev:IVKIJcpGOlIIpU0a@adviseu-dev-cluster.m3v7q.mongodb.net/?retryWrites=true&w=majority&appName=adviseu-dev-cluster"};
-    const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
-    
     client_options.server_api_opts(api);
 
     mongocxx::client conn{uri, client_options};
 
-    ping_mongo(conn);
+    auto program = load_program_from_mongo(body->degree_taking, conn);
 
-    const std::string course_code = "810";
-
-    load_courses_from_mongo(conn);
-    Program program = load_program_from_mongo(course_code, conn, global_ids);
-
-    for(const auto &global_id : global_ids) {
-        global_names[global_id.second] = global_id.first;
+    if(!program) {
+        return bad_request("Invalid degree option");
     }
 
-    for(int i = 0; i <= 18; i++) {
-        for(const auto &global_id : global_ids) {
-            term_course_map[i].insert(global_id.second);
-        }
+    std::optional<std::array<std::vector<std::string>, term_count>> mapping = plan_schedule(*program, body->courses_taken);
 
-        term_map[std::to_string(i)] = i;
+    if(!mapping) {
+        return bad_request("Could not find valid plan");
     }
 
-    global_names[-1] = "N/A";
+    auto response = shims::serialize_schedule_response(shims::ScheduleResponse{*mapping});
 
-    int idc = 0;
-    for(const auto &global_id : global_ids) {
-        std::cout << global_id.first << " -> " << global_id.second << std::endl;
+    if(!response) {
+        return server_error("Internal server error");
+    }
 
-        if(++idc >= 10) {
+    std::cout << "Sending..." << std::endl;
+    
+    // Respond to POST request
+    http::response<http::string_body> res{http::status::ok, req.version()};
+    res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+    res.set(http::field::content_type, "text/json");
+    res.keep_alive(req.keep_alive());
+    res.body() = *response;
+    res.prepare_payload();
+
+    return res;
+}
+
+// Handles an HTTP server connection
+net::awaitable<void>
+do_session(
+    beast::tcp_stream stream)
+{
+    // This buffer is required to persist across reads
+    beast::flat_buffer buffer;
+
+    for(;;) {
+        // Set the timeout.
+        stream.expires_after(std::chrono::seconds(15));
+
+        // Read a request
+        http::request<http::string_body> req;
+        co_await http::async_read(stream, buffer, req);
+
+        // Handle the request
+        http::message_generator msg = handle_request(std::move(req));
+
+        // Determine if we should close the connection
+        bool keep_alive = msg.keep_alive();
+
+        // Send the response
+        co_await beast::async_write(stream, std::move(msg));
+
+        if(!keep_alive) {
+            // This means we should close the connection, usually because
+            // the response indicated the "Connection: close" semantic.
             break;
         }
     }
 
-    idc = 0;
-    for(const auto &course_req : course_reqs) {
-        if(global_names[idc].substr(0, 4) != "CS 1") {
-            idc++;
-            continue;
-        }
+    // Send a TCP shutdown
+    stream.socket().shutdown(net::ip::tcp::socket::shutdown_send);
+}
 
-        std::cout << "Course: " << idc << " -> " << global_names[idc] << std::endl;
+// Accepts incoming connections and launches the sessions
+net::awaitable<void>
+do_listen(
+    net::ip::tcp::endpoint endpoint)
+{
+    auto executor = co_await net::this_coro::executor;
+    auto acceptor = net::ip::tcp::acceptor{executor, endpoint};
 
-        std::cout << "\tRequirements: ";
-        for(const auto &req_group : course_req.first) {
-            std::cout << "[";
-
-            for(const auto &req : req_group) {
-                std::cout << "(" << req << " " << global_names[req] << ") ";
-            }
-
-            std::cout << "] ";
-        }
-
-        std::cout << std::endl;
-        std::cout << "\tCo-Requirements: ";
-        for(const auto &req_group : course_req.second) {
-            std::cout << "[";
-
-            for(const auto &req : req_group) {
-                std::cout << req << " ";
-            }
-
-            std::cout << "] ";
-        }
-
-        std::cout << std::endl;
-        
-        idc++;
-
-        if(++idc >= 10) {
-            break;
-        }
-    }
-
-    std::cout << program.name << std::endl; 
-    std::cout << program.code << std::endl; 
-
-    for(const auto &requirement : program.requirements) {
-        std::cout << "Requirement: " << requirement.req_series << std::endl;
-
-        int series_idx = 0;
-        for(const auto &series: requirement.series) {
-            std::cout << "\tSeries: " << series_idx++ << std::endl;
-
-            int option_idx = 0;
-            for(const auto &option : series) {
-                std::cout << "\t\tOption: " << option_idx++ << std::endl;
-
-                int course_idx = 0;
-                for(const auto &course : option) {
-                    std::cout << "\t\t\tCourse: " << course_idx++ << " . " << global_names[course] << std::endl;
+    for(;;) {
+        net::co_spawn(
+            executor,
+            do_session(
+                beast::tcp_stream{ co_await acceptor.async_accept() }),
+            [](std::exception_ptr e) {
+                if(e) {
+                    try {
+                        std::rethrow_exception(e);
+                    } catch(std::exception const& e) {
+                        std::cerr << "Error in session: " << e.what() << "\n";
+                    }
                 }
-            }
-        }
+            });
     }
+}
 
-    // invoke();
+int main(void) {
+    try {
+        mongocxx::instance inst{};
+        mongocxx::options::client client_options;
+
+        client_options.server_api_opts(api);
+
+        mongocxx::client conn{uri, client_options};
+
+        ping_mongo(conn);
+        load_courses_from_mongo(conn);
+
+        auto bacc = load_program_from_mongo("-1", conn);
+
+        if(!bacc) {
+            std::cout << "Could not load Bacc Core" << std::endl;
+            return 0;
+        }
+
+        core = *bacc;
+
+        std::cout << "Courses Loaded!" << std::endl;
+
+        // The io_context is required for all I/O
+        net::io_context ioc{ 1 };
+        
+        auto const address = net::ip::make_address("127.0.0.1");
+        auto const port = static_cast<unsigned short>(std::atoi("8080"));
+
+        // Spawn a listening port
+        net::co_spawn(
+            ioc,
+            do_listen(net::ip::tcp::endpoint{address, port}),
+            [](std::exception_ptr e) {
+                if(e) {
+                    try {
+                        std::rethrow_exception(e);
+                    } catch(std::exception const& e) {
+                        std::cerr << "Error: " << e.what() << std::endl;
+                    }
+                }
+            });
+
+        ioc.run();
+    } catch(std::exception const& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
     return 0;
 }

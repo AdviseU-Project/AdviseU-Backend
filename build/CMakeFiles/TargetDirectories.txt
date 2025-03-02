@@ -1,3 +1,12 @@
 /home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/AdviseU.dir
 /home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/edit_cache.dir
 /home/ristn/AdviseU-Lib-DegreePlanner/build/CMakeFiles/rebuild_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/json/CMakeFiles/Json.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/json/CMakeFiles/edit_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/json/CMakeFiles/rebuild_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/loader/CMakeFiles/Loader.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/loader/CMakeFiles/edit_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/loader/CMakeFiles/rebuild_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/solver/CMakeFiles/Solver.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/solver/CMakeFiles/edit_cache.dir
+/home/ristn/AdviseU-Lib-DegreePlanner/build/solver/CMakeFiles/rebuild_cache.dir

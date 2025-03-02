@@ -1,0 +1,1 @@
+add_library(Json INTERFACE json.hpp)

@@ -129,6 +129,45 @@ AdviseU/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdviseU.dir/build.make CMakeFiles/AdviseU.dir/build
 .PHONY : AdviseU/fast
 
+#=============================================================================
+# Target rules for targets named Json
+
+# Build rule for target.
+Json: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Json
+.PHONY : Json
+
+# fast build rule for target.
+Json/fast:
+	$(MAKE) $(MAKESILENT) -f json/CMakeFiles/Json.dir/build.make json/CMakeFiles/Json.dir/build
+.PHONY : Json/fast
+
+#=============================================================================
+# Target rules for targets named Loader
+
+# Build rule for target.
+Loader: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Loader
+.PHONY : Loader
+
+# fast build rule for target.
+Loader/fast:
+	$(MAKE) $(MAKESILENT) -f loader/CMakeFiles/Loader.dir/build.make loader/CMakeFiles/Loader.dir/build
+.PHONY : Loader/fast
+
+#=============================================================================
+# Target rules for targets named Solver
+
+# Build rule for target.
+Solver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Solver
+.PHONY : Solver
+
+# fast build rule for target.
+Solver/fast:
+	$(MAKE) $(MAKESILENT) -f solver/CMakeFiles/Solver.dir/build.make solver/CMakeFiles/Solver.dir/build
+.PHONY : Solver/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +201,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... AdviseU"
+	@echo "... Json"
+	@echo "... Loader"
+	@echo "... Solver"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
