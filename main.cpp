@@ -26,7 +26,7 @@ namespace http  = beast::http;
 namespace net   = boost::asio;
 
 const std::string path = "/api/generatePlan";
-const auto uri = mongocxx::uri{"mongodb+srv://sebastianDev:IVKIJcpGOlIIpU0a@adviseu-dev-cluster.m3v7q.mongodb.net/?retryWrites=true&w=majority&appName=adviseu-dev-cluster"};
+const auto uri = mongocxx::uri{""};
 const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
 
 // Return a response for the given request.

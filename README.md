@@ -1,17 +1,16 @@
 # AdviseU-Lib-DegreePlanner
 Static library for C++ degree planning algorithm
 
-# Gecode Static Libraries
-The provided libraries were build on an WSL 2 (x86_64) instance running Ubuntu 22.04.5 LTS.
-The s prefix in front of some is used to differentiate these built libraries from the ones installed
-by gecode (which don't work for some reason... investigate this). To swap non s prefixed ones over,
-just extract their contents and then re-archive them with the s prefix.
+# Requirements
 
-# CGO Integration
-Use makefile to properly pakage program for cgo
+- Gecode
+- Boost (with asio)
+- https://github.com/nlohmann/json
+- mongocxx
 
-CGO Headers in main.go will look like:
-```
-// #cgo LDFLAGS: -L${SRCDIR} -lsolver -lsgecodesearch -lsgecodeint -lsgecodekernel -lsgecodesupport -lstdc++
-// #include "cpp/solver.h"
-```
+# Build
+
+- First, build/install each of the dependencies on your machine
+- Second, run cmake with your specific compiler/build target setup (cmake-gui reccomended for this)
+- Third, run cmake --build <build folder> to generate the project binary
+- Fourth, run the binary
