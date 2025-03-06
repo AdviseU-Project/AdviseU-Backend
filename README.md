@@ -2,7 +2,15 @@
 
 Backend server used for AdviseU's scheduling algorithm
 
-# Build
+## Build with Docker
+
+Ensure you have Docker Desktop running, then run:
+
+```
+docker build -t adviseu-backend .
+```
+
+## Or Build Manually
 
 - First, build/install `Gecode` on your machine from `libs/gecode-release-6.2.0`.
 
