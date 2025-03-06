@@ -5,6 +5,18 @@ project(AdviseU-Backend)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set(MONGO_CXX_DRIVER_DIR ${PROJECT_SOURCE_DIR}/libs/mongo-cxx-driver)
+
+include_directories(
+    "${MONGO_CXX_DRIVER_DIR}/include"
+    "${MONGO_CXX_DRIVER_DIR}/include/bsoncxx/v1"
+    "${MONGO_CXX_DRIVER_DIR}/include/mongocxx/v1"
+)
+
+link_directories(
+    "${MONGO_CXX_DRIVER_DIR}/lib"
+)
+
 add_executable(AdviseU-Backend src/main.cpp src/shims.hpp)
 
 add_subdirectory(src/solver)
@@ -17,6 +29,9 @@ target_link_libraries(AdviseU-Backend
     INTERFACE
         Loader
         Json
+    PRIVATE
+        bsoncxx
+        mongocxx
 )
 
 target_include_directories(AdviseU-Backend PUBLIC
@@ -26,11 +41,4 @@ target_include_directories(AdviseU-Backend PUBLIC
     "${PROJECT_SOURCE_DIR}/libs/json"
     "${PROJECT_SOURCE_DIR}/libs/boost/asio"
     "${PROJECT_SOURCE_DIR}/libs/boost/beast"
-    "${PROJECT_SOURCE_DIR}/libs/mongo-cxx-driver/include"
 )
-
-target_link_libraries(AdviseU-Backend PRIVATE
-    "${PROJECT_SOURCE_DIR}/libs/mongo-cxx-driver/lib/libmongocxx.so"
-    "${PROJECT_SOURCE_DIR}/libs/mongo-cxx-driver/lib/libbsoncxx.so"
-)
-
