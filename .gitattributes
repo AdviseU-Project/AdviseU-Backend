@@ -1,0 +1,2 @@
+libs/boost/* filter=lfs diff=lfs merge=lfs -text
+libs/mongo-cxx-driver/* filter=lfs diff=lfs merge=lfs -text
