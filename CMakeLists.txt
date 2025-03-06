@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 find_package(PkgConfig REQUIRED)
-find_package(Boost 1.88.0 REQUIRED COMPONENTS asio beast)
+# find_package(Boost 1.88.0 REQUIRED COMPONENTS asio beast)
 
 pkg_check_modules(mongocxx REQUIRED IMPORTED_TARGET libmongocxx)
 
@@ -19,8 +19,6 @@ add_subdirectory(src/solver)
 target_link_libraries(AdviseU-Backend
     PUBLIC
         Solver
-        Boost::asio 
-        Boost::beast
         PkgConfig::mongocxx
     INTERFACE
         Loader
@@ -29,5 +27,7 @@ target_link_libraries(AdviseU-Backend
 target_include_directories(AdviseU-Backend PUBLIC
     "${PROJECT_BINARY_DIR}"
     "${PROJECT_SOURCE_DIR}/libs/json"
+    "${PROJECT_SOURCE_DIR}/libs/boost/asio"
+    "${PROJECT_SOURCE_DIR}/libs/boost/beast"
     "${PROJECT_SOURCE_DIR}/src/solver"
     "${PROJECT_SOURCE_DIR}/src/loader")
