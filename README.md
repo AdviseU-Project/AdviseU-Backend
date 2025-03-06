@@ -1,20 +1,12 @@
-# AdviseU-Lib-DegreePlanner
+# AdviseU-Backend
 
-Static library for C++ degree planning algorithm
-
-# Requirements
-
-- Gecode
-- Boost (with asio)
-- https://github.com/nlohmann/json
-- mongocxx
+Backend server used for AdviseU's scheduling algorithm
 
 # Build
 
-- First, build/install each of the dependencies on your machine
-- Second, run cmake with your specific compiler/build target setup (cmake-gui reccomended for this)
-- Third, run cmake --build <build folder> to generate the project binary
-- Fourth, run the binary
+- First, build/install `Gecode` on your machine.
+- Ensure your MongoDB credentials are added to `src/main.cpp:29`.
+- Then you can run the following to build and start the server.
 
 ```bash
 rm -r build
