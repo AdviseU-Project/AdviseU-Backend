@@ -1,4 +1,5 @@
 # AdviseU-Lib-DegreePlanner
+
 Static library for C++ degree planning algorithm
 
 # Requirements
@@ -14,3 +15,14 @@ Static library for C++ degree planning algorithm
 - Second, run cmake with your specific compiler/build target setup (cmake-gui reccomended for this)
 - Third, run cmake --build <build folder> to generate the project binary
 - Fourth, run the binary
+
+```bash
+rm -r build
+mkdir build
+cd build
+cmake ..
+cd ..
+cmake --build build
+cd build
+./AdviseU-Backend
+```
