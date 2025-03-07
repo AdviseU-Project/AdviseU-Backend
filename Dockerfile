@@ -1,5 +1,5 @@
 # Use an official base image
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # Set the environment variables to non-interactive to avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
     wget \
     sudo \
     libssl-dev \
-    libboost-all-dev \
     libcurl4-openssl-dev \
     autoconf \
     automake \
@@ -19,15 +18,28 @@ RUN apt-get update && apt-get install -y \
     dos2unix \
     file \
     pkg-config \
+    python3 \
+    libzstd-dev \
+    libsasl2-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install newer version of CMake
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.sh -q -O /tmp/cmake-install.sh \
-    && chmod u+x /tmp/cmake-install.sh \
-    && mkdir -p /opt/cmake \
-    && /tmp/cmake-install.sh --skip-license --prefix=/opt/cmake \
-    && ln -s /opt/cmake/bin/* /usr/local/bin/ \
-    && rm /tmp/cmake-install.sh
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.sh -q -O /tmp/cmake-install.sh && \
+    chmod u+x /tmp/cmake-install.sh && \
+    mkdir -p /opt/cmake && \
+    /tmp/cmake-install.sh --skip-license --prefix=/opt/cmake && \
+    ln -s /opt/cmake/bin/* /usr/local/bin/ && \
+    rm /tmp/cmake-install.sh
+
+# Clone and build Boost >=1.88.0
+WORKDIR /tmp
+RUN git clone --recursive https://github.com/boostorg/boost.git && \
+    cd boost && \
+    mkdir -p build && \
+    cd build && \
+    cmake .. && \
+    cmake --build . && \
+    cmake --build . --target install
 
 # Set the working directory
 WORKDIR /app
@@ -55,7 +67,7 @@ ENV LD_LIBRARY_PATH=/app/libs/gecode-release-6.2.0/install/lib:${LD_LIBRARY_PATH
 WORKDIR /app/libs/mongo-cxx-driver-r4.0.0
 RUN mkdir -p build && \
     cd build && \
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DPYTHON_EXECUTABLE=$(which python3) && \
     cmake --build . && \
     cmake --build . --target install
 
