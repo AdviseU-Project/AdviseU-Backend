@@ -31,6 +31,18 @@ docker build -t adviseu-backend .
   sudo cmake --build . --target install
   ```
 
+- Third, clone/build/install `Boost >=1.88.0` on your machine.
+
+  ```bash
+  git clone --recursive https://github.com/boostorg/boost.git
+  cd boost
+  mkdir -p build
+  cd build
+  cmake ..
+  cmake --build .
+  cmake --build . --target install
+  ```
+
 - Ensure your MongoDB credentials are added to `src/main.cpp:29`.
 - Then you can run the following to build and start the server.
   ```bash
