@@ -25,7 +25,9 @@ docker build -t adviseu-backend .
 - Second, build/install `mongo-cxx-driver` on your machine from `libs/mongo-cxx-driver-r4.0.0`.
 
   ```bash
-  cd libs/mongo-cxx-driver-r4.0.0/build
+  cd libs/mongo-cxx-driver-r4.0.0
+  mkdir -p build
+  cd build
   cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
   cmake --build .
   sudo cmake --build . --target install
@@ -34,13 +36,14 @@ docker build -t adviseu-backend .
 - Third, clone/build/install `Boost >=1.88.0` on your machine.
 
   ```bash
+  cd libs
   git clone --recursive https://github.com/boostorg/boost.git
   cd boost
   mkdir -p build
   cd build
   cmake ..
   cmake --build .
-  cmake --build . --target install
+  sudo cmake --build . --target install
   ```
 
 - Ensure your MongoDB credentials are added to `src/main.cpp:29`.
@@ -50,8 +53,6 @@ docker build -t adviseu-backend .
   mkdir build
   cd build
   cmake ..
-  cd ..
-  cmake --build build
-  cd build
+  cmake --build .
   ./AdviseU-Backend
   ```
