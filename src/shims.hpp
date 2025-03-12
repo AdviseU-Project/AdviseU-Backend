@@ -18,27 +18,15 @@ namespace adviseu {
         using json = nlohmann::json;
 
         struct ScheduleRequest {
-            std::string user_id;
-            std::string degree_taking;
-            std::unordered_set<int> courses_taken;
+            std::string userId;
+            std::string planId;
         };
 
         struct ScheduleResponse {
             std::array<std::vector<std::string>, term_count> term_course_mapping;
         };
 
-        inline void from_json(const nlohmann::json& nlohmann_json_j, ScheduleRequest& nlohmann_json_t) { 
-            nlohmann_json_j.at("user_id").get_to(nlohmann_json_t.user_id); 
-            nlohmann_json_j.at("degree_taking").get_to(nlohmann_json_t.degree_taking); 
-
-            auto courses = nlohmann_json_j.at("courses_taken").get<std::vector<std::string>>();
-
-            std::transform(
-                courses.begin(), courses.end(), 
-                std::inserter(nlohmann_json_t.courses_taken, nlohmann_json_t.courses_taken.begin()), 
-                [](const auto &v) { return global_ids[v]; });
-        }
-
+        NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(ScheduleRequest, userId, planId);
         NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(ScheduleResponse, term_course_mapping);
 
         std::optional<ScheduleRequest> parse_schedule_request(std::string &request_body) {

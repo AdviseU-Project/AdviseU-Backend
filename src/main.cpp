@@ -26,7 +26,7 @@ namespace http  = beast::http;
 namespace net   = boost::asio;
 
 const std::string path = "/api/generatePlan";
-const auto uri = mongocxx::uri{""};
+const auto uri = mongocxx::uri{"mongodb+srv://sebastianDev:IVKIJcpGOlIIpU0a@adviseu-dev-cluster.m3v7q.mongodb.net/?retryWrites=true&w=majority&appName=adviseu-dev-cluster"};
 const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
 
 // Return a response for the given request.
@@ -83,21 +83,23 @@ handle_request(
 
     mongocxx::client conn{uri, client_options};
 
-    auto program = load_program_from_mongo(body->degree_taking, conn);
+    auto plan = load_user_plan_from_mongo(body->userId, body->planId, conn);
 
-    if(!program) {
-        return bad_request("Invalid degree option");
+    if(!plan) {
+        return bad_request("Invalid plan/user combination");
     }
 
-    std::optional<std::array<std::vector<std::string>, term_count>> mapping = plan_schedule(*program, body->courses_taken);
+    std::cout << "Planning..." << std::endl;
+
+    std::optional<std::array<std::vector<std::string>, term_count>> mapping = plan_schedule(plan->first, plan->second);
 
     if(!mapping) {
         return bad_request("Could not find valid plan");
     }
 
-    auto response = shims::serialize_schedule_response(shims::ScheduleResponse{*mapping});
+    auto result = push_plan_to_mongo(body->userId, body->planId, *mapping, conn);
 
-    if(!response) {
+    if(!result) {
         return server_error("Internal server error");
     }
 
@@ -108,7 +110,7 @@ handle_request(
     res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
     res.set(http::field::content_type, "text/json");
     res.keep_alive(req.keep_alive());
-    res.body() = *response;
+    res.body() = "OK";
     res.prepare_payload();
 
     return res;
@@ -122,29 +124,21 @@ do_session(
     // This buffer is required to persist across reads
     beast::flat_buffer buffer;
 
-    for(;;) {
-        // Set the timeout.
-        stream.expires_after(std::chrono::seconds(15));
+    // Set the timeout.
+    stream.expires_after(std::chrono::seconds(15));
 
-        // Read a request
-        http::request<http::string_body> req;
-        co_await http::async_read(stream, buffer, req);
+    // Read a request
+    http::request<http::string_body> req;
+    co_await http::async_read(stream, buffer, req);
 
-        // Handle the request
-        http::message_generator msg = handle_request(std::move(req));
+    // Handle the request
+    http::message_generator msg = handle_request(std::move(req));
 
-        // Determine if we should close the connection
-        bool keep_alive = msg.keep_alive();
+    // Determine if we should close the connection
+    bool keep_alive = msg.keep_alive();
 
-        // Send the response
-        co_await beast::async_write(stream, std::move(msg));
-
-        if(!keep_alive) {
-            // This means we should close the connection, usually because
-            // the response indicated the "Connection: close" semantic.
-            break;
-        }
-    }
+    // Send the response
+    co_await beast::async_write(stream, std::move(msg));
 
     // Send a TCP shutdown
     stream.socket().shutdown(net::ip::tcp::socket::shutdown_send);
@@ -187,7 +181,7 @@ int main(void) {
         ping_mongo(conn);
         load_courses_from_mongo(conn);
 
-        auto bacc = load_program_from_mongo("-1", conn);
+        auto bacc = load_program_from_mongo("Baccalaureate Core", conn);
 
         if(!bacc) {
             std::cout << "Could not load Bacc Core" << std::endl;

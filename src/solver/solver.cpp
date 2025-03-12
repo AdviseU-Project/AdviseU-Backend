@@ -208,7 +208,7 @@ public:
 
         // Set up valid term ranges for each term in the course-term mapping
         for(int i = 1; i < term_course_map.size(); i++) {
-            isa[i] = IntSet({0, 1, 2, 3, 4, 5});
+            isa[i] = IntSet({0, 1, 2, 3, 4, 5, 6});
             isv[i] = i;
         }
 
@@ -261,9 +261,15 @@ public:
     }
 };
 
-std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_schedule(Program &program, std::unordered_set<int> &taken_courses) {
+std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_schedule(std::vector<Program> &programs, std::unordered_set<int> &taken_courses) {
     try {
+        Program program;
+
         program.requirements.insert(program.requirements.end(), core.requirements.begin(), core.requirements.end());
+
+        for(const auto &r_prog : programs) {
+            program.requirements.insert(program.requirements.end(), r_prog.requirements.begin(), r_prog.requirements.end());
+        }
 
         std::unique_ptr<CourseScheduler> m = std::make_unique<CourseScheduler>(program, taken_courses); // Create a CourseScheduler object
         DFS<CourseScheduler> e(m.get());  // Depth-First Search solver to explore the solution space
