@@ -6,7 +6,7 @@ Backend server used for AdviseU's scheduling algorithm
 
 Ensure you have Docker Desktop running, then run:
 
-```
+```bash
 docker build -t adviseu-backend .
 ```
 
