@@ -1,5 +1,6 @@
 add_library(Loader INTERFACE loader.hpp)
 
 target_include_directories(Loader INTERFACE 
-    "${PROJECT_SOURCE_DIR}/json"
-    "${PROJECT_SOURCE_DIR}/solver")
+    "${PROJECT_SOURCE_DIR}/libs/json"
+    "${PROJECT_SOURCE_DIR}/src/solver"
+)
