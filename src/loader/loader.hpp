@@ -475,8 +475,10 @@ push_plan_to_mongo(
     for(const auto &course_list : plan) {
         auto course_list_obj = bsoncxx::builder::basic::document{};
         auto course_list_array = bsoncxx::builder::basic::array{};
-            
-        course_list_obj.append(kvp("name", terms[term_idx % 3] + std::to_string(year + (term_idx++) / 3)));
+        
+        course_list_obj.append(kvp("_id", terms[term_idx % 3] + std::to_string(year + term_idx / 3)));
+        course_list_obj.append(kvp("name", terms[term_idx % 3] + std::to_string(year + term_idx / 3)));
+        term_idx += 1;
 
         for(const auto &course : course_list) {
             auto result = collection.find_one(make_document(kvp("course_number", course)));
