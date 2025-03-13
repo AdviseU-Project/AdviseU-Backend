@@ -8,6 +8,8 @@
 #include <vector>
 
 #include <bsoncxx/builder/basic/document.hpp>
+#include <bsoncxx/builder/stream/document.hpp>
+#include <bsoncxx/builder/stream/array.hpp>
 #include <bsoncxx/json.hpp>
 #include <mongocxx/client.hpp>
 #include <mongocxx/instance.hpp>
@@ -21,6 +23,11 @@ using namespace adviseu;
 
 using bsoncxx::builder::basic::kvp;
 using bsoncxx::builder::basic::make_document;
+using bsoncxx::builder::stream::open_array;
+using bsoncxx::builder::stream::close_array;
+using bsoncxx::builder::stream::open_document;
+using bsoncxx::builder::stream::close_document;
+using bsoncxx::builder::stream::finalize;
 
 using json = nlohmann::json;
 
@@ -53,6 +60,13 @@ load_course_requirements_from_vector(
         global_ids[course["course_number"].get<std::string>()] = global_id++;
     }
 
+    for(const auto &global_id : global_ids) {
+        global_names[global_id.second] = global_id.first;
+        term_course_map[0].insert(global_id.second);
+    }
+
+    global_names[-1] = "N/A";
+
     std::map<std::string, std::unordered_set<int>> term_str_map;
 
     for(const auto &course_json : course_jsons) {
@@ -67,10 +81,25 @@ load_course_requirements_from_vector(
             course_reqs.back().first.push_back(Option());
 
             std::transform(req_groups.begin(), req_groups.end(), std::back_inserter(course_reqs.back().first.back()), 
-                [](const auto &a) { 
+                [&course](const auto &a) { 
                     const auto ptr = global_ids.find(a);
+                    const auto id = global_ids[course["course_number"].get<std::string>()];
 
                     if(ptr != global_ids.end()) {
+                        if(ptr->second < id) {
+                            for(auto &pcr : course_reqs[ptr->second].first) {
+                                auto eptr = std::remove(pcr.begin(), pcr.end(), id);
+
+                                if(eptr != pcr.end()) {
+                                    std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
+
+                                    pcr.erase(eptr, pcr.end());
+
+                                    return -1;
+                                }
+                            }
+                        }
+
                         return ptr->second;
                     } else {
                         return -1;
@@ -95,10 +124,25 @@ load_course_requirements_from_vector(
             course_reqs.back().second.push_back(Option());
 
             std::transform(req_groups.begin(), req_groups.end(), std::back_inserter(course_reqs.back().second.back()), 
-                [](const auto &a) { 
+                [&course](const auto &a) { 
                     const auto ptr = global_ids.find(a);
+                    const auto id = global_ids[course["course_number"].get<std::string>()];
 
                     if(ptr != global_ids.end()) {
+                        if(ptr->second < id) {
+                            for(auto &pcr : course_reqs[ptr->second].second) {
+                                auto eptr = std::remove(pcr.begin(), pcr.end(), id);
+
+                                if(eptr != pcr.end()) {
+                                    std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
+
+                                    pcr.erase(eptr, pcr.end());
+
+                                    return -1;
+                                }
+                            }
+                        }
+
                         return ptr->second;
                     } else {
                         return -1;
@@ -152,13 +196,6 @@ load_courses_from_mongo(
     }
 
     load_course_requirements_from_vector(courses);
-
-    for(const auto &global_id : global_ids) {
-        global_names[global_id.second] = global_id.first;
-        term_course_map[0].insert(global_id.second);
-    }
-
-    global_names[-1] = "N/A";
 
     int idc = 0;
     for(const auto &global_id : global_ids) {
@@ -245,6 +282,17 @@ load_program_from_string(
                     continue;
                 }
 
+                for(const auto &course : courses) {
+                    if(
+                        term_course_map[1].find(global_ids[course]) == term_course_map[1].end() &&
+                        term_course_map[2].find(global_ids[course]) == term_course_map[2].end() &&
+                        term_course_map[3].find(global_ids[course]) == term_course_map[3].end()) {
+                            for(int i = 1; i < term_course_map.size(); i++) {
+                                term_course_map[i].insert(global_ids[course]);
+                            }
+                    }
+                }
+
                 code_cnts[courses[0].substr(0, courses[0].find(" ") + 1)]++;
 
                 program.requirements.back().series.back().push_back(Option());
@@ -272,28 +320,28 @@ load_program_from_string(
         }
     }
 
-    // if(elec_creds) {
-    //     std::string best = "";
+    if(elec_creds) {
+        std::string best = "";
 
-    //     for(const auto &c : code_cnts) {
-    //         if(best == "" || c.second > code_cnts[best]) {
-    //             best = c.first;
-    //         }
-    //     }
+        for(const auto &c : code_cnts) {
+            if(best == "" || c.second > code_cnts[best]) {
+                best = c.first;
+            }
+        }
 
-    //     std::cout << "Best: " << best << std::endl;
+        std::cout << "Best: " << best << std::endl;
 
-    //     program.requirements.push_back(Requirement{
-    //         elec_creds / 4,
-    //         std::vector<Series>()
-    //     });
+        program.requirements.push_back(Requirement{
+            elec_creds / 4,
+            std::vector<Series>()
+        });
 
-    //     for(const auto &c : global_ids) {
-    //         if(c.first.starts_with(best)) {
-    //             program.requirements.back().series.push_back({{c.second}});
-    //         }
-    //     }
-    // }
+        for(const auto &c : global_ids) {
+            if(c.first.starts_with(best) && (c.first[c.first.find(" ") + 1] - '0') < 5 && course_reqs[c.second].first.size()) {
+                program.requirements.back().series.push_back({{c.second}});
+            }
+        }
+    }
 
     std::cout << program.name << std::endl; 
     std::cout << program.code << std::endl; 
@@ -312,6 +360,16 @@ load_program_from_string(
                 int course_idx = 0;
                 for(const auto &course : option) {
                     std::cout << "\t\t\tCourse: " << course_idx++ << " . " << global_names[course] << std::endl;
+                    
+                    if(term_course_map[0].find(course) != term_course_map[0].end()) {
+                        std::cout << "\t\t\t\tTerm: 0" << std::endl;
+                    }
+                    if(term_course_map[1].find(course) != term_course_map[2].end()) {
+                        std::cout << "\t\t\t\tTerm: 1" << std::endl;
+                    }
+                    if(term_course_map[2].find(course) != term_course_map[3].end()) {
+                        std::cout << "\t\t\t\tTerm: 2" << std::endl;
+                    }
                 }
             }
         }
@@ -328,13 +386,143 @@ load_program_from_mongo(
     auto db = conn["adviseu_db"];
     auto collection = db["degrees"];
 
-    auto result = collection.find_one(make_document(kvp("program_code", code)));
+    auto result = collection.find_one(make_document(kvp("program_name", code)));
 
     if(!result) {
         return {};
-    } else {
-        return load_program_from_string(bsoncxx::to_json(result.value()));
     }
+
+    return load_program_from_string(bsoncxx::to_json(result.value()));
+}
+
+std::optional<std::pair<std::vector<Program>, std::unordered_set<int>>>
+load_user_plan_from_mongo(
+    std::string user_id,
+    std::string plan_id, 
+    mongocxx::client &conn)
+{
+    auto db = conn["test"];
+    auto collection = db["users"];
+
+    auto result = collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
+
+    if(!result) {
+        return {};
+    }
+
+    json data(json::parse(bsoncxx::to_json(result.value())));
+    std::vector<Program> programs;
+
+    for(auto p_list = data["extension"]["degrees"].get<std::vector<json>>(); const auto &pl_obj : p_list) {
+        std::string p_name = pl_obj["program_name"].get<std::string>();
+
+        std::cout << "Major: " << p_name << std::endl;
+
+        auto p_obj = load_program_from_mongo(p_name, conn);
+
+        if(p_obj) {
+            programs.push_back(*p_obj);
+        }
+    }
+
+    std::unordered_set<int> taken_courses;
+
+    for(auto c_list = data["extension"]["courses_taken"].get<std::vector<json>>(); const auto &c_obj : c_list) {
+        std::string c_code = c_obj["course_number"].get<std::string>();
+
+        std::cout << "Taken Course: " << c_code << std::endl;
+
+        if(global_ids[c_code] != -1) {
+            taken_courses.insert(global_ids[c_code]);
+        }
+    }
+
+    bool found = false;
+    for(auto c_list = result.value()["extension"]["plans"].get_array().value; const auto &c_obj : c_list) {
+        std::string c_code = c_obj["_id"].get_oid().value.to_string();
+
+        std::cout << "OID: " << c_code << std::endl;
+
+        if(c_code == bsoncxx::oid(plan_id).to_string()) {
+            found = true;
+            break;
+        }
+    }
+
+    if(!found) {
+        return {};
+    }
+
+    return make_pair(programs, taken_courses);
+}
+
+bool
+push_plan_to_mongo(
+    std::string user_id,
+    std::string plan_id,
+    std::array<std::vector<std::string>, term_count> plan,
+    mongocxx::client &conn
+) {
+    int year = 2025;
+    std::array<std::string, 3> terms{"Spring ", "Fall ", "Winter "};
+
+    auto db = conn["adviseu_db"];
+    auto collection = db["courses"];
+
+    auto term_list = bsoncxx::builder::basic::array{};
+    
+    int term_idx = 0;
+    for(const auto &course_list : plan) {
+        auto course_list_obj = bsoncxx::builder::basic::document{};
+        auto course_list_array = bsoncxx::builder::basic::array{};
+            
+        course_list_obj.append(kvp("name", terms[term_idx % 3] + std::to_string(year + (term_idx++) / 3)));
+
+        for(const auto &course : course_list) {
+            auto result = collection.find_one(make_document(kvp("course_number", course)));
+
+            // std::cout << "Pasting: " << course << std::endl;
+
+            if(!result) {
+                return false;
+            }
+
+            course_list_array.append(*result);
+        }
+
+        course_list_obj.append(kvp("courses", course_list_array));
+        term_list.append(course_list_obj);
+    }
+
+    // std::cout << bsoncxx::to_json(term_obj) << std::endl;
+
+    db = conn["test"];
+    collection = db["users"];
+
+    auto plan_query = collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
+
+    int idx = -1, tidx = 0;
+    for(auto c_list = plan_query.value()["extension"]["plans"].get_array().value; const auto &c_obj : c_list) {
+        std::string c_code = c_obj["_id"].get_oid().value.to_string();
+
+        if(c_code == bsoncxx::oid(plan_id).to_string()) {
+            idx = tidx;
+            break;
+        }
+
+        tidx++;
+    }
+
+    if(idx == -1) {
+        return false;
+    }
+
+    auto result = collection.update_one(
+        make_document(kvp("_id", bsoncxx::oid(user_id))), 
+        make_document(kvp("$set", make_document(kvp("extension.plans." + std::to_string(idx) + ".terms", term_list))))
+    );
+
+    return result->modified_count() == 1;
 }
 
 #endif
