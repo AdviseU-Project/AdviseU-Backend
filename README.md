@@ -1,16 +1,58 @@
-# AdviseU-Lib-DegreePlanner
-Static library for C++ degree planning algorithm
+# AdviseU-Backend
 
-# Requirements
+Backend server used for AdviseU's scheduling algorithm
 
-- Gecode
-- Boost (with asio)
-- https://github.com/nlohmann/json
-- mongocxx
+## Build with Docker
 
-# Build
+Ensure you have Docker Desktop running, then run:
 
-- First, build/install each of the dependencies on your machine
-- Second, run cmake with your specific compiler/build target setup (cmake-gui reccomended for this)
-- Third, run cmake --build <build folder> to generate the project binary
-- Fourth, run the binary
+```bash
+docker build -t adviseu-backend .
+```
+
+## Or Build Manually
+
+- First, build/install `Gecode` on your machine from `libs/gecode-release-6.2.0`.
+
+  ```bash
+  cd libs/gecode-release-6.2.0
+  ./configure --disable-examples --prefix=$(pwd)/install
+  make
+  make install
+  export LD_LIBRARY_PATH=$(pwd)/install/lib:$LD_LIBRARY_PATH
+  ```
+
+- Second, build/install `mongo-cxx-driver` on your machine from `libs/mongo-cxx-driver-r4.0.0`.
+
+  ```bash
+  cd libs/mongo-cxx-driver-r4.0.0
+  mkdir -p build
+  cd build
+  cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+  cmake --build .
+  sudo cmake --build . --target install
+  ```
+
+- Third, clone/build/install `Boost >=1.88.0` on your machine.
+
+  ```bash
+  cd libs
+  git clone --recursive https://github.com/boostorg/boost.git
+  cd boost
+  mkdir -p build
+  cd build
+  cmake ..
+  cmake --build .
+  sudo cmake --build . --target install
+  ```
+
+- Ensure your MongoDB credentials are added to `src/main.cpp:29`.
+- Then you can run the following to build and start the server.
+  ```bash
+  rm -r build
+  mkdir build
+  cd build
+  cmake ..
+  cmake --build .
+  ./AdviseU-Backend
+  ```
