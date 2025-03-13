@@ -1,17 +1,58 @@
-# AdviseU-Lib-DegreePlanner
-Static library for C++ degree planning algorithm
+# AdviseU-Backend
 
-# Gecode Static Libraries
-The provided libraries were build on an WSL 2 (x86_64) instance running Ubuntu 22.04.5 LTS.
-The s prefix in front of some is used to differentiate these built libraries from the ones installed
-by gecode (which don't work for some reason... investigate this). To swap non s prefixed ones over,
-just extract their contents and then re-archive them with the s prefix.
+Backend server used for AdviseU's scheduling algorithm
 
-# CGO Integration
-Use makefile to properly pakage program for cgo
+## Build with Docker
 
-CGO Headers in main.go will look like:
+Ensure you have Docker Desktop running, then run:
+
 ```
-// #cgo LDFLAGS: -L${SRCDIR} -lsolver -lsgecodesearch -lsgecodeint -lsgecodekernel -lsgecodesupport -lstdc++
-// #include "cpp/solver.h"
+docker build -t adviseu-backend .
 ```
+
+## Or Build Manually
+
+- First, build/install `Gecode` on your machine from `libs/gecode-release-6.2.0`.
+
+  ```bash
+  cd libs/gecode-release-6.2.0
+  ./configure --disable-examples --prefix=$(pwd)/install
+  make
+  make install
+  export LD_LIBRARY_PATH=$(pwd)/install/lib:$LD_LIBRARY_PATH
+  ```
+
+- Second, build/install `mongo-cxx-driver` on your machine from `libs/mongo-cxx-driver-r4.0.0`.
+
+  ```bash
+  cd libs/mongo-cxx-driver-r4.0.0
+  mkdir -p build
+  cd build
+  cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+  cmake --build .
+  sudo cmake --build . --target install
+  ```
+
+- Third, clone/build/install `Boost >=1.88.0` on your machine.
+
+  ```bash
+  cd libs
+  git clone --recursive https://github.com/boostorg/boost.git
+  cd boost
+  mkdir -p build
+  cd build
+  cmake ..
+  cmake --build .
+  sudo cmake --build . --target install
+  ```
+
+- Ensure your MongoDB credentials are added to `src/main.cpp:29`.
+- Then you can run the following to build and start the server.
+  ```bash
+  rm -r build
+  mkdir build
+  cd build
+  cmake ..
+  cmake --build .
+  ./AdviseU-Backend
+  ```
