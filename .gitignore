@@ -1,1 +1,4 @@
 build/
+/libs/gecode-release-6.2.0/
+/libs/mongo-cxx-driver-r4.0.0/
+/libs/boost/
