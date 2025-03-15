@@ -1,10 +1,10 @@
-# Use an official base image
-FROM ubuntu:24.04
+# Stage 1: Base dependencies
+FROM ubuntu:24.04 AS base
 
-# Set the environment variables to non-interactive to avoid prompts during package installation
+## Set the environment variables to non-interactive to avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install necessary dependencies
+## Install common dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     git \
@@ -23,7 +23,9 @@ RUN apt-get update && apt-get install -y \
     libsasl2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install newer version of CMake
+# Stage 2: Build CMake
+FROM base AS cmake-builder
+WORKDIR /tmp
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.sh -q -O /tmp/cmake-install.sh && \
     chmod u+x /tmp/cmake-install.sh && \
     mkdir -p /opt/cmake && \
@@ -31,7 +33,8 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0
     ln -s /opt/cmake/bin/* /usr/local/bin/ && \
     rm /tmp/cmake-install.sh
 
-# Clone and build Boost >=1.88.0
+# Stage 3: Build Boost >=1.88.0
+FROM cmake-builder AS boost-builder
 WORKDIR /tmp
 RUN git clone --recursive https://github.com/boostorg/boost.git && \
     cd boost && \
@@ -41,52 +44,76 @@ RUN git clone --recursive https://github.com/boostorg/boost.git && \
     cmake --build . && \
     cmake --build . --target install
 
-# Set the working directory
+# Stage 4: Build Gecode
+FROM cmake-builder AS gecode-builder
 WORKDIR /app
-
-# Copy your project files into the container
-COPY . /app
-
-# Check file type of configure and fix line endings if needed
-WORKDIR /app/libs/gecode-release-6.2.0
-RUN file configure && \
-    dos2unix configure && \
-    chmod +x configure
-
-# Install Gecode
+COPY libs/gecode-release-6.2.0 /app/libs/gecode-release-6.2.0
 WORKDIR /app/libs/gecode-release-6.2.0
 RUN autoreconf -i && \
     ./configure --disable-examples --prefix=/app/libs/gecode-release-6.2.0/install && \
     make && \
     make install
 
-# Set the LD_LIBRARY_PATH environment variable so that the system can find Gecode's libraries
-ENV LD_LIBRARY_PATH=/app/libs/gecode-release-6.2.0/install/lib:${LD_LIBRARY_PATH:-}
-
-# Install MongoDB C++ Driver
+# Stage 5: Build MongoDB C++ Driver
+FROM cmake-builder AS mongodb-builder
+WORKDIR /app
+COPY libs/mongo-cxx-driver-r4.0.0 /app/libs/mongo-cxx-driver-r4.0.0
 WORKDIR /app/libs/mongo-cxx-driver-r4.0.0
+
+## Initialize as git repo to avoid version detection errors
+RUN git init . && git add . && git config --global user.email "docker@example.com" && git config --global user.name "Docker Build" && git commit -m "Initial commit"
+
+## Build MongoDB driver with explicit version
 RUN mkdir -p build && \
     cd build && \
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DPYTHON_EXECUTABLE=$(which python3) && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 \
+             -DPYTHON_EXECUTABLE=$(which python3) \
+             -DBUILD_VERSION=4.0.0 && \
     cmake --build . && \
     cmake --build . --target install
 
-# Ensure MongoDB credentials are added (consider using environment variables for security)
-# You can pass MongoDB credentials as Docker environment variables or mount a secret file
-# Example (to be set when running the container):
-# ENV MONGO_USERNAME="your_username" 
-# ENV MONGO_PASSWORD="your_password"
+# Stage 6: Final image with only necessary components
+FROM base AS runtime
 
-# Build AdviseU-Backend
+## Add ldconfig to ensure shared libraries are found
+RUN ldconfig
+WORKDIR /app
+
+## Copy built components from previous stages
+COPY --from=cmake-builder /opt/cmake /opt/cmake
+COPY --from=boost-builder /usr/local/include/boost /usr/local/include/boost
+COPY --from=boost-builder /usr/local/lib /usr/local/lib
+COPY --from=gecode-builder /app/libs/gecode-release-6.2.0/install /app/libs/gecode-release-6.2.0/install
+COPY --from=mongodb-builder /usr/local/include/mongocxx /usr/local/include/mongocxx
+COPY --from=mongodb-builder /usr/local/include/bsoncxx /usr/local/include/bsoncxx
+COPY --from=mongodb-builder /usr/local/lib /usr/local/lib
+
+## Create lib64 directory for MongoDB libraries
+RUN mkdir -p /usr/local/lib64
+
+## Copy MongoDB lib64 if it exists (done in a RUN command to handle conditionally)
+RUN if [ -d "/usr/local/lib64" ] && [ "$(ls -A /usr/local/lib64)" ]; then \
+      cp -rf /usr/local/lib64/* /usr/local/lib/ || true; \
+    fi
+
+## Make sure cmake is in the PATH
+RUN ln -s /opt/cmake/bin/* /usr/local/bin/ && \
+    ldconfig
+
+## Set LD_LIBRARY_PATH for Gecode
+ENV LD_LIBRARY_PATH=/app/libs/gecode-release-6.2.0/install/lib:$LD_LIBRARY_PATH
+
+## Copy application code
+COPY . /app
+
+## Build AdviseU-Backend
 WORKDIR /app
 RUN rm -rf build && \
     mkdir -p build && \
     cd build && \
     cmake .. && \
-    cmake --build . 
+    cmake --build .
 
-# Expose port that the backend listens on
+## Expose port and run command
 EXPOSE 8080
-
-# Command to run the backend server
 CMD ["./build/AdviseU-Backend"]

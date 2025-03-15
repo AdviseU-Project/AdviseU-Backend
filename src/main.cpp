@@ -195,7 +195,7 @@ int main(void) {
         // The io_context is required for all I/O
         net::io_context ioc{ 1 };
         
-        auto const address = net::ip::make_address("127.0.0.1");
+        auto const address = net::ip::make_address("0.0.0.0");
         auto const port = static_cast<unsigned short>(std::atoi("8080"));
 
         // Spawn a listening port
