@@ -26,7 +26,33 @@ namespace http  = beast::http;
 namespace net   = boost::asio;
 
 const std::string path = "/api/generatePlan";
-const auto uri = mongocxx::uri{""};
+
+// Get port from environment variable with fallback to default
+unsigned short getPort() {
+    const char* port_env = std::getenv("CONTAINER_PORT");
+    if (port_env && *port_env) {
+        try {
+            return static_cast<unsigned short>(std::stoi(port_env));
+        } catch (const std::exception& e) {
+            std::cerr << "Invalid port in environment variable: " << e.what() << std::endl;
+        }
+    }
+    return 8080; // Default port if environment variable is not set or invalid
+}
+
+// Get MongoDB URI from environment variable
+std::string getMongoURI() {
+    const char* mongo_uri_env = std::getenv("MONGO_URI");
+    if (mongo_uri_env && *mongo_uri_env) {
+        std::cout << "Using MongoDB URI from environment variable" << std::endl;
+        return mongo_uri_env;
+    } else {
+        std::cerr << "Error: MONGO_URI environment variable not set or empty" << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+}
+
+const auto uri = mongocxx::uri{getMongoURI()};
 const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
 
 // Return a response for the given request.
@@ -196,7 +222,7 @@ int main(void) {
         net::io_context ioc{ 1 };
         
         auto const address = net::ip::make_address("0.0.0.0");
-        auto const port = static_cast<unsigned short>(std::atoi("8080"));
+        auto const port = getPort();
 
         // Spawn a listening port
         net::co_spawn(
