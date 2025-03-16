@@ -2,13 +2,100 @@
 
 Backend server used for AdviseU's scheduling algorithm
 
-## Build with Docker
+## Prerequisites
 
-Ensure you have Docker Desktop running, then run:
+- Docker Desktop
+- Docker Compose
+
+## Environment Setup
+
+Before running the application, you need to set up environment variables. Create a `.env` file in the root directory with the variables from `.env.example`.
+
+## Building and Running with Docker
+
+Ensure Docker Desktop is running.
+
+### Using Docker Compose (Recommended)
+
+1. **Build and start the container**:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+2. **View logs**:
+
+   ```bash
+   docker-compose logs -f
+   ```
+
+3. **Stop the container**:
+
+   ```bash
+   docker-compose down
+   ```
+
+4. **Rebuild after code changes**:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+### Using Docker Directly
+
+1. **Build the Docker image**:
+
+   ```bash
+   docker build -t adviseu-backend .
+   ```
+
+2. **Run the container**:
+
+   ```bash
+   docker run -p 8080:8080 -e MONGO_URI="mongodb+srv://your_username:your_password@your_cluster.mongodb.net" -d --name adviseu-backend-container adviseu-backend
+   ```
+
+3. **View logs**:
+
+   ```bash
+   docker logs -f adviseu-backend-container
+   ```
+
+4. **Stop and remove the container**:
+   ```bash
+   docker stop adviseu-backend-container
+   docker rm adviseu-backend-container
+   ```
+
+## Testing the API
+
+Once the server is running, you can test the API using the following `curl` command. Ensure the `userId` and `planId` are set to valid values from the database.
 
 ```bash
-docker build -t adviseu-backend .
+curl -X POST "http://localhost:8080/api/generatePlan" \
+  -H "Content-Type: application/json" \
+  -d '{"userId": "98329hfd928hfh92fhhfsuh0", "planId": "98329hfd928hfh92fhhfs3f3"}'
 ```
+
+## Development
+
+### Docker Multi-Stage Build
+
+The Dockerfile uses a multi-stage build process to optimize build time and image size:
+
+- Base dependencies are installed in the initial stage
+- Individual components (CMake, Boost, Gecode, MongoDB driver) are built in separate stages
+- Only the necessary artifacts are copied to the final stage
+
+This approach significantly speeds up rebuilds when you only change application code.
+
+### Environment Variables
+
+The application requires the following environment variables:
+
+- `MONGO_URI`: MongoDB connection string (required)
+- `CONTAINER_PORT`: Port the application listens on inside the container (defaults to 8080)
+
+These can be set in the `.env` file or passed directly to the Docker run command.
 
 ## Or Build Manually
 

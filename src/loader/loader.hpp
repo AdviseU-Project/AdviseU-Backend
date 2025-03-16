@@ -402,18 +402,36 @@ load_user_plan_from_mongo(
     mongocxx::client &conn)
 {
     auto db = conn["test"];
-    auto collection = db["users"];
+    auto users_collection = db["users"];
 
-    auto result = collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
+    // First get the user to retrieve extension_id
+    auto user_result = users_collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
 
-    if(!result) {
+    if(!user_result) {
+        std::cout << "User not found" << std::endl;
         return {};
     }
 
-    json data(json::parse(bsoncxx::to_json(result.value())));
+    // Get the extension_id from the user document
+    auto extension_id_value = user_result->view()["extension_id"].get_oid().value;
+    std::string extension_id = extension_id_value.to_string();
+    
+    std::cout << "Found extension_id: " << extension_id << std::endl;
+    
+    // Now query the extensions collection with the extension_id
+    auto extensions_collection = db["extensions"];
+    auto extension_result = extensions_collection.find_one(make_document(kvp("_id", extension_id_value)));
+
+    if(!extension_result) {
+        std::cout << "Extension not found" << std::endl;
+        return {};
+    }
+    
+    json data(json::parse(bsoncxx::to_json(extension_result.value())));
     std::vector<Program> programs;
 
-    for(auto p_list = data["extension"]["degrees"].get<std::vector<json>>(); const auto &pl_obj : p_list) {
+    // Now access fields from the extension document
+    for(auto p_list = data["degrees"].get<std::vector<json>>(); const auto &pl_obj : p_list) {
         std::string p_name = pl_obj["program_name"].get<std::string>();
 
         std::cout << "Major: " << p_name << std::endl;
@@ -427,7 +445,7 @@ load_user_plan_from_mongo(
 
     std::unordered_set<int> taken_courses;
 
-    for(auto c_list = data["extension"]["courses_taken"].get<std::vector<json>>(); const auto &c_obj : c_list) {
+    for(auto c_list = data["courses_taken"].get<std::vector<json>>(); const auto &c_obj : c_list) {
         std::string c_code = c_obj["course_number"].get<std::string>();
 
         std::cout << "Taken Course: " << c_code << std::endl;
@@ -438,7 +456,7 @@ load_user_plan_from_mongo(
     }
 
     bool found = false;
-    for(auto c_list = result.value()["extension"]["plans"].get_array().value; const auto &c_obj : c_list) {
+    for(auto c_list = extension_result.value()["plans"].get_array().value; const auto &c_obj : c_list) {
         std::string c_code = c_obj["_id"].get_oid().value.to_string();
 
         std::cout << "OID: " << c_code << std::endl;
@@ -498,13 +516,30 @@ push_plan_to_mongo(
 
     // std::cout << bsoncxx::to_json(term_obj) << std::endl;
 
+    // First get the user document to retrieve the extension_id
     db = conn["test"];
-    collection = db["users"];
+    auto users_collection = db["users"];
+    auto user_result = users_collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
 
-    auto plan_query = collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
+    if(!user_result) {
+        std::cout << "User not found" << std::endl;
+        return false;
+    }
+
+    // Get the extension_id from the user document
+    auto extension_id_value = user_result->view()["extension_id"].get_oid().value;
+
+    // Now query the extensions collection with the extension_id
+    auto extensions_collection = db["extensions"];
+    auto extension_result = extensions_collection.find_one(make_document(kvp("_id", extension_id_value)));
+
+    if(!extension_result) {
+        std::cout << "Extension not found" << std::endl;
+        return false;
+    }
 
     int idx = -1, tidx = 0;
-    for(auto c_list = plan_query.value()["extension"]["plans"].get_array().value; const auto &c_obj : c_list) {
+    for(auto c_list = extension_result.value()["plans"].get_array().value; const auto &c_obj : c_list) {
         std::string c_code = c_obj["_id"].get_oid().value.to_string();
 
         if(c_code == bsoncxx::oid(plan_id).to_string()) {
@@ -519,9 +554,10 @@ push_plan_to_mongo(
         return false;
     }
 
-    auto result = collection.update_one(
-        make_document(kvp("_id", bsoncxx::oid(user_id))), 
-        make_document(kvp("$set", make_document(kvp("extension.plans." + std::to_string(idx) + ".terms", term_list))))
+    // Now update the plan in the extensions collection
+    auto result = extensions_collection.update_one(
+        make_document(kvp("_id", extension_id_value)), 
+        make_document(kvp("$set", make_document(kvp("plans." + std::to_string(idx) + ".terms", term_list))))
     );
 
     return result->modified_count() == 1;

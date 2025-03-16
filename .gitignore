@@ -3,4 +3,7 @@ build/
 /libs/mongo-cxx-driver-r4.0.0/
 /libs/boost/
 
+.env*
+!.env.example
+
 .vscode
