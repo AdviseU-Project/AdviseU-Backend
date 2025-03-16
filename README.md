@@ -2,6 +2,8 @@
 
 Backend server used for AdviseU's scheduling algorithm
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/Mt1HHUPfh9bMAZ8BBCzjd3/2UpvYkb8sS1aTRNQkzxmP6/tree/main.svg?style=svg&circle-token=CCIPRJ_W6n7Prv3j4dCBeyVpbnjic_3200b144c5cec74bed326ea73d180fa0f7a7d027)](https://dl.circleci.com/status-badge/redirect/circleci/Mt1HHUPfh9bMAZ8BBCzjd3/2UpvYkb8sS1aTRNQkzxmP6/tree/main)
+
 ## Prerequisites
 
 - Docker Desktop
