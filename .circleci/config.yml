@@ -1,25 +1,25 @@
 version: 2.1
 orbs:
   docker: circleci/docker@2.8.2
+# jobs:
+#   deploy:
+#     machine:
+#       image: ubuntu-2204:current
+#     steps:
+#       - run:
+#         name: Deploy Over SSH
+#         command: |
+#           ssh $SSH_USER@$SSH_HOST "sudo docker container stop adviseu-backend-container; sudo docker container remove adviseu-backend-container; sudo docker run -p 80:8080 -e MONGO_URI="$MONGO_URI" -d --name adviseu-backend-container $DOCKER_REGISTRY_REPO"
 workflows:
   build-and-deploy:
-    filters:
-      branches:
-        only: main
     jobs:
       - docker/publish:
-          image: $DOCKER_REGISTRY_REPO
-          tag: latest
-          executor: docker/machine
+          executor:
+            name: docker/machine
             dlc: true
             resource-class: large
-      - deploy:
-          requires:
-            - docker/publish
-          machine:
-            image: ubuntu-2204:2023.07.2
-          steps:
-            - run:
-              name: Deploy Over SSH
-              command: |
-                ssh $SSH_USER@$SSH_HOST "sudo docker container stop adviseu-backend-container; sudo docker container remove adviseu-backend-container; sudo docker run -p 80:8080 -e MONGO_URI="$MONGO_URI" -d --name adviseu-backend-container $DOCKER_REGISTRY_REPO"
+          image: $DOCKER_REGISTRY_REPO
+          tag: latest
+      # - deploy:
+      #     requires:
+      #       - docker/publish
