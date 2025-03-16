@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "sudo docker container stop adviseu-backend-container; sudo docker container remove adviseu-backend-container; sudo docker run -p 80:8080 -e MONGO_URI='$MONGO_URI' -d --name adviseu-backend-container $DOCKER_REGISTRY_REPO"
+            ssh $SSH_USER@$SSH_HOST "sudo docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD; sudo docker container stop adviseu-backend-container; sudo docker container remove adviseu-backend-container; sudo docker run -p 80:8080 -e MONGO_URI='$MONGO_URI' -d --name adviseu-backend-container $DOCKER_REGISTRY_REPO"
 
 workflows:
   build-and-deploy:
