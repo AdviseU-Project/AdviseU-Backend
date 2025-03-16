@@ -208,7 +208,7 @@ public:
 
         // Set up valid term ranges for each term in the course-term mapping
         for(int i = 1; i < term_course_map.size(); i++) {
-            isa[i] = IntSet({0, 1, 2, 3, 4, 5, 6});
+            isa[i] = IntSet({0, 1, 2, 3, 4});
             isv[i] = i;
         }
 

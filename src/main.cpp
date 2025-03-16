@@ -151,7 +151,7 @@ do_session(
     beast::flat_buffer buffer;
 
     // Set the timeout.
-    stream.expires_after(std::chrono::seconds(15));
+    stream.expires_after(std::chrono::seconds(30));
 
     // Read a request
     http::request<http::string_body> req;

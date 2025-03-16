@@ -337,7 +337,7 @@ load_program_from_string(
         });
 
         for(const auto &c : global_ids) {
-            if(c.first.starts_with(best) && (c.first[c.first.find(" ") + 1] - '0') < 5 && course_reqs[c.second].first.size()) {
+            if(c.first.starts_with(best) && (program.code != -1 || (c.first[c.first.find(" ") + 1] - '0') < 4) && (c.first[c.first.find(" ") + 1] - '0') < 5 && course_reqs[c.second].first.size()) {
                 program.requirements.back().series.push_back({{c.second}});
             }
         }
