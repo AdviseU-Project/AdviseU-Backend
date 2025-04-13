@@ -5,6 +5,8 @@
 #include <unordered_set>
 
 #include <gecode/int.hh>
+#include <gecode/minimodel.hh>
+#include <gecode/search.hh>
 
 #include "globals.hpp"
 #include "solver.hpp"
@@ -25,8 +27,9 @@ using namespace Gecode;
 // the sync end, or do a pointer redirection for lock-free impl)
 
 // The main class to handle course scheduling using Gecode's constraint solver
-class CourseScheduler : public Space {
+class CourseScheduler : public IntMinimizeSpace {
 protected:
+    IntVar degree_cost;
     IntVarArray course_term_map;             // Array of integer variables for course-term assignments (int corresponds to term)
     std::unordered_set<int> touched_courses, mapped_courses;
 
@@ -52,7 +55,9 @@ protected:
 
 public:
     // Constructor initializes the program and course-term variables
-    CourseScheduler(Program& program, std::unordered_set<int> &taken_courses) : course_term_map(*this, global_ids.size()) {
+    CourseScheduler(Program& program, std::unordered_map<int, int> &taken_courses) :
+        degree_cost(*this, -100000000, 100000000),
+        course_term_map(*this, global_ids.size()) {
         // Iterate through the program's requirements and add constraints
         for(const auto &requirement : program.requirements) {
             int series_idx = 0;
@@ -88,9 +93,10 @@ public:
                                 // Create an integer variable for the course with its valid terms as the domain
                                 course_term_map[course] = IntVar(*this, IntSet(const_cast<const std::vector<int> &>(valid_terms)));
                             } else {
-                                course_term_map[course] = IntVar(*this, -1, -1);
+                                course_term_map[course] = IntVar(*this, std::max(-1, taken_courses[course]), std::max(-1, taken_courses[course]));
+                                touched_courses.insert(course);
                             }
-                            
+
                             mapped_courses.insert(course);
 
                             fill(course);
@@ -126,20 +132,20 @@ public:
             }
 
             // Create an integer variable for the course with its valid terms as the domain
-            if(touched_courses.find(course_id) != touched_courses.end()) {
-                if(taken_courses.find(course_id) == taken_courses.end()) {
+            if(taken_courses.find(course_id) != taken_courses.end()) {
+                course_term_map[course_id] = IntVar(*this, std::max(-1, taken_courses[course_id]), std::max(-1, taken_courses[course_id]));
+            } else {
+                if(touched_courses.find(course_id) != touched_courses.end()) {
                     // Create an integer variable for the course with its valid terms as the domain
                     course_term_map[course_id] = IntVar(*this, IntSet(const_cast<const std::vector<int> &>(valid_terms)));  
                 } else {
-                    course_term_map[course_id] = IntVar(*this, -1, -1);
-                } 
-            } else {
-                course_term_map[course_id] = IntVar(*this, 0, 0);   
+                    course_term_map[course_id] = IntVar(*this, 0, 0);   
+                }
             }
         }
 
         for(const int &course : touched_courses) {
-            if(taken_courses.find(course) != taken_courses.end()) {
+            if(taken_courses.find(course) != taken_courses.end() && taken_courses[course] < 0) {
                 continue;
             }
 
@@ -159,7 +165,7 @@ public:
                     // For hard constraints either the course cannot be scheduled or its
                     // pre-requisites must have an earlier term
                     rel(*this, course_term_map[course], IRT_GR, course_term_map[hard_course_id], lt);
-                    rel(*this, course_term_map[hard_course_id], IRT_GR, 0, on);
+                    rel(*this, course_term_map[hard_course_id], IRT_NQ, 0, on);
                     rel(*this, on, BOT_AND, lt, group_sat[group_idx++]);
                 }
 
@@ -185,7 +191,7 @@ public:
                     // For soft constraints either the course cannot be scheduled or its
                     // pre-requisites must have an earlier term
                     rel(*this, course_term_map[course], IRT_GQ, course_term_map[soft_course_id], lt);
-                    rel(*this, course_term_map[soft_course_id], IRT_GR, 0, on);
+                    rel(*this, course_term_map[soft_course_id], IRT_NQ, 0, on);
                     rel(*this, on, BOT_AND, lt, group_sat[group_idx++]);
                 }
 
@@ -208,9 +214,16 @@ public:
 
         // Set up valid term ranges for each term in the course-term mapping
         for(int i = 1; i < term_course_map.size(); i++) {
-            isa[i] = IntSet({0, 1, 2, 3, 4});
+            isa[i] = IntSet({0, 1, 2, 3, 4, 5});
             isv[i] = i;
         }
+
+        IntVarArgs course_weights;
+        for(int course_id = 0; course_id < global_ids.size(); course_id++) {
+            course_weights << expr(*this, (1 << std::max(0, global_names[course_id][global_names[course_id].find(" ") + 1] - '1')) * ite(course_term_map[course_id] > 0, term_course_map.size() - course_term_map[course_id], 0));
+        }
+
+        rel(*this, Gecode::max(course_term_map) * Gecode::sum(course_weights) == degree_cost);
 
         // Set the last term to include all possible terms
         isa[0] = IntSet(const_cast<const std::vector<int> &>(total));
@@ -223,18 +236,26 @@ public:
         // // Add a counting constraint on the course-term mapping
         count(*this, course_term_map, isa, isv);
 
+        // TODO: order variable assignment by the tree depth of dependencies on that node.
+        // should be quick and work decently well
+
         // Branching strategy: Choose variable with minimum degree and maximum value
         branch(*this, course_term_map, INT_VAR_CHB_MAX(), INT_VAL_MIN());
     }
 
     // Copy constructor for cloning the CourseScheduler object
-    CourseScheduler(CourseScheduler& s) : Space(s) {
+    CourseScheduler(CourseScheduler& s) : IntMinimizeSpace(s) {
+        degree_cost.update(*this, s.degree_cost);
         course_term_map.update(*this, s.course_term_map);
-    } 
+    }
 
     // Create a deep copy of the current space (CourseScheduler)
     virtual Space* copy(void) {
         return new CourseScheduler(*this);
+    }
+
+    virtual IntVar cost(void) const {
+        return degree_cost;
     }
 
     std::array<std::vector<std::string>, term_count> materialize(void) const {
@@ -261,7 +282,7 @@ public:
     }
 };
 
-std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_schedule(std::vector<Program> &programs, std::unordered_set<int> &taken_courses) {
+std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_schedule(std::vector<Program> &programs, std::unordered_map<int, int> &taken_courses) {
     try {
         Program program;
 
@@ -272,12 +293,17 @@ std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_sc
         }
 
         std::unique_ptr<CourseScheduler> m = std::make_unique<CourseScheduler>(program, taken_courses); // Create a CourseScheduler object
-        DFS<CourseScheduler> e(m.get());  // Depth-First Search solver to explore the solution space
+        BAB<CourseScheduler> e(m.get());  // BAB search solver to explore the solution space
+        std::optional<std::array<std::vector<std::string>, 18UL>> ans = std::nullopt;
 
         // Solve and print solutions as they are found
         while(std::unique_ptr<CourseScheduler> s{e.next()}) {
-            return s->materialize();
+            std::cout << "Found" << std::endl;
+            ans = s->materialize();
+            break;
         }
+
+        return ans;
     } catch (Exception e) {
         std::cerr <<"Gecode exception: " << e.what() << std::endl;
     }

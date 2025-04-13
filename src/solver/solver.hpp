@@ -29,7 +29,7 @@ namespace adviseu {
         std::vector<Requirement> requirements; // List of requirements (series and options)
     };
 
-    std::optional<std::array<std::vector<std::string>, term_count>> plan_schedule(std::vector<Program>&, std::unordered_set<int>&);
+    std::optional<std::array<std::vector<std::string>, term_count>> plan_schedule(std::vector<Program>&, std::unordered_map<int, int>&);
 
     inline Program core;
 }

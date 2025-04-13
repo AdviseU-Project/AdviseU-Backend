@@ -1,6 +1,7 @@
 #ifndef LOADER_HPP
 #define LOADER_HPP
 
+#include <algorithm>
 #include <cassert>
 #include <filesystem>
 #include <fstream>
@@ -31,6 +32,11 @@ using bsoncxx::builder::stream::finalize;
 
 using json = nlohmann::json;
 
+const int TAKEN = -100;
+const int term_offset = 1;
+const int base_year = 2025;
+const std::vector<std::string> term_rotation{"Spring ", "Fall ", "Winter "};
+
 void 
 ping_mongo(
     mongocxx::client &conn) 
@@ -53,6 +59,16 @@ load_course_requirements_from_vector(
     std::vector<std::string> &course_jsons) 
 {
     int global_id = 0;
+
+    // std::sort(course_jsons.begin(), course_jsons.end(), [](const auto &a_json, const auto &b_json) {
+    //     json a(json::parse(a_json));
+    //     json b(json::parse(b_json));
+
+    //     std::string a_code = a["course_number"].get<std::string>();
+    //     std::string b_code = b["course_number"].get<std::string>();
+        
+    //     return a_code.substr(a_code.find_first_of(" ")) < b_code.substr(b_code.find_first_of(" "));
+    // });
 
     for(const auto &course_json : course_jsons) {
         json course(json::parse(course_json));
@@ -166,6 +182,7 @@ load_course_requirements_from_vector(
             std::string term = offer["srcdb"].get<std::string>();
 
             if(count) {
+                // assert(course["course_number"].get<std::string>() != "ENGR 103");
                 term_str_map[term].insert(global_ids[course["course_number"].get<std::string>()]);
             }
         }
@@ -395,7 +412,7 @@ load_program_from_mongo(
     return load_program_from_string(bsoncxx::to_json(result.value()));
 }
 
-std::optional<std::pair<std::vector<Program>, std::unordered_set<int>>>
+std::optional<std::pair<std::vector<Program>, std::unordered_map<int, int>>>
 load_user_plan_from_mongo(
     std::string user_id,
     std::string plan_id, 
@@ -443,7 +460,7 @@ load_user_plan_from_mongo(
         }
     }
 
-    std::unordered_set<int> taken_courses;
+    std::unordered_map<int, int> taken_courses;
 
     for(auto c_list = data["courses_taken"].get<std::vector<json>>(); const auto &c_obj : c_list) {
         std::string c_code = c_obj["course_number"].get<std::string>();
@@ -451,7 +468,7 @@ load_user_plan_from_mongo(
         std::cout << "Taken Course: " << c_code << std::endl;
 
         if(global_ids[c_code] != -1) {
-            taken_courses.insert(global_ids[c_code]);
+            taken_courses[global_ids[c_code]] = TAKEN;
         }
     }
 
@@ -463,6 +480,30 @@ load_user_plan_from_mongo(
 
         if(c_code == bsoncxx::oid(plan_id).to_string()) {
             found = true;
+
+            for(auto terms = c_obj["terms"].get_array().value; const auto &term : terms) {
+                std::string t_name{term["name"].get_string().value};
+                int y_off = std::stoi(t_name.substr(t_name.find_first_of(" "))) - base_year;
+                int t_off = std::find(term_rotation.begin(), term_rotation.end(), t_name.substr(0, t_name.find_first_of(" ") + 1)) - term_rotation.begin();
+
+                t_off += term_offset;
+                t_off %= term_rotation.size();
+                t_off -= term_offset;
+
+                if(y_off * 3 + t_off >= term_count) {
+                    std::cout << "Issue" << std::endl;
+                    return {};
+                }
+
+                for(auto courses = term["courses"].get_array().value; const auto &course : courses) {
+                    std::string c_code{course["course_number"].get_string().value};
+
+                    taken_courses[global_ids[c_code]] = y_off * 3 + t_off + (y_off * 3 + t_off >= 0);
+
+                    std::cout << "Taken Course: " << c_code << " @ " << y_off * 3 + t_off + (y_off * 3 + t_off >= 0) << std::endl;
+                }
+            }
+
             break;
         }
     }
@@ -479,16 +520,48 @@ push_plan_to_mongo(
     std::string user_id,
     std::string plan_id,
     std::array<std::vector<std::string>, term_count> plan,
+    std::unordered_map<int, int> taken_courses,
     mongocxx::client &conn
 ) {
-    int year = 2025;
-    std::array<std::string, 3> terms{"Spring ", "Fall ", "Winter "};
-
     auto db = conn["adviseu_db"];
     auto collection = db["courses"];
 
     auto term_list = bsoncxx::builder::basic::array{};
     
+    std::map<int, std::vector<std::string>> taken_map;
+    for(const auto &kv : taken_courses) {
+        if(kv.second > 0 || kv.second == TAKEN)
+            continue;
+
+        taken_map[kv.second].push_back(global_names[kv.first]);
+    }
+
+    for(const auto &kv : taken_map) {
+        int term_idx = kv.first;
+        std::vector<std::string> course_list = kv.second;
+        auto course_list_obj = bsoncxx::builder::basic::document{};
+        auto course_list_array = bsoncxx::builder::basic::array{};
+        
+        course_list_obj.append(kvp("_id", bsoncxx::oid{}));
+        course_list_obj.append(kvp("name", term_rotation[(term_rotation.size() - (term_idx % term_rotation.size())) % term_rotation.size()] + std::to_string(base_year + (term_idx - term_offset) / term_rotation.size())));
+        term_idx += 1;
+
+        for(const auto &course : course_list) {
+            auto result = collection.find_one(make_document(kvp("course_number", course)));
+
+            // std::cout << "Pasting: " << course << std::endl;
+
+            if(!result) {
+                return false;
+            }
+
+            course_list_array.append(*result);
+        }
+
+        course_list_obj.append(kvp("courses", course_list_array));
+        term_list.append(course_list_obj);
+    }
+
     int term_idx = 0;
     for(const auto &course_list : plan) {
         if(!course_list.size()) {
@@ -499,7 +572,7 @@ push_plan_to_mongo(
         auto course_list_array = bsoncxx::builder::basic::array{};
         
         course_list_obj.append(kvp("_id", bsoncxx::oid{}));
-        course_list_obj.append(kvp("name", terms[term_idx % 3] + std::to_string(year + term_idx / 3)));
+        course_list_obj.append(kvp("name", term_rotation[term_idx % term_rotation.size()] + std::to_string(base_year + (term_offset + term_idx) / term_rotation.size())));
         term_idx += 1;
 
         for(const auto &course : course_list) {

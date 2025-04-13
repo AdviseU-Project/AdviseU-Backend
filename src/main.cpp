@@ -123,7 +123,7 @@ handle_request(
         return bad_request("Could not find valid plan");
     }
 
-    auto result = push_plan_to_mongo(body->userId, body->planId, *mapping, conn);
+    auto result = push_plan_to_mongo(body->userId, body->planId, *mapping, plan->second, conn);
 
     if(!result) {
         return server_error("Internal server error");
