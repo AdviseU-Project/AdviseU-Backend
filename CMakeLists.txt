@@ -33,3 +33,11 @@ target_include_directories(AdviseU-Backend PUBLIC
     "${PROJECT_SOURCE_DIR}/src/loader"
     "${PROJECT_SOURCE_DIR}/libs/json"
 )
+
+option(PACKAGE_TESTS "Build the tests" ON)
+
+if(PACKAGE_TESTS)
+    enable_testing()
+    include(GoogleTest)
+    add_subdirectory(tests)
+endif()

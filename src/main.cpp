@@ -14,7 +14,6 @@
 #include <boost/beast/version.hpp>
 #include <sys/resource.h>
 
-#include "globals.hpp"
 #include "loader.hpp"
 #include "shims.hpp"
 #include "solver.hpp"
