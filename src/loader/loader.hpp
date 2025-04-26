@@ -60,15 +60,15 @@ load_course_requirements_from_vector(
 {
     int global_id = 0;
 
-    // std::sort(course_jsons.begin(), course_jsons.end(), [](const auto &a_json, const auto &b_json) {
-    //     json a(json::parse(a_json));
-    //     json b(json::parse(b_json));
+    std::sort(course_jsons.begin(), course_jsons.end(), [](const auto &a_json, const auto &b_json) {
+        json a(json::parse(a_json));
+        json b(json::parse(b_json));
 
-    //     std::string a_code = a["course_number"].get<std::string>();
-    //     std::string b_code = b["course_number"].get<std::string>();
+        std::string a_code = a["course_number"].get<std::string>();
+        std::string b_code = b["course_number"].get<std::string>();
         
-    //     return a_code.substr(a_code.find_first_of(" ")) < b_code.substr(b_code.find_first_of(" "));
-    // });
+        return a_code.substr(a_code.find_first_of(" ")) < b_code.substr(b_code.find_first_of(" "));
+    });
 
     for(const auto &course_json : course_jsons) {
         json course(json::parse(course_json));
@@ -292,7 +292,9 @@ load_program_from_string(
             for(const auto &option : options) {
                 auto courses = option["courses"].get<std::vector<std::string>>();
 
-                if(courses[0].find("Option") != courses[0].npos || courses[0].find("Elective") != courses[0].npos) {
+                if(courses[0].find("Option") != courses[0].npos) {
+                    continue;
+                } else if(courses[0].find("Elective") != courses[0].npos) {
                     elec_creds += std::stoi(courses[1]);
                     continue;
                 } else if(global_ids.find(courses[0]) == global_ids.end()) {
@@ -337,26 +339,24 @@ load_program_from_string(
         }
     }
 
-    if(elec_creds) {
-        std::string best = "";
+    std::string best = "";
 
-        for(const auto &c : code_cnts) {
-            if(best == "" || c.second > code_cnts[best]) {
-                best = c.first;
-            }
+    for(const auto &c : code_cnts) {
+        if(best == "" || c.second > code_cnts[best]) {
+            best = c.first;
         }
+    }
 
-        std::cout << "Best: " << best << std::endl;
+    std::cout << "Best: " << best << std::endl;
 
-        program.requirements.push_back(Requirement{
-            elec_creds / 4,
-            std::vector<Series>()
-        });
+    program.requirements.push_back(Requirement{
+        elec_creds / 4,
+        std::vector<Series>()
+    });
 
-        for(const auto &c : global_ids) {
-            if(c.first.starts_with(best) && (program.code != -1 || (c.first[c.first.find(" ") + 1] - '0') < 4) && (c.first[c.first.find(" ") + 1] - '0') < 5 && course_reqs[c.second].first.size()) {
-                program.requirements.back().series.push_back({{c.second}});
-            }
+    for(const auto &c : global_ids) {
+        if(c.first.starts_with(best) && (program.code != -1 || (c.first[c.first.find(" ") + 1] - '0') < 4) && (c.first[c.first.find(" ") + 1] - '0') < 5 && course_reqs[c.second].first.size()) {
+            program.requirements.back().series.push_back({{c.second}});
         }
     }
 
