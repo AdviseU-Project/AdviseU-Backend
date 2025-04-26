@@ -78,6 +78,16 @@ curl -X POST "http://localhost:8080/api/generatePlan" \
   -d '{"userId": "98329hfd928hfh92fhhfsuh0", "planId": "98329hfd928hfh92fhhfs3f3"}'
 ```
 
+## Running Tests
+
+The project includes automated tests using Google Test framework. These tests check what degrees a schedule can be generated for.
+
+**Run all tests using Docker Compose**:
+
+```bash
+docker-compose run test
+```
+
 ## Development
 
 ### Docker Multi-Stage Build

@@ -10,3 +10,13 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${HOST_PORT}:${CONTAINER_PORT}"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - CONTAINER_PORT=${CONTAINER_PORT}
+    command: /bin/sh -c "cd /app/build && ctest -V"
