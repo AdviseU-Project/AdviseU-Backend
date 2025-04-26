@@ -19,4 +19,4 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
-    command: /bin/sh -c "cd /app/build && ctest -V"
+    command: /bin/sh -c "cd /app/build && ctest -j$(nproc) -V"
