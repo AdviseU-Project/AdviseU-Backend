@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   adviseu-backend:
     build:
@@ -11,10 +9,13 @@ services:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
   test:
+    # The profile makes the test service only run when explicitly requested
+    profiles: ["test"]
     build:
       context: .
       dockerfile: Dockerfile
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
-    command: /bin/sh -c "cd /app/build && ctest -j$(nproc) -V"
+    # The "-j$(($(nproc) / 2))" flag will allow parallelism on half available threads
+    command: /bin/sh -c "cd /app/build && ctest -j$(($(nproc) / 2)) -V"
