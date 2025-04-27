@@ -88,6 +88,12 @@ The project includes automated tests using Google Test framework. These tests ch
 docker-compose run test
 ```
 
+**Ensure your test service is built**:
+
+```bash
+docker-compose build test
+```
+
 ## Development
 
 ### Docker Multi-Stage Build
