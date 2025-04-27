@@ -17,5 +17,12 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
-    # The "-j$(($(nproc) / 2))" flag will allow parallelism on half available threads
-    command: /bin/sh -c "cd /app/build && ctest -j$(($(nproc) / 2)) -V"
+    # Compile tests with sampling parameter, then run with parallelism
+    # The "-j$(($(nproc) / 3 * 2))" flag will allow parallelism on 2/3 of the available threads
+    command: |
+      /bin/sh -c "
+        cd /app/build && 
+        echo 'Environment variable SAMPLING_RATE=' && 
+        echo $SAMPLING_RATE && 
+        ctest -j$(($(nproc) / 3 * 2)) -V
+      "

@@ -22,24 +22,24 @@ Ensure Docker Desktop is running.
 1. **Build and start the container**:
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. **View logs**:
 
    ```bash
-   docker-compose logs -f
+   docker compose logs -f
    ```
 
 3. **Stop the container**:
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
 
 4. **Rebuild after code changes**:
    ```bash
-   docker-compose up -d --build
+   docker compose up -d --build
    ```
 
 ### Using Docker Directly
@@ -85,13 +85,23 @@ The project includes automated tests using Google Test framework. These tests ch
 **Run all tests using Docker Compose**:
 
 ```bash
-docker-compose run test
+docker compose run test
+```
+
+**Run a sample of all tests**:
+
+```bash
+# Run 1/5th of the tests
+docker compose run -e SAMPLING_RATE=5 test
+
+# Run 1/10th of the tests
+docker compose run -e SAMPLING_RATE=10 test
 ```
 
 **Ensure your test service is built**:
 
 ```bash
-docker-compose build test
+docker compose build test
 ```
 
 ## Development

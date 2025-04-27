@@ -5,6 +5,9 @@
 
 using namespace adviseu;
 
+// Global variable to store sampling rate
+int g_sampling_rate = 1; // Default: run all tests
+
 // Structure to represent a degree combination for testing
 struct DegreeCombination {
     std::string majorName;
@@ -56,30 +59,49 @@ std::vector<DegreeCombination> getDegreeCombinations()
     auto db = conn["adviseu_db"];
     auto collection = db["degrees"];
 
-    std::vector<DegreeCombination> combinations;
-
-    // Find all major degrees
+    // First collect all majors to determine sampling
+    std::vector<std::string> allMajors;
     auto cursor = collection.find(make_document());
     for (auto&& doc : cursor) {
         std::string degreeName { doc["program_name"].get_string().value };
-
-        // If it's a major degree
         if (degreeName.find("Major") != std::string::npos) {
+            allMajors.push_back(degreeName);
+        }
+    }
+
+    std::vector<DegreeCombination> combinations;
+
+    // Process every Nth major based on sampling rate
+    for (size_t i = 0; i < allMajors.size(); i++) {
+        // Only process if it's at a sampled index (0, N, 2N, 3N, etc.)
+        if (i % g_sampling_rate == 0) {
+            std::string majorName = allMajors[i];
+
+            // Need to query the database again to get the options
+            auto majorDoc = collection.find_one(make_document(kvp("program_name", majorName)));
+            if (!majorDoc) {
+                continue;
+            }
+
             // Add the major by itself
-            combinations.push_back({ degreeName, "" });
+            combinations.push_back({ majorName, "" });
 
             // Check if it has options
+            auto doc = majorDoc.value();
             if (doc.find("options") != doc.end() && doc["options"].type() == bsoncxx::type::k_array) {
                 auto options = doc["options"].get_array().value;
 
                 // Add combinations of major with each option
                 for (auto&& option : options) {
                     std::string optionName { option.get_string().value };
-                    combinations.push_back({ degreeName, optionName });
+                    combinations.push_back({ majorName, optionName });
                 }
             }
         }
     }
+
+    std::cout << "Testing " << combinations.size() << " degree combinations "
+              << "(sampling rate: " << g_sampling_rate << ")" << std::endl;
 
     return combinations;
 }
@@ -145,6 +167,29 @@ INSTANTIATE_TEST_SUITE_P(DegreeInstantiation, DegreePlanTestSuite, testing::Valu
 
 int main(int argc, char** argv)
 {
+    // Check for environment variable
+    const char* sampling_env = std::getenv("SAMPLING_RATE");
+    if (sampling_env && *sampling_env) {
+        try {
+            g_sampling_rate = std::stoi(sampling_env);
+            std::cout << "Using sampling rate from environment: " << g_sampling_rate << std::endl;
+
+            // Validate the sampling rate
+            if (g_sampling_rate <= 0) {
+                std::cerr << "Sampling rate must be positive, using default (1)" << std::endl;
+                g_sampling_rate = 1;
+            }
+        } catch (const std::exception& e) {
+            std::cerr << "Invalid SAMPLING_RATE environment variable: " << sampling_env << std::endl;
+            std::cerr << "Using default sampling rate (1)" << std::endl;
+            g_sampling_rate = 1;
+        }
+    } else {
+        std::cout << "No SAMPLING_RATE environment variable found, using default (1)" << std::endl;
+    }
+
+    std::cout << "Final sampling rate: " << g_sampling_rate << std::endl;
+
     testing::InitGoogleTest(&argc, argv);
 
     mongocxx::instance inst {};
