@@ -68,16 +68,6 @@ Ensure Docker Desktop is running.
    docker rm adviseu-backend-container
    ```
 
-## Testing the API
-
-Once the server is running, you can test the API using the following `curl` command. Ensure the `userId` and `planId` are set to valid values from the database.
-
-```bash
-curl -X POST "http://localhost:8080/api/generatePlan" \
-  -H "Content-Type: application/json" \
-  -d '{"userId": "98329hfd928hfh92fhhfsuh0", "planId": "98329hfd928hfh92fhhfs3f3"}'
-```
-
 ## Running Tests
 
 The project includes automated tests using Google Test framework. These tests check what degrees a schedule can be generated for.
@@ -102,6 +92,16 @@ docker compose run -e SAMPLING_RATE=10 test
 
 ```bash
 docker compose build test
+```
+
+## Testing the API
+
+Once the server is running, you can test the API using the following `curl` command. Ensure the `userId` and `planId` are set to valid values from the database.
+
+```bash
+curl -X POST "http://localhost:8080/api/generatePlan" \
+  -H "Content-Type: application/json" \
+  -d '{"userId": "98329hfd928hfh92fhhfsuh0", "planId": "98329hfd928hfh92fhhfs3f3"}'
 ```
 
 ## Development
