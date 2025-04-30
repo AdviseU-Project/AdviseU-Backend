@@ -34,6 +34,12 @@ struct DegreeCombination {
     }
 };
 
+// Custom printer for the test name - Overrides Google Test printing of test name
+void PrintTo(const DegreeCombination& combo, std::ostream* os)
+{
+    *os << combo.ToString();
+}
+
 std::string getMongoURI()
 {
     const char* mongo_uri_env = std::getenv("MONGO_URI");
@@ -106,15 +112,6 @@ std::vector<DegreeCombination> getDegreeCombinations()
     return combinations;
 }
 
-// Custom printer for the test name
-struct DegreeCombinationPrinter {
-    template <typename ParamType>
-    std::string operator()(const testing::TestParamInfo<ParamType>& info) const
-    {
-        return info.param.ToString();
-    }
-};
-
 class DegreePlanTestSuite : public testing::TestWithParam<DegreeCombination> {
 public:
     std::vector<Program> programs;
@@ -162,7 +159,7 @@ TEST_P(DegreePlanTestSuite, CanCreate)
     }
 }
 
-INSTANTIATE_TEST_SUITE_P(DegreeInstantiation, DegreePlanTestSuite, testing::ValuesIn(getDegreeCombinations()), DegreeCombinationPrinter {});
+INSTANTIATE_TEST_SUITE_P(DegreeInstantiation, DegreePlanTestSuite, testing::ValuesIn(getDegreeCombinations()));
 
 int main(int argc, char** argv)
 {
