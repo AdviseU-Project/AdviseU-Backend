@@ -94,7 +94,7 @@ std::vector<DegreeCombination> getDegreeCombinations()
                 // Add combinations of major with each option
                 for (auto&& option : options) {
                     std::string optionName { option.get_string().value };
-                    combinations.push_back({ majorName, optionName });
+                    combinations.push_back({ majorName, optionName + " Option" });
                 }
             }
         }
@@ -118,13 +118,12 @@ struct DegreeCombinationPrinter {
 class DegreePlanTestSuite : public testing::TestWithParam<DegreeCombination> {
 public:
     std::vector<Program> programs;
-    mongocxx::client conn;
 
     void SetUp() override
     {
         mongocxx::options::client client_options;
         client_options.server_api_opts(api);
-        conn = mongocxx::client { uri, client_options };
+        mongocxx::client conn { uri, client_options };
 
         const auto& param = GetParam();
 
