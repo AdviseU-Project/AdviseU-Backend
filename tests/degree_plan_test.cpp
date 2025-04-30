@@ -1,4 +1,5 @@
 #include <future>
+#include <thread>
 
 #include <gtest/gtest.h>
 
@@ -55,56 +56,56 @@ const auto api = mongocxx::options::server_api { mongocxx::options::server_api::
 // Return combinations of majors and their options
 std::vector<DegreeCombination> getDegreeCombinations()
 {
-    // mongocxx::options::client client_options;
-    // client_options.server_api_opts(api);
-    // mongocxx::client conn { uri, client_options };
+    mongocxx::options::client client_options;
+    client_options.server_api_opts(api);
+    mongocxx::client conn { uri, client_options };
 
-    // auto db = conn["adviseu_db"];
-    // auto collection = db["degrees"];
+    auto db = conn["adviseu_db"];
+    auto collection = db["degrees"];
 
-    // // First collect all majors to determine sampling
-    // std::vector<std::string> allMajors;
-    // auto cursor = collection.find(make_document());
-    // for (auto&& doc : cursor) {
-    //     std::string degreeName { doc["program_name"].get_string().value };
-    //     if (degreeName.find("Major") != std::string::npos) {
-    //         allMajors.push_back(degreeName);
-    //     }
-    // }
+    // First collect all majors to determine sampling
+    std::vector<std::string> allMajors;
+    auto cursor = collection.find(make_document());
+    for (auto&& doc : cursor) {
+        std::string degreeName { doc["program_name"].get_string().value };
+        if (degreeName.find("Major") != std::string::npos) {
+            allMajors.push_back(degreeName);
+        }
+    }
 
-    std::vector<DegreeCombination> combinations{{.majorName = "Accountancy Undergraduate Major (BS, HBS)"}};
+    std::vector<DegreeCombination> combinations;
 
-    // // Process every Nth major based on sampling rate
-    // for (size_t i = 0; i < allMajors.size(); i++) {
-    //     // Only process if it's at a sampled index (0, N, 2N, 3N, etc.)
-    //     if (i % g_sampling_rate == 0) {
-    //         std::string majorName = allMajors[i];
+    // Process every Nth major based on sampling rate
+    for (size_t i = 0; i < allMajors.size(); i++) {
+        // Only process if it's at a sampled index (0, N, 2N, 3N, etc.)
+        if (i % g_sampling_rate == 0) {
+            std::string majorName = allMajors[i];
 
-    //         // Need to query the database again to get the options
-    //         auto majorDoc = collection.find_one(make_document(kvp("program_name", majorName)));
-    //         if (!majorDoc) {
-    //             continue;
-    //         }
+            // Need to query the database again to get the options
+            auto majorDoc = collection.find_one(make_document(kvp("program_name", majorName)));
+            if (!majorDoc) {
+                continue;
+            }
 
-    //         // Add the major by itself
-    //         combinations.push_back({ majorName, "" });
+            // Add the major by itself
+            combinations.push_back({ majorName, "" });
 
-    //         // Check if it has options
-    //         auto doc = majorDoc.value();
-    //         if (doc.find("options") != doc.end() && doc["options"].type() == bsoncxx::type::k_array) {
-    //             auto options = doc["options"].get_array().value;
+            // Check if it has options
+            auto doc = majorDoc.value();
+            if (doc.find("options") != doc.end() && doc["options"].type() == bsoncxx::type::k_array) {
+                auto options = doc["options"].get_array().value;
 
-    //             // Add combinations of major with each option
-    //             for (auto&& option : options) {
-    //                 std::string optionName { option.get_string().value };
-    //                 combinations.push_back({ majorName, optionName });
-    //             }
-    //         }
-    //     }
-    // }
+                // Add combinations of major with each option
+                for (auto&& option : options) {
+                    std::string optionName { option.get_string().value };
+                    combinations.push_back({ majorName, optionName });
+                }
+            }
+        }
+    }
 
-    // std::cout << "Testing " << combinations.size() << " degree combinations "
-    //           << "(sampling rate: " << g_sampling_rate << ")" << std::endl;
+    std::cout << "Testing " << combinations.size() << " degree combinations "
+              << "(sampling rate: " << g_sampling_rate << ")" << std::endl;
 
     return combinations;
 }
@@ -220,21 +221,28 @@ public:
 
 TEST_P(DegreePlanTestSuite, CanCreate)
 {
-    auto s_time{std::chrono::steady_clock::now()};
-    std::cout << "Plan Start" << std::endl;
+    std::promise<std::optional<std::array<testing::internal::Strings, 18UL>>> result;
+    auto waiter{result.get_future()};
 
-    auto result = std::async(std::launch::async, [this]() {
+    auto runner = std::thread([this](std::promise<std::optional<std::array<testing::internal::Strings, 18UL>>> result) {
         std::unordered_map<int, int> taken_courses;
         
-        return plan_schedule(programs, taken_courses);
-    });
+        result.set_value(plan_schedule(programs, taken_courses));
+    }, std::move(result));
 
-    EXPECT_NE(result.wait_for(std::chrono::seconds(g_timeout_seconds)), std::future_status::timeout);
+    if(waiter.wait_for(std::chrono::seconds(g_timeout_seconds)) == std::future_status::timeout) {
+        pthread_cancel(runner.native_handle());
 
-    auto delta = std::chrono::steady_clock::now() - s_time;
-    std::cout << "Plan End: " << std::chrono::duration_cast<std::chrono::seconds>(delta).count() << std::endl;
+        const auto& param = GetParam();
+        if (param.optionName.empty()) {
+            FAIL() << "Time limit exceeded for: " << param.majorName;
+        } else {
+            FAIL() << "Time limit exceeded for: " << param.majorName
+                   << " with option: " << param.optionName;
+        }
+    }
 
-    if (!result.get()) {
+    if (!waiter.get()) {
         const auto& param = GetParam();
         if (param.optionName.empty()) {
             FAIL() << "Could not create schedule for major: " << param.majorName;
