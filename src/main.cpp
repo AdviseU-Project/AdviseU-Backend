@@ -21,13 +21,15 @@
 using namespace adviseu;
 
 namespace beast = boost::beast;
-namespace http  = beast::http;
-namespace net   = boost::asio;
+namespace http = beast::http;
+namespace net = boost::asio;
 
 const std::string path = "/api/generatePlan";
+const std::string bypass = "/api/bypass/generatePlan";
 
 // Get port from environment variable with fallback to default
-unsigned short getPort() {
+unsigned short getPort()
+{
     const char* port_env = std::getenv("CONTAINER_PORT");
     if (port_env && *port_env) {
         try {
@@ -40,10 +42,11 @@ unsigned short getPort() {
 }
 
 // Get MongoDB URI from environment variable
-std::string getMongoURI() {
+std::string getMongoURI()
+{
     const char* mongo_uri_env = std::getenv("MONGO_URI");
     if (mongo_uri_env && *mongo_uri_env) {
-        std::cout << "Using MongoDB URI from environment variable" << std::endl;
+        // std::cout << "Using MongoDB URI from environment variable" << std::endl;
         return mongo_uri_env;
     } else {
         std::cerr << "Error: MONGO_URI environment variable not set or empty" << std::endl;
@@ -51,8 +54,8 @@ std::string getMongoURI() {
     }
 }
 
-const auto uri = mongocxx::uri{getMongoURI()};
-const auto api = mongocxx::options::server_api{mongocxx::options::server_api::version::k_version_1};
+const auto uri = mongocxx::uri { getMongoURI() };
+const auto api = mongocxx::options::server_api { mongocxx::options::server_api::version::k_version_1 };
 
 // Return a response for the given request.
 //
@@ -65,19 +68,19 @@ handle_request(
 {
     // Returns a bad request response
     auto const bad_request = [&req](beast::string_view why) {
-        http::response<http::string_body> res{http::status::bad_request, req.version()};
+        http::response<http::string_body> res { http::status::bad_request, req.version() };
         res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
         res.set(http::field::content_type, "text/html");
         res.keep_alive(req.keep_alive());
         res.body() = std::string(why);
         res.prepare_payload();
-        
+
         return res;
     };
 
     // Returns a server error response
     auto const server_error = [&req](beast::string_view what) {
-        http::response<http::string_body> res{http::status::internal_server_error, req.version()};
+        http::response<http::string_body> res { http::status::internal_server_error, req.version() };
         res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
         res.set(http::field::content_type, "text/html");
         res.keep_alive(req.keep_alive());
@@ -87,18 +90,18 @@ handle_request(
     };
 
     // Make sure we can handle the method
-    if(req.method() != http::verb::post) {
+    if (req.method() != http::verb::post) {
         return bad_request("Unknown HTTP-method");
     }
 
     // Request path must be absolute and not contain "..".
-    if(req.target() != path) {
+    if (req.target() != path && req.target() != bypass) {
         return bad_request("Illegal request-target");
     }
 
     auto body = shims::parse_schedule_request(req.body());
 
-    if(!body) {
+    if (!body) {
         return bad_request("Invalid request body");
     }
 
@@ -106,32 +109,62 @@ handle_request(
 
     client_options.server_api_opts(api);
 
-    mongocxx::client conn{uri, client_options};
+    mongocxx::client conn { uri, client_options };
 
-    auto plan = load_user_plan_from_mongo(body->userId, body->planId, conn);
+    auto plan = [&req, &body, &conn]() {
+        if (req.target() == bypass) {
+            std::vector<Program> programs;
 
-    if(!plan) {
+            // std::cout << "Bypass: " << body->userId << " " << body->planId << std::endl;
+
+            if (body->userId != "") {
+                programs.push_back(*load_program_from_mongo(body->userId, conn));
+            }
+
+            if (body->planId != "") {
+                programs.push_back(*load_program_from_mongo(body->planId, conn));
+            }
+
+            return std::optional { std::make_pair(programs, std::unordered_map<int, int>()) };
+        } else {
+            return load_user_plan_from_mongo(body->userId, body->planId, conn);
+        }
+    }();
+
+    if (!plan) {
         return bad_request("Invalid plan/user combination");
     }
 
-    std::cout << "Planning..." << std::endl;
+    // std::cout << "Planning..." << std::endl;
 
     std::optional<std::array<std::vector<std::string>, term_count>> mapping = plan_schedule(plan->first, plan->second);
 
-    if(!mapping) {
+    if (!mapping) {
         return bad_request("Could not find valid plan");
+    }
+
+    if (req.target() == bypass) {
+        // Respond to POST request
+        http::response<http::string_body> res { http::status::ok, req.version() };
+        res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+        res.set(http::field::content_type, "text/json");
+        res.keep_alive(req.keep_alive());
+        res.body() = "OK";
+        res.prepare_payload();
+
+        return res;
     }
 
     auto result = push_plan_to_mongo(body->userId, body->planId, *mapping, plan->second, conn);
 
-    if(!result) {
+    if (!result) {
         return server_error("Internal server error");
     }
 
-    std::cout << "Sending..." << std::endl;
-    
+    // std::cout << "Sending..." << std::endl;
+
     // Respond to POST request
-    http::response<http::string_body> res{http::status::ok, req.version()};
+    http::response<http::string_body> res { http::status::ok, req.version() };
     res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
     res.set(http::field::content_type, "text/json");
     res.keep_alive(req.keep_alive());
@@ -175,18 +208,18 @@ do_listen(
     net::ip::tcp::endpoint endpoint)
 {
     auto executor = co_await net::this_coro::executor;
-    auto acceptor = net::ip::tcp::acceptor{executor, endpoint};
+    auto acceptor = net::ip::tcp::acceptor { executor, endpoint };
 
-    for(;;) {
+    for (;;) {
         net::co_spawn(
             executor,
             do_session(
-                beast::tcp_stream{ co_await acceptor.async_accept() }),
+                beast::tcp_stream { co_await acceptor.async_accept() }),
             [](std::exception_ptr e) {
-                if(e) {
+                if (e) {
                     try {
                         std::rethrow_exception(e);
-                    } catch(std::exception const& e) {
+                    } catch (std::exception const& e) {
                         std::cerr << "Error in session: " << e.what() << "\n";
                     }
                 }
@@ -194,51 +227,52 @@ do_listen(
     }
 }
 
-int main(void) {
+int main(void)
+{
     try {
-        mongocxx::instance inst{};
+        mongocxx::instance inst {};
         mongocxx::options::client client_options;
 
         client_options.server_api_opts(api);
 
-        mongocxx::client conn{uri, client_options};
+        mongocxx::client conn { uri, client_options };
 
         ping_mongo(conn);
         load_courses_from_mongo(conn);
 
         auto bacc = load_program_from_mongo("Baccalaureate Core", conn);
 
-        if(!bacc) {
-            std::cout << "Could not load Bacc Core" << std::endl;
+        if (!bacc) {
+            // std::cout << "Could not load Bacc Core" << std::endl;
             return 0;
         }
 
         core = *bacc;
 
-        std::cout << "Courses Loaded!" << std::endl;
+        // std::cout << "Courses Loaded!" << std::endl;
 
         // The io_context is required for all I/O
-        net::io_context ioc{ 1 };
-        
+        net::io_context ioc { 1 };
+
         auto const address = net::ip::make_address("0.0.0.0");
         auto const port = getPort();
 
         // Spawn a listening port
         net::co_spawn(
             ioc,
-            do_listen(net::ip::tcp::endpoint{address, port}),
+            do_listen(net::ip::tcp::endpoint { address, port }),
             [](std::exception_ptr e) {
-                if(e) {
+                if (e) {
                     try {
                         std::rethrow_exception(e);
-                    } catch(std::exception const& e) {
+                    } catch (std::exception const& e) {
                         std::cerr << "Error: " << e.what() << std::endl;
                     }
                 }
             });
 
         ioc.run();
-    } catch(std::exception const& e) {
+    } catch (std::exception const& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return EXIT_FAILURE;
     }
