@@ -25,6 +25,7 @@ namespace http  = beast::http;
 namespace net   = boost::asio;
 
 const std::string path = "/api/generatePlan";
+const std::string bypass = "/api/bypass/generatePlan";
 
 // Get port from environment variable with fallback to default
 unsigned short getPort() {
@@ -92,7 +93,7 @@ handle_request(
     }
 
     // Request path must be absolute and not contain "..".
-    if(req.target() != path) {
+    if(req.target() != path && req.target() != bypass) {
         return bad_request("Illegal request-target");
     }
 
@@ -108,7 +109,25 @@ handle_request(
 
     mongocxx::client conn{uri, client_options};
 
-    auto plan = load_user_plan_from_mongo(body->userId, body->planId, conn);
+    auto plan = [&req, &body, &conn]() {
+        if(req.target() == bypass) {
+            std::vector<Program> programs;
+
+            std::cout << "Bypass: " << body->userId << " " << body->planId << std::endl;
+
+            if(body->userId != "") {
+                programs.push_back(*load_program_from_mongo(body->userId, conn));
+            }
+
+            if(body->planId != "") {
+                programs.push_back(*load_program_from_mongo(body->planId, conn));
+            }
+            
+            return std::optional{std::make_pair(programs, std::unordered_map<int, int>())};
+        } else {
+            return load_user_plan_from_mongo(body->userId, body->planId, conn);
+        }
+    }();
 
     if(!plan) {
         return bad_request("Invalid plan/user combination");
@@ -120,6 +139,18 @@ handle_request(
 
     if(!mapping) {
         return bad_request("Could not find valid plan");
+    }
+
+    if(req.target() == bypass) {
+        // Respond to POST request
+        http::response<http::string_body> res{http::status::ok, req.version()};
+        res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+        res.set(http::field::content_type, "text/json");
+        res.keep_alive(req.keep_alive());
+        res.body() = "OK";
+        res.prepare_payload();
+
+        return res;
     }
 
     auto result = push_plan_to_mongo(body->userId, body->planId, *mapping, plan->second, conn);

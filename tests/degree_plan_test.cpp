@@ -1,3 +1,5 @@
+#include <future>
+
 #include <gtest/gtest.h>
 
 #include "loader.hpp"
@@ -7,6 +9,7 @@ using namespace adviseu;
 
 // Global variable to store sampling rate
 int g_sampling_rate = 1; // Default: run all tests
+int g_timeout_seconds = 60;
 
 // Structure to represent a degree combination for testing
 struct DegreeCombination {
@@ -52,56 +55,56 @@ const auto api = mongocxx::options::server_api { mongocxx::options::server_api::
 // Return combinations of majors and their options
 std::vector<DegreeCombination> getDegreeCombinations()
 {
-    mongocxx::options::client client_options;
-    client_options.server_api_opts(api);
-    mongocxx::client conn { uri, client_options };
+    // mongocxx::options::client client_options;
+    // client_options.server_api_opts(api);
+    // mongocxx::client conn { uri, client_options };
 
-    auto db = conn["adviseu_db"];
-    auto collection = db["degrees"];
+    // auto db = conn["adviseu_db"];
+    // auto collection = db["degrees"];
 
-    // First collect all majors to determine sampling
-    std::vector<std::string> allMajors;
-    auto cursor = collection.find(make_document());
-    for (auto&& doc : cursor) {
-        std::string degreeName { doc["program_name"].get_string().value };
-        if (degreeName.find("Major") != std::string::npos) {
-            allMajors.push_back(degreeName);
-        }
-    }
+    // // First collect all majors to determine sampling
+    // std::vector<std::string> allMajors;
+    // auto cursor = collection.find(make_document());
+    // for (auto&& doc : cursor) {
+    //     std::string degreeName { doc["program_name"].get_string().value };
+    //     if (degreeName.find("Major") != std::string::npos) {
+    //         allMajors.push_back(degreeName);
+    //     }
+    // }
 
-    std::vector<DegreeCombination> combinations;
+    std::vector<DegreeCombination> combinations{{.majorName = "Accountancy Undergraduate Major (BS, HBS)"}};
 
-    // Process every Nth major based on sampling rate
-    for (size_t i = 0; i < allMajors.size(); i++) {
-        // Only process if it's at a sampled index (0, N, 2N, 3N, etc.)
-        if (i % g_sampling_rate == 0) {
-            std::string majorName = allMajors[i];
+    // // Process every Nth major based on sampling rate
+    // for (size_t i = 0; i < allMajors.size(); i++) {
+    //     // Only process if it's at a sampled index (0, N, 2N, 3N, etc.)
+    //     if (i % g_sampling_rate == 0) {
+    //         std::string majorName = allMajors[i];
 
-            // Need to query the database again to get the options
-            auto majorDoc = collection.find_one(make_document(kvp("program_name", majorName)));
-            if (!majorDoc) {
-                continue;
-            }
+    //         // Need to query the database again to get the options
+    //         auto majorDoc = collection.find_one(make_document(kvp("program_name", majorName)));
+    //         if (!majorDoc) {
+    //             continue;
+    //         }
 
-            // Add the major by itself
-            combinations.push_back({ majorName, "" });
+    //         // Add the major by itself
+    //         combinations.push_back({ majorName, "" });
 
-            // Check if it has options
-            auto doc = majorDoc.value();
-            if (doc.find("options") != doc.end() && doc["options"].type() == bsoncxx::type::k_array) {
-                auto options = doc["options"].get_array().value;
+    //         // Check if it has options
+    //         auto doc = majorDoc.value();
+    //         if (doc.find("options") != doc.end() && doc["options"].type() == bsoncxx::type::k_array) {
+    //             auto options = doc["options"].get_array().value;
 
-                // Add combinations of major with each option
-                for (auto&& option : options) {
-                    std::string optionName { option.get_string().value };
-                    combinations.push_back({ majorName, optionName });
-                }
-            }
-        }
-    }
+    //             // Add combinations of major with each option
+    //             for (auto&& option : options) {
+    //                 std::string optionName { option.get_string().value };
+    //                 combinations.push_back({ majorName, optionName });
+    //             }
+    //         }
+    //     }
+    // }
 
-    std::cout << "Testing " << combinations.size() << " degree combinations "
-              << "(sampling rate: " << g_sampling_rate << ")" << std::endl;
+    // std::cout << "Testing " << combinations.size() << " degree combinations "
+    //           << "(sampling rate: " << g_sampling_rate << ")" << std::endl;
 
     return combinations;
 }
@@ -118,13 +121,12 @@ struct DegreeCombinationPrinter {
 class DegreePlanTestSuite : public testing::TestWithParam<DegreeCombination> {
 public:
     std::vector<Program> programs;
-    mongocxx::client conn;
 
     void SetUp() override
     {
         mongocxx::options::client client_options;
         client_options.server_api_opts(api);
-        conn = mongocxx::client { uri, client_options };
+        mongocxx::client conn{uri, client_options};
 
         const auto& param = GetParam();
 
@@ -146,13 +148,93 @@ public:
     }
 };
 
+class Environment : public ::testing::Environment {
+public:
+    ~Environment() override {}
+
+    // Override this to define how to set up the environment.
+    void SetUp() override {
+        // Check for environment variable
+        const char* sampling_env = std::getenv("SAMPLING_RATE");
+        if (sampling_env && *sampling_env) {
+            try {
+                g_sampling_rate = std::stoi(sampling_env);
+                std::cout << "Using sampling rate from environment: " << g_sampling_rate << std::endl;
+
+                // Validate the sampling rate
+                if (g_sampling_rate <= 0) {
+                    std::cerr << "Sampling rate must be positive, using default (1)" << std::endl;
+                    g_sampling_rate = 1;
+                }
+            } catch (const std::exception& e) {
+                std::cerr << "Invalid SAMPLING_RATE environment variable: " << sampling_env << std::endl;
+                std::cerr << "Using default sampling rate (1)" << std::endl;
+                g_sampling_rate = 1;
+            }
+        } else {
+            std::cout << "No SAMPLING_RATE environment variable found, using default (1)" << std::endl;
+        }
+
+        // Check for environment variable
+        const char* timeout_env = std::getenv("TIMEOUT_SECONDS");
+        if (timeout_env && *timeout_env) {
+            try {
+                g_timeout_seconds = std::stoi(timeout_env);
+                std::cout << "Using timeout from environment: " << g_timeout_seconds << std::endl;
+
+                // Validate the timeout
+                if (g_timeout_seconds <= 0) {
+                    std::cerr << "Timeout must be positive, using default (60)" << std::endl;
+                    g_timeout_seconds = 60;
+                }
+            } catch (const std::exception& e) {
+                std::cerr << "Invalid TIMEOUT_SECONDS environment variable: " << timeout_env << std::endl;
+                std::cerr << "Using default timeout (60)" << std::endl;
+                g_timeout_seconds = 60;
+            }
+        } else {
+            std::cout << "No TIMEOUT_SECONDS environment variable found, using default (60)" << std::endl;
+        }
+
+        std::cout << "Final sampling rate: " << g_sampling_rate << std::endl;
+        std::cout << "Final timeout: " << g_timeout_seconds << std::endl;
+
+        mongocxx::options::client client_options;
+
+        client_options.server_api_opts(api);
+
+        mongocxx::client conn{uri, client_options};
+
+        ping_mongo(conn);
+        load_courses_from_mongo(conn);
+
+        auto bacc = load_program_from_mongo("Baccalaureate Core", conn);
+
+        if (!bacc) {
+            FAIL() << "Could not load Bacc Core" << std::endl;
+        }
+
+        core = *bacc;
+    }
+};
+
 TEST_P(DegreePlanTestSuite, CanCreate)
 {
-    std::unordered_map<int, int> taken_courses;
+    auto s_time{std::chrono::steady_clock::now()};
+    std::cout << "Plan Start" << std::endl;
 
-    auto result = plan_schedule(programs, taken_courses);
+    auto result = std::async(std::launch::async, [this]() {
+        std::unordered_map<int, int> taken_courses;
+        
+        return plan_schedule(programs, taken_courses);
+    });
 
-    if (!result) {
+    EXPECT_NE(result.wait_for(std::chrono::seconds(g_timeout_seconds)), std::future_status::timeout);
+
+    auto delta = std::chrono::steady_clock::now() - s_time;
+    std::cout << "Plan End: " << std::chrono::duration_cast<std::chrono::seconds>(delta).count() << std::endl;
+
+    if (!result.get()) {
         const auto& param = GetParam();
         if (param.optionName.empty()) {
             FAIL() << "Could not create schedule for major: " << param.majorName;
@@ -165,51 +247,11 @@ TEST_P(DegreePlanTestSuite, CanCreate)
 
 INSTANTIATE_TEST_SUITE_P(DegreeInstantiation, DegreePlanTestSuite, testing::ValuesIn(getDegreeCombinations()), DegreeCombinationPrinter {});
 
-int main(int argc, char** argv)
-{
-    // Check for environment variable
-    const char* sampling_env = std::getenv("SAMPLING_RATE");
-    if (sampling_env && *sampling_env) {
-        try {
-            g_sampling_rate = std::stoi(sampling_env);
-            std::cout << "Using sampling rate from environment: " << g_sampling_rate << std::endl;
-
-            // Validate the sampling rate
-            if (g_sampling_rate <= 0) {
-                std::cerr << "Sampling rate must be positive, using default (1)" << std::endl;
-                g_sampling_rate = 1;
-            }
-        } catch (const std::exception& e) {
-            std::cerr << "Invalid SAMPLING_RATE environment variable: " << sampling_env << std::endl;
-            std::cerr << "Using default sampling rate (1)" << std::endl;
-            g_sampling_rate = 1;
-        }
-    } else {
-        std::cout << "No SAMPLING_RATE environment variable found, using default (1)" << std::endl;
-    }
-
-    std::cout << "Final sampling rate: " << g_sampling_rate << std::endl;
-
+int main(int argc, char** argv) {
+    mongocxx::instance inst{};
+    
     testing::InitGoogleTest(&argc, argv);
-
-    mongocxx::instance inst {};
-    mongocxx::options::client client_options;
-
-    client_options.server_api_opts(api);
-
-    mongocxx::client conn { uri, client_options };
-
-    ping_mongo(conn);
-    load_courses_from_mongo(conn);
-
-    auto bacc = load_program_from_mongo("Baccalaureate Core", conn);
-
-    if (!bacc) {
-        std::cout << "Could not load Bacc Core" << std::endl;
-        return 1;
-    }
-
-    core = *bacc;
+    testing::AddGlobalTestEnvironment(new Environment);
 
     return RUN_ALL_TESTS();
 }

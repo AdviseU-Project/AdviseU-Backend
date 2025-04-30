@@ -59,20 +59,24 @@ load_course_requirements_from_vector(
     std::vector<std::string> &course_jsons) 
 {
     int global_id = 0;
+    std::vector<json> course_objects;
 
-    std::sort(course_jsons.begin(), course_jsons.end(), [](const auto &a_json, const auto &b_json) {
-        json a(json::parse(a_json));
-        json b(json::parse(b_json));
+    std::transform(course_jsons.begin(), course_jsons.end(), std::back_inserter(course_objects), [](const auto &a_json) {
+        return json::parse(a_json);
+    });
 
+    std::cout << "Transform Done" << std::endl;
+
+    std::sort(course_objects.begin(), course_objects.end(), [](const json &a, const json &b) {
         std::string a_code = a["course_number"].get<std::string>();
         std::string b_code = b["course_number"].get<std::string>();
         
         return a_code.substr(a_code.find_first_of(" ")) < b_code.substr(b_code.find_first_of(" "));
     });
 
-    for(const auto &course_json : course_jsons) {
-        json course(json::parse(course_json));
+    std::cout << "Sort Done" << std::endl;
 
+    for(const auto &course : course_objects) {
         global_ids[course["course_number"].get<std::string>()] = global_id++;
     }
 
@@ -85,8 +89,7 @@ load_course_requirements_from_vector(
 
     std::map<std::string, std::unordered_set<int>> term_str_map;
 
-    for(const auto &course_json : course_jsons) {
-        json course(json::parse(course_json));
+    for(const auto &course : course_objects) {
         course_reqs.push_back({std::vector<std::vector<int>>(), std::vector<std::vector<int>>()});
 
         auto pre_reqs = course["prerequisites"];
@@ -205,12 +208,18 @@ load_courses_from_mongo(
     auto db = conn["adviseu_db"];
     auto collection = db["courses"];
 
-    auto cursor = collection.find(make_document());
+    auto s_time{std::chrono::steady_clock::now()};
+    std::cout << "Read Start" << std::endl;
+
+    auto cursor = collection.find(make_document(), mongocxx::v_noabi::options::find().batch_size(10000));
     std::vector<std::string> courses;
 
     for(auto&& doc : cursor) {
         courses.push_back(bsoncxx::to_json(doc));
     }
+
+    auto delta = std::chrono::steady_clock::now() - s_time;
+    std::cout << "Read Done: " << std::chrono::duration_cast<std::chrono::seconds>(delta).count() << std::endl;
 
     load_course_requirements_from_vector(courses);
 

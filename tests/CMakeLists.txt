@@ -48,5 +48,4 @@ target_include_directories(degree_plan_test PUBLIC
 gtest_discover_tests(degree_plan_test degree_plan_test 
     DISCOVERY_MODE PRE_TEST
     DISCOVERY_TIMEOUT 240
-    PROPERTIES TIMEOUT 60
 )
