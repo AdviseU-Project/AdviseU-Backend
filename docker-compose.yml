@@ -17,7 +17,7 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
-    # Compile tests with sampling parameter, then run with parallelism
+    # Run tests with parallelism
     # The "-j$(($(nproc) / 3 * 2))" flag will allow parallelism on 2/3 of the available threads
     command: |
       /bin/sh -c "
