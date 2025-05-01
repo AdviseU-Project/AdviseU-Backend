@@ -8,6 +8,18 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
+    # healthcheck to ensure service is ready before test runs
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f http://localhost:${CONTAINER_PORT}/health || exit 1",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
   test:
     # The profile makes the test service only run when explicitly requested
     profiles: ["test"]
@@ -17,12 +29,23 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
+      - BACKEND_HOST=adviseu-backend
     # Run tests with parallelism
     # The "-j$(($(nproc) / 3 * 2))" flag will allow parallelism on 2/3 of the available threads
     command: |
       /bin/sh -c "
+        echo 'Waiting for backend service to be ready...'
+        until curl -s http://adviseu-backend:${CONTAINER_PORT}/health > /dev/null; do
+          echo 'Backend service is unavailable - sleeping'
+          sleep 5
+        done
+        echo 'Backend service is up - running tests'
+
         cd /app/build && 
         echo 'Environment variable SAMPLING_RATE=' && 
         echo $SAMPLING_RATE && 
         ctest -j$(($(nproc) / 3 * 2)) -V
       "
+    depends_on:
+      adviseu-backend:
+        condition: service_healthy

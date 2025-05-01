@@ -26,6 +26,7 @@ namespace net = boost::asio;
 
 const std::string path = "/api/generatePlan";
 const std::string bypass = "/api/bypass/generatePlan";
+const std::string health = "/health";
 
 // Get port from environment variable with fallback to default
 unsigned short getPort()
@@ -46,7 +47,7 @@ std::string getMongoURI()
 {
     const char* mongo_uri_env = std::getenv("MONGO_URI");
     if (mongo_uri_env && *mongo_uri_env) {
-        // std::cout << "Using MongoDB URI from environment variable" << std::endl;
+        std::cout << "Using MongoDB URI from environment variable" << std::endl;
         return mongo_uri_env;
     } else {
         std::cerr << "Error: MONGO_URI environment variable not set or empty" << std::endl;
@@ -74,7 +75,6 @@ handle_request(
         res.keep_alive(req.keep_alive());
         res.body() = std::string(why);
         res.prepare_payload();
-
         return res;
     };
 
@@ -88,6 +88,18 @@ handle_request(
         res.prepare_payload();
         return res;
     };
+
+    // Health check endpoint - accept GET requests
+    if (req.target() == health) {
+        // Accept any HTTP method for the health endpoint
+        http::response<http::string_body> res { http::status::ok, req.version() };
+        res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
+        res.set(http::field::content_type, "text/plain");
+        res.keep_alive(req.keep_alive());
+        res.body() = "OK";
+        res.prepare_payload();
+        return res;
+    }
 
     // Make sure we can handle the method
     if (req.method() != http::verb::post) {
@@ -115,7 +127,7 @@ handle_request(
         if (req.target() == bypass) {
             std::vector<Program> programs;
 
-            // std::cout << "Bypass: " << body->userId << " " << body->planId << std::endl;
+            std::cout << "Bypass: " << body->userId << " " << body->planId << std::endl;
 
             if (body->userId != "") {
                 programs.push_back(*load_program_from_mongo(body->userId, conn));
@@ -135,7 +147,7 @@ handle_request(
         return bad_request("Invalid plan/user combination");
     }
 
-    // std::cout << "Planning..." << std::endl;
+    std::cout << "Planning..." << std::endl;
 
     std::optional<std::array<std::vector<std::string>, term_count>> mapping = plan_schedule(plan->first, plan->second);
 
@@ -161,7 +173,7 @@ handle_request(
         return server_error("Internal server error");
     }
 
-    // std::cout << "Sending..." << std::endl;
+    std::cout << "Sending..." << std::endl;
 
     // Respond to POST request
     http::response<http::string_body> res { http::status::ok, req.version() };
@@ -243,13 +255,13 @@ int main(void)
         auto bacc = load_program_from_mongo("Baccalaureate Core", conn);
 
         if (!bacc) {
-            // std::cout << "Could not load Bacc Core" << std::endl;
+            std::cout << "Could not load Bacc Core" << std::endl;
             return 0;
         }
 
         core = *bacc;
 
-        // std::cout << "Courses Loaded!" << std::endl;
+        std::cout << "Courses Loaded!" << std::endl;
 
         // The io_context is required for all I/O
         net::io_context ioc { 1 };
@@ -270,6 +282,12 @@ int main(void)
                     }
                 }
             });
+
+        std::cout << "Server started at 0.0.0.0:" << port << std::endl;
+        std::cout << "Endpoints available:" << std::endl;
+        std::cout << "  - " << path << " (main API endpoint)" << std::endl;
+        std::cout << "  - " << bypass << " (testing bypass endpoint)" << std::endl;
+        std::cout << "  - " << health << " (health check endpoint)" << std::endl;
 
         ioc.run();
     } catch (std::exception const& e) {
