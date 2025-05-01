@@ -47,9 +47,9 @@ void ping_mongo(
         const auto ping_cmd = bsoncxx::builder::basic::make_document(bsoncxx::builder::basic::kvp("ping", 1));
         db.run_command(ping_cmd.view());
 
-        // std::cout << "Pinged your deployment. You successfully connected to MongoDB!" << std::endl;
+        std::cout << "Pinged your deployment. You successfully connected to MongoDB!" << std::endl;
     } catch (const std::exception& e) {
-        // std::cout<< "Mongo Exception: " << e.what() << std::endl;
+        std::cout << "Mongo Exception: " << e.what() << std::endl;
     }
 }
 
@@ -63,7 +63,7 @@ void load_course_requirements_from_vector(
         return json::parse(a_json);
     });
 
-    // std::cout << "Transform Done" << std::endl;
+    std::cout << "Transform Done" << std::endl;
 
     std::sort(course_objects.begin(), course_objects.end(), [](const json& a, const json& b) {
         std::string a_code = a["course_number"].get<std::string>();
@@ -72,7 +72,7 @@ void load_course_requirements_from_vector(
         return a_code.substr(a_code.find_first_of(" ")) < b_code.substr(b_code.find_first_of(" "));
     });
 
-    // std::cout << "Sort Done" << std::endl;
+    std::cout << "Sort Done" << std::endl;
 
     for (const auto& course : course_objects) {
         global_ids[course["course_number"].get<std::string>()] = global_id++;
@@ -108,7 +108,7 @@ void load_course_requirements_from_vector(
                                 auto eptr = std::remove(pcr.begin(), pcr.end(), id);
 
                                 if (eptr != pcr.end()) {
-                                    // std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
+                                    std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
 
                                     pcr.erase(eptr, pcr.end());
 
@@ -149,7 +149,7 @@ void load_course_requirements_from_vector(
                                 auto eptr = std::remove(pcr.begin(), pcr.end(), id);
 
                                 if (eptr != pcr.end()) {
-                                    // std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
+                                    std::cout << "Loop: " << global_names[ptr->second] << " " << ptr->second << " - " << global_names[id] << " " << id << std::endl;
 
                                     pcr.erase(eptr, pcr.end());
 
@@ -202,7 +202,7 @@ void load_courses_from_mongo(
     auto collection = db["courses"];
 
     auto s_time { std::chrono::steady_clock::now() };
-    // std::cout << "Read Start" << std::endl;
+    std::cout << "Read Start" << std::endl;
 
     auto cursor = collection.find(make_document(), mongocxx::v_noabi::options::find().batch_size(10000));
     std::vector<std::string> courses;
@@ -212,13 +212,13 @@ void load_courses_from_mongo(
     }
 
     auto delta = std::chrono::steady_clock::now() - s_time;
-    // std::cout << "Read Done: " << std::chrono::duration_cast<std::chrono::seconds>(delta).count() << std::endl;
+    std::cout << "Read Done: " << std::chrono::duration_cast<std::chrono::seconds>(delta).count() << std::endl;
 
     load_course_requirements_from_vector(courses);
 
     int idc = 0;
     for (const auto& global_id : global_ids) {
-        // std::cout << global_id.first << " -> " << global_id.second << std::endl;
+        std::cout << global_id.first << " -> " << global_id.second << std::endl;
 
         if (++idc >= 10) {
             break;
@@ -232,34 +232,34 @@ void load_courses_from_mongo(
             continue;
         }
 
-        // std::cout << "Course: " << idc << " -> " << global_names[idc] << std::endl;
+        std::cout << "Course: " << idc << " -> " << global_names[idc] << std::endl;
 
-        // std::cout << "\tRequirements: ";
+        std::cout << "\tRequirements: ";
         for (const auto& req_group : course_req.first) {
-            // std::cout << "[";
+            std::cout << "[";
 
             for (const auto& req : req_group) {
-                // std::cout << "(" << req << " " << global_names[req] << ") ";
+                std::cout << "(" << req << " " << global_names[req] << ") ";
             }
 
-            // std::cout << "] ";
+            std::cout << "] ";
         }
 
-        // std::cout << std::endl;
-        // std::cout << "\tCo-Requirements: ";
+        std::cout << std::endl;
+        std::cout << "\tCo-Requirements: ";
         for (const auto& req_group : course_req.second) {
-            // std::cout << "[";
+            std::cout << "[";
 
             for (const auto& req : req_group) {
-                // std::cout << req << " ";
+                std::cout << req << " ";
             }
 
-            // std::cout << "] ";
+            std::cout << "] ";
         }
 
         idc++;
 
-        // std::cout << std::endl;
+        std::cout << std::endl;
     }
 }
 
@@ -346,7 +346,7 @@ load_program_from_string(
         }
     }
 
-    // std::cout << "Best: " << best << std::endl;
+    std::cout << "Best: " << best << std::endl;
 
     program.requirements.push_back(Requirement {
         elec_creds / 4,
@@ -358,32 +358,32 @@ load_program_from_string(
         }
     }
 
-    // std::cout << program.name << std::endl;
-    // std::cout << program.code << std::endl;
+    std::cout << program.name << std::endl;
+    std::cout << program.code << std::endl;
 
     for (const auto& requirement : program.requirements) {
-        // std::cout << "Requirement: " << requirement.req_series << std::endl;
+        std::cout << "Requirement: " << requirement.req_series << std::endl;
 
         int series_idx = 0;
         for (const auto& series : requirement.series) {
-            // std::cout << "\tSeries: " << series_idx++ << std::endl;
+            std::cout << "\tSeries: " << series_idx++ << std::endl;
 
             int option_idx = 0;
             for (const auto& option : series) {
-                // std::cout << "\t\tOption: " << option_idx++ << std::endl;
+                std::cout << "\t\tOption: " << option_idx++ << std::endl;
 
                 int course_idx = 0;
                 for (const auto& course : option) {
-                    // std::cout << "\t\t\tCourse: " << course_idx++ << " . " << global_names[course] << std::endl;
+                    std::cout << "\t\t\tCourse: " << course_idx++ << " . " << global_names[course] << std::endl;
 
                     if (term_course_map[0].find(course) != term_course_map[0].end()) {
-                        // std::cout << "\t\t\t\tTerm: 0" << std::endl;
+                        std::cout << "\t\t\t\tTerm: 0" << std::endl;
                     }
                     if (term_course_map[1].find(course) != term_course_map[2].end()) {
-                        // std::cout << "\t\t\t\tTerm: 1" << std::endl;
+                        std::cout << "\t\t\t\tTerm: 1" << std::endl;
                     }
                     if (term_course_map[2].find(course) != term_course_map[3].end()) {
-                        // std::cout << "\t\t\t\tTerm: 2" << std::endl;
+                        std::cout << "\t\t\t\tTerm: 2" << std::endl;
                     }
                 }
             }
@@ -423,7 +423,7 @@ load_user_plan_from_mongo(
     auto user_result = users_collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
 
     if (!user_result) {
-        // std::cout << "User not found" << std::endl;
+        std::cout << "User not found" << std::endl;
         return {};
     }
 
@@ -431,14 +431,14 @@ load_user_plan_from_mongo(
     auto extension_id_value = user_result->view()["extension_id"].get_oid().value;
     std::string extension_id = extension_id_value.to_string();
 
-    // std::cout << "Found extension_id: " << extension_id << std::endl;
+    std::cout << "Found extension_id: " << extension_id << std::endl;
 
     // Now query the extensions collection with the extension_id
     auto extensions_collection = db["extensions"];
     auto extension_result = extensions_collection.find_one(make_document(kvp("_id", extension_id_value)));
 
     if (!extension_result) {
-        // std::cout << "Extension not found" << std::endl;
+        std::cout << "Extension not found" << std::endl;
         return {};
     }
 
@@ -449,7 +449,7 @@ load_user_plan_from_mongo(
     for (auto p_list = data["degrees"].get<std::vector<json>>(); const auto& pl_obj : p_list) {
         std::string p_name = pl_obj["program_name"].get<std::string>();
 
-        // std::cout << "Major: " << p_name << std::endl;
+        std::cout << "Major: " << p_name << std::endl;
 
         auto p_obj = load_program_from_mongo(p_name, conn);
 
@@ -463,7 +463,7 @@ load_user_plan_from_mongo(
     for (auto c_list = data["courses_taken"].get<std::vector<json>>(); const auto& c_obj : c_list) {
         std::string c_code = c_obj["course_number"].get<std::string>();
 
-        // std::cout << "Taken Course: " << c_code << std::endl;
+        std::cout << "Taken Course: " << c_code << std::endl;
 
         if (global_ids[c_code] != -1) {
             taken_courses[global_ids[c_code]] = TAKEN;
@@ -474,7 +474,7 @@ load_user_plan_from_mongo(
     for (auto c_list = extension_result.value()["plans"].get_array().value; const auto& c_obj : c_list) {
         std::string c_code = c_obj["_id"].get_oid().value.to_string();
 
-        // std::cout << "OID: " << c_code << std::endl;
+        std::cout << "OID: " << c_code << std::endl;
 
         if (c_code == bsoncxx::oid(plan_id).to_string()) {
             found = true;
@@ -489,7 +489,7 @@ load_user_plan_from_mongo(
                 t_off -= term_offset;
 
                 if (y_off * 3 + t_off >= term_count) {
-                    // std::cout << "Issue" << std::endl;
+                    std::cout << "Issue" << std::endl;
                     return {};
                 }
 
@@ -498,7 +498,7 @@ load_user_plan_from_mongo(
 
                     taken_courses[global_ids[c_code]] = y_off * 3 + t_off + (y_off * 3 + t_off >= 0);
 
-                    // std::cout << "Taken Course: " << c_code << " @ " << y_off * 3 + t_off + (y_off * 3 + t_off >= 0) << std::endl;
+                    std::cout << "Taken Course: " << c_code << " @ " << y_off * 3 + t_off + (y_off * 3 + t_off >= 0) << std::endl;
                 }
             }
 
@@ -546,7 +546,7 @@ bool push_plan_to_mongo(
         for (const auto& course : course_list) {
             auto result = collection.find_one(make_document(kvp("course_number", course)));
 
-            // // std::cout << "Pasting: " << course << std::endl;
+            // std::cout << "Pasting: " << course << std::endl;
 
             if (!result) {
                 return false;
@@ -575,7 +575,7 @@ bool push_plan_to_mongo(
         for (const auto& course : course_list) {
             auto result = collection.find_one(make_document(kvp("course_number", course)));
 
-            // // std::cout << "Pasting: " << course << std::endl;
+            // std::cout << "Pasting: " << course << std::endl;
 
             if (!result) {
                 return false;
@@ -588,7 +588,7 @@ bool push_plan_to_mongo(
         term_list.append(course_list_obj);
     }
 
-    // // std::cout << bsoncxx::to_json(term_obj) << std::endl;
+    // std::cout << bsoncxx::to_json(term_obj) << std::endl;
 
     // First get the user document to retrieve the extension_id
     db = conn["test"];
@@ -596,7 +596,7 @@ bool push_plan_to_mongo(
     auto user_result = users_collection.find_one(make_document(kvp("_id", bsoncxx::oid(user_id))));
 
     if (!user_result) {
-        // std::cout << "User not found" << std::endl;
+        std::cout << "User not found" << std::endl;
         return false;
     }
 
@@ -608,7 +608,7 @@ bool push_plan_to_mongo(
     auto extension_result = extensions_collection.find_one(make_document(kvp("_id", extension_id_value)));
 
     if (!extension_result) {
-        // std::cout << "Extension not found" << std::endl;
+        std::cout << "Extension not found" << std::endl;
         return false;
     }
 
