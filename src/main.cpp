@@ -1,5 +1,6 @@
 #include <array>
 #include <cstdlib>
+#include <future>
 #include <iostream>
 #include <optional>
 #include <string>
@@ -195,20 +196,28 @@ do_session(
     beast::flat_buffer buffer;
 
     // Set the timeout.
-    stream.expires_after(std::chrono::seconds(30));
+    stream.expires_after(std::chrono::seconds(60));
 
     // Read a request
     http::request<http::string_body> req;
     co_await http::async_read(stream, buffer, req);
 
     // Handle the request
-    http::message_generator msg = handle_request(std::move(req));
+    std::promise<http::message_generator> result;
+    std::future<http::message_generator> waiter{result.get_future()};
+    std::thread runner([&result](auto req) {
+        result.set_value(handle_request(std::move(req)));
+    }, std::move(req));
+    std::thread::native_handle_type handle = runner.native_handle();
 
-    // Determine if we should close the connection
-    bool keep_alive = msg.keep_alive();
+    runner.detach(); 
 
-    // Send the response
-    co_await beast::async_write(stream, std::move(msg));
+    if(waiter.wait_for(std::chrono::seconds(30)) == std::future_status::timeout) {
+        pthread_cancel(handle);
+    } else {
+        // Send the response
+        co_await beast::async_write(stream, std::move(waiter.get()));
+    }
 
     // Send a TCP shutdown
     stream.socket().shutdown(net::ip::tcp::socket::shutdown_send);
@@ -225,8 +234,7 @@ do_listen(
     for (;;) {
         net::co_spawn(
             executor,
-            do_session(
-                beast::tcp_stream { co_await acceptor.async_accept() }),
+            do_session(beast::tcp_stream { co_await acceptor.async_accept() }),
             [](std::exception_ptr e) {
                 if (e) {
                     try {
@@ -264,7 +272,9 @@ int main(void)
         std::cout << "Courses Loaded!" << std::endl;
 
         // The io_context is required for all I/O
-        net::io_context ioc { 1 };
+        net::io_context ioc { std::thread::hardware_concurrency() / 2 };
+
+        std::cout << "Concurrency: " << std::thread::hardware_concurrency() << std::endl;
 
         auto const address = net::ip::make_address("0.0.0.0");
         auto const port = getPort();
@@ -288,6 +298,13 @@ int main(void)
         std::cout << "  - " << path << " (main API endpoint)" << std::endl;
         std::cout << "  - " << bypass << " (testing bypass endpoint)" << std::endl;
         std::cout << "  - " << health << " (health check endpoint)" << std::endl;
+
+        // Run the I/O service on the requested number of threads
+        std::vector<std::thread> v;
+        v.reserve(std::thread::hardware_concurrency() / 2 - 1);
+        for(auto i = std::thread::hardware_concurrency() / 2 - 1; i > 0; --i) {
+            v.emplace_back([&ioc] { ioc.run(); });
+        }
 
         ioc.run();
     } catch (std::exception const& e) {
