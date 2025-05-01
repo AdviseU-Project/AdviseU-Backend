@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     git \
     wget \
+    curl \
     sudo \
     libssl-dev \
     libcurl4-openssl-dev \
