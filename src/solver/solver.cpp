@@ -271,12 +271,12 @@ public:
         std::array<std::vector<std::string>, term_count> mapping;
 
         for (int i = 1; i < term_course_map.size(); i++) {
-            // std::cout << "Term " << i << ": ";
+            std::cout << "Term " << i << ": ";
 
             int idx = 0;
             for (const auto& course : course_term_map) {
                 if (course.val() == i) {
-                    // std::cout << global_names[idx] << " ";
+                    std::cout << global_names[idx] << " ";
 
                     mapping[i - 1].push_back(global_names[idx]);
                 }
@@ -284,7 +284,7 @@ public:
                 idx++;
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
         }
 
         return mapping;
@@ -537,12 +537,12 @@ public:
         std::array<std::vector<std::string>, term_count> mapping;
 
         for (int i = 1; i < term_course_map.size(); i++) {
-            // std::cout << "Term " << i << ": ";
+            std::cout << "Term " << i << ": ";
 
             int idx = 0;
             for (const auto& course : course_term_map) {
                 if (course.val() == i) {
-                    // std::cout << global_names[idx] << " ";
+                    std::cout << global_names[idx] << " ";
 
                     mapping[i - 1].push_back(global_names[idx]);
                 }
@@ -550,7 +550,7 @@ public:
                 idx++;
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
         }
 
         return mapping;
@@ -572,7 +572,7 @@ std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_sc
 
         // Solve and print solutions as they are found
         while (std::unique_ptr<DegreeSpecificScheduler> s { e1.next() }) {
-            // std::cout << "Found Core" << std::endl;
+            std::cout << "Found Core" << std::endl;
             ans = s->materialize();
             break;
         }
@@ -603,7 +603,7 @@ std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_sc
 
         // Solve and print solutions as they are found
         while (std::unique_ptr<CourseScheduler> s { e2.next() }) {
-            // std::cout << "Found Remaining" << std::endl;
+            std::cout << "Found Remaining" << std::endl;
             ans = s->materialize();
             break;
         }
