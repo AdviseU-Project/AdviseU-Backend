@@ -195,7 +195,7 @@ do_session(
     // This buffer is required to persist across reads
     beast::flat_buffer buffer;
 
-    // Set the timeout.
+    // Set the timeout
     stream.expires_after(std::chrono::seconds(60));
 
     // Read a request
@@ -261,9 +261,9 @@ int main(void)
         std::cout << "Courses Loaded!" << std::endl;
 
         // The io_context is required for all I/O
-        net::io_context ioc { std::thread::hardware_concurrency() / 2 };
+        net::io_context ioc { std::thread::hardware_concurrency() * 4 };
 
-        std::cout << "Concurrency: " << std::thread::hardware_concurrency() << std::endl;
+        std::cout << "Concurrency: " << std::thread::hardware_concurrency() * 4 << std::endl;
 
         auto const address = net::ip::make_address("0.0.0.0");
         auto const port = getPort();
@@ -290,8 +290,8 @@ int main(void)
 
         // Run the I/O service on the requested number of threads
         std::vector<std::thread> v;
-        v.reserve(std::thread::hardware_concurrency() / 2 - 1);
-        for(auto i = std::thread::hardware_concurrency() / 2 - 1; i > 0; --i) {
+        v.reserve(std::thread::hardware_concurrency() * 4 - 1);
+        for (auto i = std::thread::hardware_concurrency() * 4 - 1; i > 0; --i) {
             v.emplace_back([&ioc] { ioc.run(); });
         }
 
