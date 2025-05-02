@@ -29,6 +29,7 @@ services:
     environment:
       - MONGO_URI=${MONGO_URI}
       - CONTAINER_PORT=${CONTAINER_PORT}
+      - SAMPLING_RATE=${SAMPLING_RATE:-1}
       - BACKEND_HOST=adviseu-backend
     # Run tests with parallelism
     # The "-j$(($(nproc) * 4))" flag will allow parallelism on 4 * the number of available processor cores
