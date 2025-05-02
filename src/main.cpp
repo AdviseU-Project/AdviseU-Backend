@@ -203,21 +203,10 @@ do_session(
     co_await http::async_read(stream, buffer, req);
 
     // Handle the request
-    std::promise<http::message_generator> result;
-    std::future<http::message_generator> waiter{result.get_future()};
-    std::thread runner([&result](auto req) {
-        result.set_value(handle_request(std::move(req)));
-    }, std::move(req));
-    std::thread::native_handle_type handle = runner.native_handle();
+    auto res = handle_request(std::move(req));
 
-    runner.detach(); 
-
-    if(waiter.wait_for(std::chrono::seconds(30)) == std::future_status::timeout) {
-        pthread_cancel(handle);
-    } else {
-        // Send the response
-        co_await beast::async_write(stream, std::move(waiter.get()));
-    }
+    // Send the response
+    co_await beast::async_write(stream, std::move(res));
 
     // Send a TCP shutdown
     stream.socket().shutdown(net::ip::tcp::socket::shutdown_send);

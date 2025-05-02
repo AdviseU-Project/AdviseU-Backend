@@ -567,7 +567,8 @@ std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_sc
         }
 
         std::unique_ptr<DegreeSpecificScheduler> m1 = std::make_unique<DegreeSpecificScheduler>(program, taken_courses); // Create a CourseScheduler object
-        DFS<DegreeSpecificScheduler> e1(m1.get()); // DFS search solver to explore the solution space
+        Search::Options o1; o1.stop = Search::Stop::time(20000);
+        DFS<DegreeSpecificScheduler> e1(m1.get(), o1); // DFS search solver to explore the solution space
         std::optional<std::array<std::vector<std::string>, term_count>> ans = std::nullopt;
 
         // Solve and print solutions as they are found
@@ -597,7 +598,8 @@ std::optional<std::array<std::vector<std::string>, term_count>> adviseu::plan_sc
         }
 
         std::unique_ptr<CourseScheduler> m2 = std::make_unique<CourseScheduler>(program, taken_courses); // Create a CourseScheduler object
-        DFS<CourseScheduler> e2(m2.get()); // DFS search solver to explore the solution space
+        Search::Options o2; o2.stop = Search::Stop::time(10000);
+        DFS<CourseScheduler> e2(m2.get(), o2); // DFS search solver to explore the solution space
 
         ans = std::nullopt;
 
