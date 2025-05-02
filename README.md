@@ -75,23 +75,17 @@ The project includes automated tests using Google Test framework. These tests ch
 **Run all tests using Docker Compose**:
 
 ```bash
-docker compose run test
+docker compose --profile test up --build -d && docker compose logs -f test ; docker compose stop
 ```
 
 **Run a sample of all tests**:
 
 ```bash
 # Run 1/5th of the tests
-docker compose run -e SAMPLING_RATE=5 test
+docker compose --profile test -e SAMPLING_RATE=5 up --build -d && docker compose logs -f test ; docker compose stop
 
 # Run 1/10th of the tests
-docker compose run -e SAMPLING_RATE=10 test
-```
-
-**Ensure your test service is built**:
-
-```bash
-docker compose build test
+docker compose --profile test -e SAMPLING_RATE=10 up --build -d && docker compose logs -f test ; docker compose stop
 ```
 
 ## Testing the API

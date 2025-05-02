@@ -31,7 +31,7 @@ services:
       - CONTAINER_PORT=${CONTAINER_PORT}
       - BACKEND_HOST=adviseu-backend
     # Run tests with parallelism
-    # The "-j$(($(nproc) / 3 * 2))" flag will allow parallelism on 2/3 of the available threads
+    # The "-j$(($(nproc) * 4))" flag will allow parallelism on 4 * the number of available processor cores
     command: |
       /bin/sh -c "
         echo 'Waiting for backend service to be ready...'
@@ -44,7 +44,7 @@ services:
         cd /app/build && 
         echo 'Environment variable SAMPLING_RATE=' && 
         echo $SAMPLING_RATE && 
-        ctest -j$(($(nproc) / 3 * 2)) -V
+        ctest -j$(($(nproc) * 4)) -V
       "
     depends_on:
       adviseu-backend:
