@@ -90,12 +90,12 @@ docker compose --profile test -e SAMPLING_RATE=10 up --build -d && docker compos
 
 ## Testing the API
 
-Once the server is running, you can test the API using the following `curl` command. Ensure the `userId` and `planId` are set to valid values from the database.
+Once the server is running, you can test the API using the following `curl` command. Ensure the `userId` and `planId` are set to valid program names from the database.
 
 ```bash
-curl -X POST "http://localhost:8080/api/generatePlan" \
+curl -X POST "http://localhost:8080/api/bypass/generatePlan" \
   -H "Content-Type: application/json" \
-  -d '{"userId": "98329hfd928hfh92fhhfsuh0", "planId": "98329hfd928hfh92fhhfs3f3"}'
+  -d '{"userId": "Computer Science Undergraduate Major (BA, BS, HBA, HBS)", "planId": "Computer Systems Option"}'
 ```
 
 ## Development

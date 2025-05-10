@@ -6,4 +6,8 @@ build/
 .env*
 !.env.example
 
+terraform/.terraform/
+terraform/terraform.tfvars
+terraform/*.tfstate*
+
 .vscode
