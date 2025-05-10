@@ -45,7 +45,7 @@ resource "aws_ecs_task_definition" "app" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = "1024"  # 1 vCPU
-  memory                   = "2048"  # 2 GB RAM (C++ apps often need more memory)
+  memory                   = "2048"  # 2 GB RAM
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   
   container_definitions = jsonencode([{

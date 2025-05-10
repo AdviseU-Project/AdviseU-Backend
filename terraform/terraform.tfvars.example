@@ -1,0 +1,2 @@
+# MongoDB connection string
+mongo_uri = "mongo_db_uri_here"
