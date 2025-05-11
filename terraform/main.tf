@@ -44,25 +44,25 @@ resource "aws_ecs_task_definition" "app" {
   family                   = "adviseu-backend"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = "1024"  # 1 vCPU
-  memory                   = "2048"  # 2 GB RAM
+  cpu                      = "1024" # 1 vCPU
+  memory                   = "2048" # 2 GB RAM
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  
+
   container_definitions = jsonencode([{
     name        = "adviseu-backend"
     image       = "${aws_ecr_repository.app.repository_url}:latest"
     essential   = true
-    
+
     portMappings = [{
       containerPort = 8080
       hostPort      = 8080
     }]
-    
+
     environment = [
       { name = "CONTAINER_PORT", value = "8080" },
       { name = "MONGO_URI", value = var.mongo_uri }
     ]
-    
+
     healthCheck = {
       command     = ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
       interval    = 30
@@ -70,7 +70,7 @@ resource "aws_ecs_task_definition" "app" {
       retries     = 3
       startPeriod = 60
     }
-    
+
     logConfiguration = {
       logDriver = "awslogs"
       options = {
@@ -94,18 +94,19 @@ data "aws_subnets" "default" {
   }
 }
 
-# Security group for the ECS tasks
-resource "aws_security_group" "ecs_tasks" {
-  name        = "adviseu-sg"
-  description = "Allow access to the adviseU backend"
-  
+# Security group for the ALB
+resource "aws_security_group" "alb" {
+  name_prefix = "adviseu-alb-sg-"
+  vpc_id      = data.aws_vpc.default.id
+
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow HTTP traffic"
   }
-  
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -114,18 +115,85 @@ resource "aws_security_group" "ecs_tasks" {
   }
 }
 
-# ECS Service
+# Security group for the ECS tasks
+resource "aws_security_group" "ecs_tasks" {
+  name_prefix = "adviseu-ecs-sg-"
+  vpc_id      = data.aws_vpc.default.id
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    security_groups = [aws_security_group.alb.id]
+    description = "Allow traffic from the ALB"
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+# Create an Application Load Balancer
+resource "aws_lb" "app_lb" {
+  name               = "adviseu-lb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.alb.id]
+  subnets            = data.aws_subnets.default.ids
+}
+
+# Create a target group for your ECS service
+resource "aws_lb_target_group" "app_tg" {
+  name     = "adviseu-tg"
+  port     = 8080
+  protocol = "HTTP"
+  vpc_id   = data.aws_vpc.default.id
+  target_type = "ip"
+
+  health_check {
+    path     = "/health"
+    protocol = "HTTP"
+    matcher  = "200"
+    interval = 30
+    timeout  = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+  }
+}
+
+# Create a listener for the ALB to forward traffic to the target group
+resource "aws_lb_listener" "http" {
+  load_balancer_arn = aws_lb.app_lb.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    target_group_arn = aws_lb_target_group.app_tg.arn
+    type             = "forward"
+  }
+}
+
+# ECS Service with Load Balancer Integration
 resource "aws_ecs_service" "app" {
   name            = "adviseu-service"
   cluster         = aws_ecs_cluster.main.id
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = 1
   launch_type     = "FARGATE"
-  
+
   network_configuration {
     subnets          = data.aws_subnets.default.ids
     security_groups  = [aws_security_group.ecs_tasks.id]
     assign_public_ip = true
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.app_tg.arn
+    container_name   = "adviseu-backend"
+    container_port   = 8080
   }
 }
 
@@ -139,4 +207,8 @@ variable "mongo_uri" {
 # Outputs
 output "ecr_repository_url" {
   value = aws_ecr_repository.app.repository_url
+}
+
+output "load_balancer_url" {
+  value = aws_lb.app_lb.dns_name
 }
