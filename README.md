@@ -165,3 +165,134 @@ These can be set in the `.env` file or passed directly to the Docker run command
   cmake --build .
   ./AdviseU-Backend
   ```
+## API Documentation
+
+The backend exposes the following API endpoints to check its status, generate isolated degree plans, and generate user degree plans:
+
+```yaml
+openapi: 3.0.3
+info:
+  title: Plan Generation API
+  description: API for health checks and plan generation with user/plan validation
+  version: 1.0.0
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns the health status of the API
+      operationId: healthCheck
+      tags:
+        - Health
+      responses:
+        '200':
+          description: API is healthy and operational
+          content:
+            application/json:
+              schema:
+                type: string
+                example: OK
+
+  /api/generatePlan:
+    post:
+      summary: Generate a plan for a user
+      description: Generates a schedule for a specific plan belonging to a user. Updates the plan in MongoDB upon successful completion.
+      operationId: generatePlan
+      tags:
+        - Plan Generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - planId
+              properties:
+                userId:
+                  type: string
+                  description: The MongoDB ObjectId of the user requesting the schedule
+                  example: "507f1f77bcf86cd799439011"
+                planId:
+                  type: string
+                  description: The MongoDB ObjectId of the plan to be scheduled
+                  example: "507f1f77bcf86cd799439012"
+      responses:
+        '200':
+          description: Schedule was successfully completed
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "OK"
+        '400':
+          description: Bad request - Invalid plan/user combination
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Invalid plan/user combination
+        '500':
+          description: Internal server error - plan not found
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Could not find valid plan
+
+  /api/bypass/generatePlan:
+    post:
+      summary: Generate a plan using major and minor IDs (bypass endpoint)
+      description: Bypass API that allows direct input of major and minor IDs without referencing a user or plan. The minor ID is optional.
+      operationId: bypassGeneratePlan
+      tags:
+        - Plan Generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - planId
+              properties:
+                userId:
+                  type: string
+                  description: The MongoDB ObjectId of the major being scheduled
+                  example: "507f1f77bcf86cd799439013"
+                planId:
+                  type: string
+                  description: The MongoDB ObjectId of the minor being scheduled (optional)
+                  example: "507f1f77bcf86cd799439014"
+                  nullable: true
+      responses:
+        '200':
+          description: Schedule was successfully completed
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "OK"
+        '400':
+          description: Bad request - Invalid plan/user combination
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Invalid plan/user combination
+        '500':
+          description: Internal server error - plan not found
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Could not find valid plan
+
+tags:
+  - name: Health
+    description: Health check operations
+  - name: Plan Generation
+    description: Plan generation and scheduling operations
+```
